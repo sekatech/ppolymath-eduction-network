@@ -1,0 +1,190 @@
+<?php
+$messageStatus = ""; // Variable to track the message status
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars(trim($_POST["name"]));
+    $email = htmlspecialchars(trim($_POST["email"]));
+    $subject = htmlspecialchars(trim($_POST["subject"]));
+    $message = htmlspecialchars(trim($_POST["message"]));
+
+    $to = "sekaalvin6@gmail.com"; // Replace with your actual email address
+    $headers = "From: $email\r\n";
+    $emailBody = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+    // Send the email and set message status
+    if (mail($to, $subject, $emailBody, $headers)) {
+        $messageStatus = "success";
+    } else {
+        $messageStatus = "fail";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Polymath Education Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-container h1 {
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        /* Contact Form Styling */
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+            text-align: left;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        button[type="button"] {
+            margin-top: 15px;
+            background-color: #004080;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <h1>Polymath Education Network</h1>
+            <p>Designed by Sekatech</p>
+        </div>
+    </header>
+
+    <!-- Contact Form Section -->
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p>Feel free to reach out to us via the form below.</p>
+
+        <!-- Form Start -->
+        <form id="contactForm" method="POST" action="">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <!-- Go Back Button -->
+        <button type="button" onclick="goBack()">Go Back</button>
+        
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h3>Other Contact Details</h3>
+            <p>Email: sekaalvin6@gmail.com</p>
+            <p>Phone: +237 650 990 946</p>
+            <p>Address: Santa Barbara, Buea, Cameroon.</p> 
+            <p>Yasa, DOUALA cameroon</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Polymath Education Network. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to handle alerts and go-back functionality -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        // Check for message status and show an alert accordingly
+        window.onload = function() {
+            const messageStatus = "<?php echo $messageStatus; ?>";
+            if (messageStatus === "success") {
+                alert("Message sent successfully!");
+            } else if (messageStatus === "fail") {
+                alert("Failed to send message. Please try again.");
+            }
+        };
+    </script>
+</body>
+</html>
