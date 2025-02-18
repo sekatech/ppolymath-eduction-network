@@ -5,119 +5,141 @@
     box-sizing: border-box;
 }
 
+/* Techy body background and text color */
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
+    background-color: #1e1e2f; /* Dark techy background */
+    color: #e0e0e0; /* Light text for contrast */
+    font-family: 'Arial', sans-serif;
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header and Navigation */
 header {
+    background-color: #0a0a1a; /* Dark header */
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 2px solid #00ffcc; /* Techy neon border */
     position: relative;
 }
 
-nav {
-    background-color: #2C3E50;
+header nav {
     display: flex;
     justify-content: center;
-    padding: 15px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-nav a {
-    color: white;
+header nav a {
+    color: #00ffcc; /* Neon link color */
     text-decoration: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #555;
-}
-
-/* Button Styling */
-.dropdown button {
-    background-color: #4CAF50;
-    color: white;
+    font-weight: bold;
     padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header nav a:hover {
+    background-color: #00ffcc; /* Neon hover effect */
+    color: #0a0a1a;
+}
+
+/* Menu Button and Popup */
+.menu-button {
+    background-color: #00ffcc; /* Neon button color */
+    color: #0a0a1a;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 24px; /* Larger font for the icon */
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.dropdown button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Dropdown Container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
     border-radius: 5px;
-    overflow: hidden;
+    margin: 10px;
+    position: fixed; /* Fixed position to keep it at the top left */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it's above other content */
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+.menu-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    background-color: #0a0a1a; /* Dark background */
+    border: 1px solid #00ffcc; /* Neon border */
+    border-radius: 5px;
+    padding: 10px;
+    top: 50px; /* Position below the menu button */
+    left: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-popup a {
+    display: block;
+    color: #e0e0e0; /* Light text */
+    padding: 8px 16px;
     text-decoration: none;
-    display: block;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
+.menu-popup a:hover {
+    background-color: #00ffcc; /* Neon hover */
+    color: #0a0a1a;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* Footer Styling */
+footer {
+    background-color: #0a0a1a; /* Dark footer */
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #00ffcc; /* Neon border */
+    margin-top: 40px;
 }
 
-/* Slider Styling */
+footer a {
+    color: #00ffcc; /* Neon link color */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Slider and Scroll Text Styling */
 .slider {
+    position: relative;
     overflow: hidden;
+    margin: 20px auto;
     max-width: 100%;
     height: 300px;
-    position: relative;
 }
 
 .slider img {
     width: 100%;
     height: auto;
+    display: none;
     position: absolute;
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
 
 .slider img.active {
+    display: block;
     opacity: 1;
 }
 
-/* Scrolling Text Styling */
 .scroll-text {
+    background-color: rgba(10, 10, 26, 0.8); /* Semi-transparent dark background */
+    color: #00ffcc; /* Neon text */
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
     position: absolute;
     bottom: 10px;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px 0;
-    text-align: center;
 }
 
 .scroll-text h2 {
@@ -126,24 +148,163 @@ nav a:hover {
     animation: scroll-text 10s linear infinite;
 }
 
-/* Animation for scrolling text */
 @keyframes scroll-text {
     0% { transform: translate(0, 0); }
     100% { transform: translate(-100%, 0); }
 }
 
-/* Footer Styling */
-footer {
-    background-color: #34495E;
-    color: ghostwhite;
+/* Main Content Styling */
+main {
+    padding: 20px;
     text-align: center;
-    padding: 10px 0;
+}
+
+main h1 {
+    color: #00ffcc; /* Neon heading */
+    font-size: 36px;
+}
+
+main p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    display: inline-block;
+    margin: 10px;
     position: relative;
 }
 
-/* Center specific content */
-.main-content {
-    width: 100%;
+.dropdown button {
+    background-color: #00ffcc; /* Neon button */
+    color: #0a0a1a;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown button:hover {
+    background-color: #00ccaa; /* Darker neon on hover */
+    transform: scale(1.05);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0a0a1a; /* Dark dropdown */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #e0e0e0; /* Light text */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #00ffcc; /* Neon hover */
+    color: #0a0a1a;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* News Feed Styling */
+.news-feed {
+    background-color: #0a0a1a; /* Dark background */
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.news-feed h2 {
+    color: #00ffcc; /* Neon heading */
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.news-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.news-item {
+    background-color: #1e1e2f; /* Darker background */
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%; /* Full width on small screens */
+    max-width: 300px; /* Limit width on larger screens */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-item img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.news-item h3 {
+    color: #00ffcc; /* Neon title */
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.news-item p {
+    color: #e0e0e0; /* Light text */
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.news-item a {
+    display: inline-block;
+    background-color: #00ffcc; /* Neon button */
+    color: #0a0a1a;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.news-item a:hover {
+    background-color: #00ccaa; /* Darker neon on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .news-item {
+        width: 90%; /* Slightly smaller width for small screens */
+    }
+
+    .news-item h3 {
+        font-size: 18px; /* Smaller font size for small screens */
+    }
+
+    .news-item p {
+        font-size: 14px; /* Smaller font size for small screens */
+    }
+
+    .news-item a {
+        padding: 6px 12px; /* Smaller button padding for small screens */
+    }
 }
 
 /* Centered Content Styling */
@@ -159,7 +320,6 @@ footer {
     padding: 20px;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .centered-content {
         font-size: 16px;
@@ -176,21 +336,7 @@ footer {
     }
 }
 
-/* Add spacing between sections */
-.centered-content h1, .centered-content h2 {
-    margin-bottom: 15px;
-}
-
-.centered-content p {
-    margin-bottom: 25px;
-    font-size: 1.1em;
-}
-
-.image-container {
-    text-align: center;
-    padding: 20px;
-}
-
+/* Image Section Styling */
 .image-section {
     margin-top: 20px;
     text-align: center;
@@ -226,82 +372,5 @@ footer {
         max-width: 100%;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    }
-}
-
-/* Ensure scrolling on mobile */
-body, html {
-    height: 100%;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
-/* News Feed Styling */
-.news-feed {
-    padding: 40px 20px;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.news-feed h2 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.news-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.news-item {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    padding: 15px;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.news-item:hover {
-    transform: translateY(-5px);
-}
-
-.news-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.news-title {
-    font-size: 1.25em;
-    margin: 10px 0;
-    color: #2C3E50;
-}
-
-.news-description {
-    font-size: 0.9em;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-.news-read-more {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.news-read-more:hover {
-    color: #45a049;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .news-item {
-        width: 100%;
     }
 }
