@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "GCE 2025 COMING SOON",
             description: "get to the official gce board website for more information.",
-            image: "image1.JPG",
+            image: "news4.JPG",
             link: "https://camgceb.org/"
         }
         // Add more news items as needed
