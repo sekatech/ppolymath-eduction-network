@@ -5,42 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polymath Education Network</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+    <style>
+        
+    </style>
 </head>
 <body>
     <!-- Header with Navigation Bar and Slider -->
     <header>
-        <nav>
+        <!-- Menu Button -->
+        <button class="menu-button" onclick="toggleMenu()">&#9776;</button> <!-- Hamburger icon -->
+        <div class="menu-popup" id="menuPopup">
             <a href="#home">Home</a>
             <a href="about us.html">About</a>
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
-        </nav>
-        
+            <a href="icttest.html">ICT TEST</a> <!-- New ICT TEST option -->
+        </div>
+
         <!-- Image Slider -->
         <div class="slider">
             <img src="image1.jpg" alt="Image 1" class="active"> <!-- First image -->
-            <img src="images2.jpg" alt="Image 2"> <!-- Second image -->
-            <img src="images3.png" alt="Image 3"> <!-- Third image -->
+            <img src="GCE.png" alt="Image 2"> <!-- Second image -->
+            <img src="obc.png" alt="Image 3"> <!-- Third image -->
+            <img src="hnd.jpg" alt="Image 1" class="active"> <!-- First image -->
+            <img src="image4.png" alt="Image 4"> <!-- Second image -->
+            <img src="image5.png" alt="Image 5"> <!-- Third image -->
         </div>
         <div class="scroll-text">
             <h2>"POLYMATH EDUCATION NETWORK, Bringing education to your doorsteps—empowering minds, unlocking futures, one lesson at a time."</h2> <!-- Scrolling text -->
         </div>
     </header>
-<div class="centered-content">
-<!-- Main Content Section -->
+
+    <!-- Main Content Section -->
     <main id="home">
         <h1>Welcome to Polymath Education Network</h1>
-        <p>The best GCE and concours preparation website in cameroon.</p>
-        
+        <p>The best GCE and concours preparation website in Cameroon.</p>
+
         <!-- Buttons with Dropdowns -->
         <div class="dropdown">
-    <button>GCE</button>
-    <div class="dropdown-content">
-        <a href="ordinary-level.html">Ordinary Level</a>
-        <a href="advanced-level.html">Advanced Level</a>
-    </div>
-</div>
-
+            <button>GCE</button>
+            <div class="dropdown-content">
+                <a href="ordinary-level.html">Ordinary Level</a>
+                <a href="advanced-level.html">Advanced Level</a>
+            </div>
+        </div>
 
         <div class="dropdown">
             <button>Concours</button>
@@ -55,6 +63,8 @@
         <div class="dropdown">
             <button>HND</button>
             <div class="dropdown-content">
+                <a href="CE2022.PDF">Computer Engineering</a>
+                <a href="AF2020.PDF">Enterprise Creation AND Entrepreneurship all faculty</a>
                 <a href="soon.html">IT Programs</a>
                 <a href="soon.html">Nursing</a>
                 <a href="soon.html">Agriculture</a>
@@ -81,9 +91,9 @@
         <br><br><br>
         <section id="about">
             <h2>About Us</h2>
-            <p>We are a team dedicated to providing students with quality educational resources ranging from GCE past questions, concour preparation and past questions, HND & Bsc study materials for free to students in and around cameroon.</p>
+            <p>We are a team dedicated to providing students with quality educational resources ranging from GCE past questions, concour preparation and past questions, HND & Bsc study materials for free to students in and around Cameroon.</p>
         </section>
-                <section id="about">
+        <section id="about">
             <h2>Disclaimer</h2>
             <p>This platform does not claim ownership or authorship of any Cameroon GCE Board materials or any other examination board and strictly adheres to educational and non-commercial use policies. The materials posted here are made available to help students understand exam formats and develop effective study strategies under the rights granted for academic purposes.<br><br><br>
 <b>Thank you, and we wish you success in your studies and examinations!</b>
@@ -97,44 +107,68 @@ The questions provided here are intended solely for educational and revision pur
         </section>
         <section id="services">
             <h2>Our Services</h2>
-            <p>you can download GCE past question<br> download solutions to past questions<br> <br> download past concour papers<br> register for an IT course with us.</p>
+            <p>You can download GCE past questions<br> download solutions to past questions<br> <br> download past concour papers<br> register for an IT course with us.</p>
         </section>
         <section id="contact">
             <h2>Contact Us</h2>
-            <p>our contact information is found on the footer and header of this page</p>
+            <p>Our contact information is found on the footer and header of this page.</p>
         </section>
         <div class="image-section">
-    <!-- Image to appear below the main content -->
-    <!--/* the images below are functional i just removed the opening tag
-    /* img src="image4.png" alt="Descriptive Alt Text" />
-    /* img src="image5.png" alt="Descriptive Alt Text" />
-    /* img src="image6.png" alt="Descriptive Alt Text" />
-    </main>
--->
-</div>
-<section id="news-feed" class="news-feed">
-    <h2>Latest News</h2>
-    <div class="news-items">
-        <div class="news-item">
-            <img src="IT.jpg" alt="News Image 1" class="news-image">
-            <h3 class="news-title">POLYMATH EDUCATION PREPARATION CLASES</h3>
-            <p class="news-description">contact us or apply now.</p>
-            <a href="apply.html" class="news-read-more">Apply now</a>
+            <!-- Image to appear below the main content -->
+            <!--/* the images below are functional i just removed the opening tag
+            /* img src="image4.png" alt="Descriptive Alt Text" />
+            /* img src="image5.png" alt="Descriptive Alt Text" />
+            /* img src="image6.png" alt="Descriptive Alt Text" />
+            </main>
+            -->
         </div>
-        <!-- Repeat similar blocks for each news item -->
-    </div>
-</section>
+        <section id="news-feed" class="news-feed">
+            <h2>Latest News</h2>
+            <div class="news-items">
+                <div class="news-item">
+                    <img src="IT.jpg" alt="News Image 1" class="news-image">
+                    <h3 class="news-title">POLYMATH EDUCATION PREPARATION CLASES</h3>
+                    <p class="news-description">Contact us or apply now.</p>
+                    <a href="apply.html" class="news-read-more">Apply now</a>
+                </div>
+                <div class="news-item">
+    <img src="news2.jpg" alt="News Image 2" class="news-image"> <!-- Placeholder image -->
+    <h3 class="news-title">FREE ICT PRACTICALS</h3>
+    <p class="news-description">We are offering free ict and compter science practicals starting march 1.</p>
+    <a href="https://chat.whatsapp.com/BzhdbAm1kZOHGuB71aceR5" class="news-read-more">Learn More</a>
+</div>
+                <!-- more news items -->
+            </div>
+        </section>
+    </main>
+
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Polymath Education Network. All rights reserved.</p>
-        <p>designed by SEKATECH</p>
-        <a href="#home">Home</a>
-        <a href="about us.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-    </footer>
-    
-    <script src="script.js"></script>
- <!-- Link to the JavaScript file -->
+    <p>&copy; 2025 Polymath Education Network. All rights reserved.</p>
+    <p>Designed by <a href="https://www.lumora.com" target="_blank" rel="noopener noreferrer">Lumora</a></p> <!-- Lumora as a link -->
+    <a href="#home">Home</a>
+    <a href="about us.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+</footer>
+<script>
+        function toggleMenu() {
+            const menuPopup = document.getElementById("menuPopup");
+            if (menuPopup.style.display === "block") {
+                menuPopup.style.display = "none"; // Hide the popup
+            } else {
+                menuPopup.style.display = "block"; // Show the popup
+            }
+        }
+
+        // Close the popup if clicked outside
+        window.onclick = function(event) {
+            const menuPopup = document.getElementById("menuPopup");
+            if (event.target !== menuPopup && !event.target.matches('.menu-button')) {
+                menuPopup.style.display = "none";
+            }
+        };
+    </script>
+    <script src="script.js"></script> <!-- Link to the JavaScript file -->
 </body>
 </html>
