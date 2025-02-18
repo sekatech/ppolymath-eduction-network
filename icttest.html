@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lumora ICT Advanced Test</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            color: #333;
+            text-align: center;
+        }
+
+        .welcome-screen, .quiz-container, .results {
+            padding: 40px;
+        }
+
+        .welcome-screen h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .welcome-screen h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-screen p {
+            font-size: 1.1em;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .start-btn {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            background: #00c853;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.1);
+            background: #009624;
+        }
+
+        .quiz-container {
+            display: none;
+        }
+
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .option-btn {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        .option-btn:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .option-btn.selected {
+            background: #2196f3;
+            color: white;
+        }
+
+        .progress {
+            font-size: 1.1em;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #00c853;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .corrections {
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+
+        .correction-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+        }
+
+        .correct { color: #4CAF50; }
+        .incorrect { color: #f44336; }
+
+        @media (max-width: 600px) {
+            .welcome-screen h1 {
+                font-size: 2em;
+            }
+            .welcome-screen h2 {
+                font-size: 1.5em;
+            }
+            .question {
+                font-size: 1.2em;
+            }
+            .option-btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-screen">
+            <h1>POLYMATH EDUCATION NETWORK</h1>
+            <h2>In Collaboration with LUMORA</h2>
+            <p>"Empowering the digital generation through cutting-edge ICT education"</p>
+            <p>45 Advanced Level and HND computer&ICT Questions<br>
+                HND and GCE advanced level questions<br>
+               Comprehensive Final Evaluation<br>
+               Detailed Answer Explanations</p>
+            <button class="start-btn" onclick="startTest()">Begin Test</button>
+        </div>
+
+        <div class="quiz-container">
+            <div class="quiz-content">
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+                <div class="progress">
+                    <span id="progress-text"></span>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="results" id="results">
+                <h2>Your Score: <span id="score"></span></h2>
+                <div class="corrections" id="corrections"></div>
+                <button class="start-btn" onclick="restartQuiz()" style="margin-top: 20px;">Retake Test</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 50 Advanced ICT Questions
+        const questions = [
+            {
+                question: "What is the primary purpose of a Content Delivery Network (CDN)?",
+                options: [
+                    "To store user passwords securely",
+                    "To distribute web content efficiently across multiple servers",
+                    "To encrypt data during transmission",
+                    "To manage database queries"
+                ],
+                correct: 1,
+                explanation: "A CDN improves web performance by distributing content across multiple servers geographically closer to users, reducing latency and load times."
+            },
+            {
+                question: "Which of the following is a characteristic of a blockchain?",
+                options: [
+                    "Centralized control",
+                    "Immutable ledger",
+                    "Single point of failure",
+                    "Mutable records"
+                ],
+                correct: 1,
+                explanation: "Blockchain uses a decentralized and immutable ledger, meaning once data is written, it cannot be altered."
+            },
+ {
+    question: "What is the primary purpose of a VPN?",
+    options: [
+        "To increase internet speed",
+        "To create a secure and encrypted connection over the internet",
+        "To block ads on websites",
+        "To manage DNS queries"
+    ],
+    correct: 1,
+    explanation: "A VPN (Virtual Private Network) creates a secure and encrypted connection, ensuring privacy and security over public networks."
+},
+{
+    question: "Which of the following is a characteristic of cloud computing?",
+    options: [
+        "On-premise infrastructure",
+        "Limited scalability",
+        "Pay-as-you-go pricing",
+        "Single-user access"
+    ],
+    correct: 2,
+    explanation: "Cloud computing offers pay-as-you-go pricing, allowing users to pay only for the resources they use."
+},
+{
+    question: "What is the main purpose of Docker in software development?",
+    options: [
+        "To create virtual machines",
+        "To containerize applications for consistent deployment",
+        "To manage database queries",
+        "To encrypt data during transmission"
+    ],
+    correct: 1,
+    explanation: "Docker is used to containerize applications, ensuring they run consistently across different environments."
+},
+{
+    question: "Which of the following is a key feature of Agile methodology?",
+    options: [
+        "Rigid planning",
+        "Waterfall development",
+        "Iterative and incremental development",
+        "Minimal customer involvement"
+    ],
+    correct: 2,
+    explanation: "Agile methodology focuses on iterative and incremental development, allowing for flexibility and continuous improvement."
+},
+{
+    question: "What is the purpose of a load balancer in a network?",
+    options: [
+        "To block unauthorized access",
+        "To distribute traffic evenly across servers",
+        "To encrypt data during transmission",
+        "To store backups"
+    ],
+    correct: 1,
+    explanation: "A load balancer distributes incoming network traffic across multiple servers to ensure no single server is overwhelmed."
+},
+{
+    question: "Which protocol is used for sending emails?",
+    options: [
+        "HTTP",
+        "FTP",
+        "SMTP",
+        "SSH"
+    ],
+    correct: 2,
+    explanation: "SMTP (Simple Mail Transfer Protocol) is used for sending emails between servers."
+},
+{
+    question: "What is the primary function of a GPU?",
+    options: [
+        "To manage network traffic",
+        "To process graphics and parallel computations",
+        "To store data permanently",
+        "To execute operating system commands"
+    ],
+    correct: 1,
+    explanation: "A GPU (Graphics Processing Unit) is designed to handle graphics rendering and parallel computations efficiently."
+},
+{
+    question: "Which of the following is a characteristic of IPv6?",
+    options: [
+        "32-bit address space",
+        "Limited number of unique addresses",
+        "128-bit address space",
+        "No support for multicast"
+    ],
+    correct: 2,
+    explanation: "IPv6 uses a 128-bit address space, providing a significantly larger number of unique addresses compared to IPv4."
+},
+{
+    question: "What is the purpose of a reverse proxy?",
+    options: [
+        "To hide the identity of the client",
+        "To hide the identity of the server",
+        "To encrypt data during transmission",
+        "To manage DNS queries"
+    ],
+    correct: 1,
+    explanation: "A reverse proxy hides the identity of the server and can also provide load balancing and caching."
+},
+{
+    question: "Which of the following is a key feature of microservices architecture?",
+    options: [
+        "Tightly coupled components",
+        "Monolithic design",
+        "Independent deployment of services",
+        "Single database for all services"
+    ],
+    correct: 2,
+    explanation: "Microservices architecture allows for independent deployment of services, making the system more modular and scalable."
+},
+{
+    question: "What is the primary purpose of a CAPTCHA?",
+    options: [
+        "To encrypt data",
+        "To prevent automated bots from accessing a system",
+        "To speed up website loading times",
+        "To manage database queries"
+    ],
+    correct: 1,
+    explanation: "CAPTCHA is used to differentiate between human users and automated bots, preventing spam and abuse."
+},
+{
+    question: "Which of the following is a characteristic of a stateless protocol?",
+    options: [
+        "Stores client data between requests",
+        "Does not store client data between requests",
+        "Requires a persistent connection",
+        "Uses cookies for session management"
+    ],
+    correct: 1,
+    explanation: "A stateless protocol, like HTTP, does not store client data between requests, making it scalable and simple."
+},
+{
+    question: "What is the purpose of a subnet mask?",
+    options: [
+        "To encrypt data",
+        "To divide an IP network into smaller networks",
+        "To manage DNS queries",
+        "To block unauthorized access"
+    ],
+    correct: 1,
+    explanation: "A subnet mask is used to divide an IP network into smaller, manageable subnetworks."
+},
+{
+    question: "Which of the following is a key feature of object-oriented programming?",
+    options: [
+        "Procedural code",
+        "Global variables",
+        "Inheritance",
+        "Functional programming"
+    ],
+    correct: 2,
+    explanation: "Inheritance is a key feature of object-oriented programming, allowing classes to inherit properties and methods from other classes."
+},
+{
+    question: "What is the primary purpose of a CDN?",
+    options: [
+        "To store user passwords securely",
+        "To distribute web content efficiently across multiple servers",
+        "To encrypt data during transmission",
+        "To manage database queries"
+    ],
+    correct: 1,
+    explanation: "A CDN improves web performance by distributing content across multiple servers geographically closer to users."
+},
+{
+    question: "Which of the following is a characteristic of a NoSQL database?",
+    options: [
+        "Strict schema",
+        "Horizontal scalability",
+        "ACID compliance",
+        "Relational model"
+    ],
+    correct: 1,
+    explanation: "NoSQL databases are designed for horizontal scalability, allowing them to handle large volumes of data across distributed systems."
+},
+{
+    question: "What is the purpose of a web socket?",
+    options: [
+        "To enable real-time, bidirectional communication",
+        "To encrypt data during transmission",
+        "To manage DNS queries",
+        "To store backups"
+    ],
+    correct: 0,
+    explanation: "Web sockets enable real-time, bidirectional communication between a client and a server."
+},
+{
+    question: "Which of the following is a key feature of DevOps?",
+    options: [
+        "Separate development and operations teams",
+        "Manual deployment processes",
+        "Continuous integration and continuous delivery (CI/CD)",
+        "Limited collaboration"
+    ],
+    correct: 2,
+    explanation: "DevOps emphasizes continuous integration and continuous delivery (CI/CD) to improve software development and deployment processes."
+},
+{
+    question: "What is the primary purpose of a hash function?",
+    options: [
+        "To encrypt data",
+        "To compress data",
+        "To generate a fixed-size output from input data",
+        "To manage network traffic"
+    ],
+    correct: 2,
+    explanation: "A hash function generates a fixed-size output (hash value) from input data, commonly used for data integrity and security."
+},
+{
+    question: "Which of the following is a characteristic of a distributed system?",
+    options: [
+        "Single point of failure",
+        "Centralized control",
+        "Fault tolerance",
+        "Limited scalability"
+    ],
+    correct: 2,
+    explanation: "Distributed systems are designed to be fault-tolerant, ensuring continued operation even if some components fail."
+},
+{
+    question: "What is the purpose of a DNS server?",
+    options: [
+        "To encrypt data",
+        "To translate domain names to IP addresses",
+        "To manage network hardware",
+        "To block unauthorized access"
+    ],
+    correct: 1,
+    explanation: "A DNS server translates human-readable domain names into machine-readable IP addresses."
+},
+{
+    question: "Which of the following is a key feature of RESTful APIs?",
+    options: [
+        "Stateful communication",
+        "Tightly coupled components",
+        "Stateless communication",
+        "Complex data formats"
+    ],
+    correct: 2,
+    explanation: "RESTful APIs use stateless communication, meaning each request contains all the information needed to process it."
+},
+{
+    question: "What is the primary purpose of a firewall?",
+    options: [
+        "To block unauthorized access to a network",
+        "To speed up internet connections",
+        "To store backups",
+        "To manage DNS queries"
+    ],
+    correct: 0,
+    explanation: "A firewall monitors and controls incoming and outgoing network traffic based on security rules."
+},
+{
+    question: "Which of the following is a characteristic of a relational database?",
+    options: [
+        "No schema",
+        "Tables with rows and columns",
+        "Horizontal scalability",
+        "Document-based storage"
+    ],
+    correct: 1,
+    explanation: "Relational databases store data in tables with rows and columns, using a structured schema."
+},
+{
+    question: "What is the purpose of a reverse DNS lookup?",
+    options: [
+        "To translate an IP address to a domain name",
+        "To encrypt data",
+        "To manage network traffic",
+        "To block unauthorized access"
+    ],
+    correct: 0,
+    explanation: "Reverse DNS lookup translates an IP address into a domain name, which is useful for identifying the source of network traffic."
+},
+{
+    question: "Which of the following is a key feature of a peer-to-peer network?",
+    options: [
+        "Centralized control",
+        "Decentralized architecture",
+        "Single point of failure",
+        "Limited scalability"
+    ],
+    correct: 1,
+    explanation: "Peer-to-peer networks use a decentralized architecture, where each node can act as both a client and a server."
+},
+{
+    question: "What is the primary purpose of a web server?",
+    options: [
+        "To store databases",
+        "To host and serve web pages",
+        "To encrypt data",
+        "To manage DNS queries"
+    ],
+    correct: 1,
+    explanation: "A web server hosts and serves web pages to clients upon request."
+},
+{
+    question: "Which of the following is a characteristic of a stateless protocol?",
+    options: [
+        "Stores client data between requests",
+        "Does not store client data between requests",
+        "Requires a persistent connection",
+        "Uses cookies for session management"
+    ],
+    correct: 1,
+    explanation: "A stateless protocol, like HTTP, does not store client data between requests, making it scalable and simple."
+},
+{
+    question: "What is the purpose of a subnet mask?",
+    options: [
+        "To encrypt data",
+        "To divide an IP network into smaller networks",
+        "To manage DNS queries",
+        "To block unauthorized access"
+    ],
+    correct: 1,
+    explanation: "A subnet mask is used to divide an IP network into smaller, manageable subnetworks."
+},
+{
+    question: "Which of the following is a key feature of object-oriented programming?",
+    options: [
+        "Procedural code",
+        "Global variables",
+        "Inheritance",
+        "Functional programming"
+    ],
+    correct: 2,
+    explanation: "Inheritance is a key feature of object-oriented programming, allowing classes to inherit properties and methods from other classes."
+},
+{
+    question: "What is the primary purpose of a CDN?",
+    options: [
+        "To store user passwords securely",
+        "To distribute web content efficiently across multiple servers",
+        "To encrypt data during transmission",
+        "To manage database queries"
+    ],
+    correct: 1,
+    explanation: "A CDN improves web performance by distributing content across multiple servers geographically closer to users."
+},
+{
+    question: "Which of the following is a characteristic of a NoSQL database?",
+    options: [
+        "Strict schema",
+        "Horizontal scalability",
+        "ACID compliance",
+        "Relational model"
+    ],
+    correct: 1,
+    explanation: "NoSQL databases are designed for horizontal scalability, allowing them to handle large volumes of data across distributed systems."
+},
+{
+    question: "What is the purpose of a web socket?",
+    options: [
+        "To enable real-time, bidirectional communication",
+        "To encrypt data during transmission",
+        "To manage DNS queries",
+        "To store backups"
+    ],
+    correct: 0,
+    explanation: "Web sockets enable real-time, bidirectional communication between a client and a server."
+},
+{
+    question: "Which of the following is a key feature of DevOps?",
+    options: [
+        "Separate development and operations teams",
+        "Manual deployment processes",
+        "Continuous integration and continuous delivery (CI/CD)",
+        "Limited collaboration"
+    ],
+    correct: 2,
+    explanation: "DevOps emphasizes continuous integration and continuous delivery (CI/CD) to improve software development and deployment processes."
+},
+{
+    question: "What is the primary purpose of a hash function?",
+    options: [
+        "To encrypt data",
+        "To compress data",
+        "To generate a fixed-size output from input data",
+        "To manage network traffic"
+    ],
+    correct: 2,
+    explanation: "A hash function generates a fixed-size output (hash value) from input data, commonly used for data integrity and security."
+},
+{
+    question: "Which of the following is a characteristic of a distributed system?",
+    options: [
+        "Single point of failure",
+        "Centralized control",
+        "Fault tolerance",
+        "Limited scalability"
+    ],
+    correct: 2,
+    explanation: "Distributed systems are designed to be fault-tolerant, ensuring continued operation even if some components fail."
+},
+{
+    question: "What is the purpose of a DNS server?",
+    options: [
+        "To encrypt data",
+        "To translate domain names to IP addresses",
+        "To manage network hardware",
+        "To block unauthorized access"
+    ],
+    correct: 1,
+    explanation: "A DNS server translates human-readable domain names into machine-readable IP addresses."
+},
+{
+    question: "Which of the following is a key feature of RESTful APIs?",
+    options: [
+        "Stateful communication",
+        "Tightly coupled components",
+        "Stateless communication",
+        "Complex data formats"
+    ],
+    correct: 2,
+    explanation: "RESTful APIs use stateless communication, meaning each request contains all the information needed to process it."
+},
+{
+    question: "What is the primary purpose of a firewall?",
+    options: [
+        "To block unauthorized access to a network",
+        "To speed up internet connections",
+        "To store backups",
+        "To manage DNS queries"
+    ],
+    correct: 0,
+    explanation: "A firewall monitors and controls incoming and outgoing network traffic based on security rules."
+},
+{
+    question: "Which of the following is a characteristic of a relational database?",
+    options: [
+        "No schema",
+        "Tables with rows and columns",
+        "Horizontal scalability",
+        "Document-based storage"
+    ],
+    correct: 1,
+    explanation: "Relational databases store data in tables with rows and columns, using a structured schema."
+},
+{
+    question: "What is the purpose of a reverse DNS lookup?",
+    options: [
+        "To translate an IP address to a domain name",
+        "To encrypt data",
+        "To manage network traffic",
+        "To block unauthorized access"
+    ],
+    correct: 0,
+    explanation: "Reverse DNS lookup translates an IP address into a domain name, which is useful for identifying the source of network traffic."
+},
+{
+    question: "Which of the following is a key feature of a peer-to-peer network?",
+    options: [
+        "Centralized control",
+        "Decentralized architecture",
+        "Single point of failure",
+        "Limited scalability"
+    ],
+    correct: 1,
+    explanation: "Peer-to-peer networks use a decentralized architecture, where each node can act as both a client and a server."
+},
+{
+    question: "What is the primary purpose of a web server?",
+    options: [
+        "To store databases",
+        "To host and serve web pages",
+        "To encrypt data",
+        "To manage DNS queries"
+    ],
+    correct: 1,
+    explanation: "A web server hosts and serves web pages to clients upon request."
+}           // Add 48 more questions here...
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function startTest() {
+            document.querySelector('.welcome-screen').style.display = 'none';
+            document.querySelector('.quiz-container').style.display = 'block';
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const questionElement = document.getElementById("question");
+            const optionsElement = document.getElementById("options");
+            const progressText = document.getElementById("progress-text");
+            const progressBarFill = document.getElementById("progress-bar-fill");
+
+            if (currentQuestion >= questions.length) {
+                showResults();
+                return;
+            }
+
+            questionElement.innerHTML = questions[currentQuestion].question;
+            optionsElement.innerHTML = '';
+            
+            questions[currentQuestion].options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.className = "option-btn";
+                button.innerHTML = option;
+                button.onclick = () => selectAnswer(index);
+                optionsElement.appendChild(button);
+            });
+
+            // Update progress
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressText.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+            progressBarFill.style.width = `${progress}%`;
+        }
+
+        function selectAnswer(selectedIndex) {
+            const buttons = document.querySelectorAll(".option-btn");
+            buttons.forEach(button => button.disabled = true);
+            
+            const correctIndex = questions[currentQuestion].correct;
+            userAnswers[currentQuestion] = selectedIndex;
+
+            buttons[selectedIndex].classList.add("selected");
+            
+            if (selectedIndex === correctIndex) {
+                score++;
+            }
+
+            setTimeout(() => {
+                currentQuestion++;
+                displayQuestion();
+            }, 1000);
+        }
+
+        function showResults() {
+            document.querySelector(".quiz-content").style.display = "none";
+            const resultsElement = document.getElementById("results");
+            const scoreElement = document.getElementById("score");
+            const correctionsElement = document.getElementById("corrections");
+
+            resultsElement.style.display = "block";
+            scoreElement.textContent = `${score}/${questions.length}`;
+            
+            // Show corrections
+            questions.forEach((q, index) => {
+                if (userAnswers[index] !== q.correct) {
+                    const correction = document.createElement("div");
+                    correction.className = "correction-item";
+                    correction.innerHTML = `
+                        <h3 class="incorrect">Question ${index + 1}: ${q.question}</h3>
+                        <p>Your answer: ${q.options[userAnswers[index]]}</p>
+                        <p class="correct">Correct answer: ${q.options[q.correct]}</p>
+                        <p><em>Explanation:</em> ${q.explanation}</p>
+                    `;
+                    correctionsElement.appendChild(correction);
+                }
+            });
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = [];
+            document.querySelector(".quiz-content").style.display = "block";
+            document.getElementById("results").style.display = "none";
+            document.getElementById("corrections").innerHTML = '';
+            displayQuestion();
+        }
+    </script>
+</body>
+</html>
