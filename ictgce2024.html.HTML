@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCE ICT Paper 1 – 2014 (Advanced Level)</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, rgba(10, 10, 30, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(10, 10, 30, 1) 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background: rgba(50, 50, 50, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            color: #fff;
+            text-align: center;
+        }
+
+        .welcome-screen, .quiz-container, .results {
+            padding: 40px;
+        }
+
+        .welcome-screen h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #00bcd4;
+        }
+
+        .welcome-screen h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #ff5722;
+        }
+
+        .welcome-screen p {
+            font-size: 1.1em;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .start-btn {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            background: #00bcd4;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.1);
+            background: #03a9f4;
+        }
+
+        .quiz-container {
+            display: none;
+        }
+
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .option-btn {
+            padding: 15px;
+            margin: 10px 0;
+            background: #424242;
+            border: 2px solid #00bcd4;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            width: 100%;
+            font-size: 1.1em;
+            color: #fff;
+        }
+
+        .option-btn:hover {
+            background: #1b1b1b;
+            border-color: #03a9f4;
+        }
+
+        .option-btn.selected {
+            background: #03a9f4;
+            color: white;
+        }
+
+        .progress {
+            font-size: 1.1em;
+            margin: 20px 0;
+            color: #bbb;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #666;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #00bcd4;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .corrections {
+            margin-top: 30px;
+            border-top: 2px solid #444;
+            padding-top: 20px;
+        }
+
+        .correction-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: #1e1e1e;
+            border-radius: 8px;
+            color: #ff5722;
+        }
+
+        .correct { color: #00bcd4; }
+        .incorrect { color: #ff5722; }
+
+        .timer {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ff5722;
+        }
+
+        /* Tech-specific gradient */
+        .gradient-bg {
+            background: linear-gradient(90deg, #00bcd4, #03a9f4, #00bcd4);
+            height: 3px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .welcome-screen h1 {
+                font-size: 2em;
+            }
+            .welcome-screen h2 {
+                font-size: 1.5em;
+            }
+            .question {
+                font-size: 1.2em;
+            }
+            .option-btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-screen">
+            <h1>GCE ICT Paper 1 – 2014 (Advanced Level)</h1>
+            <h2>In Collaboration with LUMORA</h2>
+            <p>"Detailed Answer Explanations at the end of the exam"</p>   
+               Duration 1hr<br>
+               </p>
+            <button class="start-btn" onclick="startTest()">START</button>
+        </div>
+
+        <div class="quiz-container">
+            <div class="timer" id="timer">Time Remaining: 60:00</div>
+            <div class="quiz-content">
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+                <div class="progress">
+                    <span id="progress-text"></span>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="results" id="results">
+                <h2>Your Score: <span id="score"></span></h2>
+                <div class="corrections" id="corrections"></div>
+                <button class="start-btn" onclick="restartQuiz()" style="margin-top: 20px;">Retake Test</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 50 Advanced ICT Questions
+        const questions = [
+            {
+    question: "The internet can be defined as:",
+    options: [
+        "Network of computer networks that share resources",
+        "Interconnection of computers that share resources",
+        "Worldwide network of computers that share resources",
+        "World Wide Web"
+    ],
+    correct: 2,
+    explanation: "The Internet is a global network connecting millions of private, public, academic, business, and government networks worldwide. The World Wide Web (WWW) is just a part of the internet."
+},
+{
+    question: "Which of the following is true about multitasking?",
+    options: [
+        "Several CPUs are needed to process a task at a time.",
+        "A CPU can process several tasks at a time.",
+        "Several users can access the same task at the same time.",
+        "Several CPUs, with each processing a separate task."
+    ],
+    correct: 1,
+    explanation: "Multitasking allows a CPU to switch between different processes quickly, giving the illusion that multiple tasks are running simultaneously."
+},
+{
+    question: "The performance of a network does NOT depend on the:",
+    options: [
+        "Number of users",
+        "Capabilities of the connected hardware",
+        "Bandwidth",
+        "Distance between connecting devices"
+    ],
+    correct: 3,
+    explanation: "Network performance depends on the number of users, hardware capabilities, and bandwidth. Distance can affect performance only in wired networks but is not a direct factor in modern networks with repeaters and fiber optics."
+},
+{
+    question: "The basic device that acts as a central controller to all the computers on a school network is called a:",
+    options: [
+        "Modem",
+        "Switch",
+        "Server",
+        "RJ45"
+    ],
+    correct: 2,
+    explanation: "A server manages network resources and provides services to client computers. A switch connects devices, and a modem connects to the internet."
+},
+{
+    question: "The number of separate cables needed in a mesh topology of FIVE computers is:",
+    options: [
+        "5",
+        "8",
+        "10",
+        "4"
+    ],
+    correct: 2,
+    explanation: "The formula for a full mesh network is N(N-1)/2. With 5 computers: 5(5−1)/2 = 10. This is because each computer must connect to every other computer."
+},
+{
+    question: "Which of the following cables is the fastest channel for communication in computer networks?",
+    options: [
+        "Fiber optic",
+        "Coaxial cable",
+        "Twisted pair",
+        "Shielded twisted pair"
+    ],
+    correct: 0,
+    explanation: "Fiber optic cables transmit data using light, making them faster and more efficient than copper cables like coaxial or twisted pair."
+},
+{
+    question: "The correct spreadsheet formula for the average of values in A1 and A2 is:",
+    options: [
+        "=(A1+A2) / 2",
+        "=AVERAGE(A1:A2)",
+        "=AVERAGE(A1, A2)",
+        "Both B and C"
+    ],
+    correct: 3,
+    explanation: "Both =AVERAGE(A1:A2) and =AVERAGE(A1, A2) correctly compute the average of values in A1 and A2."
+},
+{
+    question: "Which of the following is NOT possible in a word processing software?",
+    options: [
+        "Add values in a table",
+        "Merge rows in a table",
+        "Wrap text in a table",
+        "Link cells in different tables"
+    ],
+    correct: 3,
+    explanation: "Word processors allow basic calculations and formatting within a table but do not support linking cells across different tables (which is a spreadsheet function)."
+},
+{
+    question: "The application software that is best used to project reports to an audience using a digital projector is:",
+    options: [
+        "Word-processing software",
+        "Scanner software",
+        "Presentation software",
+        "Spreadsheet software"
+    ],
+    correct: 2,
+    explanation: "Software like Microsoft PowerPoint is designed for making presentations, including slides, animations, and visuals."
+},
+{
+    question: "Which of the following is AGAINST copyright law for application software?",
+    options: [
+        "Making a backup copy of software",
+        "Installing the software in unlimited number of computers",
+        "Using the software in a country different from that in which it was bought",
+        "Using the software for unlimited period of time"
+    ],
+    correct: 1,
+    explanation: "Most software comes with a license agreement that limits how many computers it can be installed on."
+},
+{
+    question: "A method to reduce piracy of software supplied on CDs is:",
+    options: [
+        "Use of serial numbers",
+        "Write protect CDs",
+        "Production of tutorials",
+        "Identifying end users"
+    ],
+    correct: 0,
+    explanation: "Serial numbers and activation keys help prevent unauthorized use and duplication of software."
+},
+{
+    question: "The collection of principles that judge whether people’s actions are correct or wrong is known as:",
+    options: [
+        "Legislation",
+        "Data Protection Act",
+        "Ethics",
+        "Encryption"
+    ],
+    correct: 2,
+    explanation: "Ethics involves principles and moral guidelines that define acceptable behavior in computing."
+},
+{
+    question: "A UPS (Uninterruptible Power Supply) is a device that CANNOT be used to:",
+    options: [
+        "Provide power to a computer when electricity supply fails",
+        "Stop excess flow of electricity into a computer",
+        "Stabilize electricity flow into a computer",
+        "Completely stop electricity flow into a computer"
+    ],
+    correct: 3,
+    explanation: "A UPS ensures continuous power supply and regulates electricity but does not completely stop it."
+},
+{
+    question: "A tool that can recognize and execute a sequence of instructions written in a programming language is:",
+    options: [
+        "Compiler",
+        "Translator",
+        "Interpreter",
+        "Generator"
+    ],
+    correct: 1,
+    explanation: "A translator is a general term for software that converts programming code into machine code. Compilers and interpreters are types of translators."
+},
+{
+    question: "In writing codes in a programming language, one must follow the rules of the language called:",
+    options: [
+        "Coding",
+        "Protocol",
+        "Syntax",
+        "Semantics"
+    ],
+    correct: 2,
+    explanation: "Syntax refers to the set of rules that dictate the structure of valid statements in a programming language."
+},
+{
+    question: "An error in a program code is also known as a(n):",
+    options: [
+        "Syntax",
+        "Interrupt",
+        "Code",
+        "Bug"
+    ],
+    correct: 3,
+    explanation: "A bug is an error or flaw in software that causes it to behave incorrectly."
+},
+{
+    question: "At which of the following stages will the programmer concentrate on devising a test plan?",
+    options: [
+        "Requirement analysis",
+        "Procedural implementation",
+        "Design",
+        "Investigation"
+    ],
+    correct: 2,
+    explanation: "Testing is planned during the design phase to ensure that the final software meets its requirements."
+},
+{
+    question: "How many CDs of 700MB capacity can contain 100 newsletters from a digital library assuming that the average number of characters to each newsletter is 1000?",
+    options: [
+        "8",
+        "11",
+        "1",
+        "70"
+    ],
+    correct: 2,
+    explanation: "Each newsletter has 1000 characters, which is 1 KB (approximately). 100 newsletters → 100 KB. 1 MB = 1024 KB, so 700 MB = 716,800 KB. Since 100 KB is tiny compared to 700 MB, only one CD is needed."
+},
+{
+    question: "A functional requirements report indicates the work done in the phase:",
+    options: [
+        "Development",
+        "Investigation",
+        "Design",
+        "Analysis"
+    ],
+    correct: 3,
+    explanation: "Functional requirements define what the system should do and are part of the analysis phase."
+},
+{
+    question: "The bit pattern of the digit 0 in ASCII code is 00110000. What would be the bit pattern for digit 5 assuming that the representation of successive digits corresponds to adjacent binary numbers?",
+    options: [
+        "00111000",
+        "00110011",
+        "00110100",
+        "00110101"
+    ],
+    correct: 3,
+    explanation: "ASCII for 0 = 00110000. ASCII for 5 follows sequentially → 00110101."
+},
+{
+    question: "Which of the following is a recommended practice in writing good algorithms?",
+    options: [
+        "It must be written in English.",
+        "Keywords must not be long, at most 20 lines.",
+        "It must be written in plain tables.",
+        "It must have finite number of steps."
+    ],
+    correct: 3,
+    explanation: "A good algorithm must have a finite number of steps to ensure it will terminate properly."
+},
+{
+    question: "One characteristic of algorithms is that:",
+    options: [
+        "They can easily be executed by a computer.",
+        "They must only be executed by a computer.",
+        "The run time must consume long periods.",
+        "Non-programmers can understand it."
+    ],
+    correct: 0,
+    explanation: "Algorithms are designed to be implemented by computers using programming languages."
+},
+{
+    question: "In low-level programming languages,",
+    options: [
+        "Codes are written in a form that the programmer can easily recognize.",
+        "Programs are usually written with code using English words.",
+        "Programmers are required to define design.",
+        "Codes can be used to write programs for difficult tasks."
+    ],
+    correct: 3,
+    explanation: "Low-level languages (e.g., assembly language) allow programmers to write efficient but complex programs."
+},
+{
+    question: "One advantage of high-level programming languages over low-level programming languages is:",
+    options: [
+        "It is written in a language easily understood by programmers.",
+        "It is cheaper to get associated software.",
+        "Its software is more common in the software market.",
+        "It’s less bulky in relation to memory space."
+    ],
+    correct: 0,
+    explanation: "High-level languages (e.g., Python, Java) use English-like syntax, making them easier to read and write."
+},
+{
+    question: "In Object-Oriented Programming, programmers are able to:",
+    options: [
+        "Program objects that serve human beings.",
+        "Create relationships between objects.",
+        "Describe behavior of objects in terms of their characteristics.",
+        "Represent program codes as object."
+    ],
+    correct: 1,
+    explanation: "OOP involves creating objects that interact with each other, forming relationships."
+},
+{
+    question: "The machine cycle includes Fetch, Decode, and:",
+    options: [
+        "Execute",
+        "Coding",
+        "Process",
+        "Run"
+    ],
+    correct: 0,
+    explanation: "The machine cycle consists of Fetch → Decode → Execute."
+},
+{
+    question: "Sequential files may be accessed by a:",
+    options: [
+        "Key field",
+        "Loop",
+        "Name",
+        "Pointer"
+    ],
+    correct: 0,
+    explanation: "Sequential files are accessed using a key field, which helps locate specific records."
+},
+{
+    question: "In relation to databases, a file is defined as a collection of:",
+    options: [
+        "Similar items",
+        "Fields",
+        "Tables",
+        "Records"
+    ],
+    correct: 3,
+    explanation: "A file in a database is a collection of records, each containing multiple fields."
+},
+{
+    question: "A file organization (and relevant access methods) is dependent on the:",
+    options: [
+        "Ordering of records in the file.",
+        "Layout of the records in the file.",
+        "Characteristics of the storage medium.",
+        "Components of records in the file."
+    ],
+    correct: 2,
+    explanation: "File organization depends on the storage medium because different storage types (e.g., SSDs, magnetic disks) affect how data is stored and accessed efficiently."
+},
+{
+    question: "One advantage of the hashed organization of files is that:",
+    options: [
+        "It assures faster access to files by considering their frequency of usage.",
+        "It permits direct access of records that are placed randomly.",
+        "It discourages file defragmentation for easy access.",
+        "It compresses records and thus uses less storage."
+    ],
+    correct: 1,
+    explanation: "Hashed file organization allows direct retrieval of records based on a hash function, making access faster for random records."
+},
+{
+    question: "A flat file database is different from a relational database in that:",
+    options: [
+        "Its tables have more fields.",
+        "It is made up of one table.",
+        "It is more interactive.",
+        "It contains a unique primary key."
+    ],
+    correct: 1,
+    explanation: "A flat file database consists of a single table without relationships, unlike relational databases that have multiple linked tables."
+},
+{
+    question: "One possible way to create a table using a DBMS is:",
+    options: [
+        "Design view.",
+        "Datasheet view.",
+        "Table view.",
+        "Query view."
+    ],
+    correct: 0,
+    explanation: "In a DBMS, tables can be created in Design View, where users define field names, data types, and constraints."
+},
+{
+    question: "Which of the following database objects is used to extract data from a relation?",
+    options: [
+        "Queries",
+        "Reports",
+        "Forms",
+        "Relationships"
+    ],
+    correct: 0,
+    explanation: "Queries retrieve specific data from tables based on conditions set by the user."
+},
+{
+    question: "An information system that does NOT directly assist in the management of an organization is:",
+    options: [
+        "Management Information System",
+        "Geographic Information System",
+        "Help-desk System",
+        "Decision Support System"
+    ],
+    correct: 1,
+    explanation: "A Geographic Information System (GIS) is mainly used for spatial data analysis rather than direct organizational management."
+},
+{
+    question: "A field that can be used to sort data in a table is called a(n):",
+    options: [
+        "Primary key.",
+        "Foreign key.",
+        "Secondary key.",
+        "Identity key."
+    ],
+    correct: 0,
+    explanation: "A primary key uniquely identifies each record in a table and can be used for sorting and indexing data."
+},
+{
+    question: "Which of the following is true about database tables?",
+    options: [
+        "The number of tables in a database must be less than six.",
+        "The number of fields must exceed two.",
+        "The order of the fields is not important."
+    ],
+    correct: 2,
+    explanation: "In relational databases, the order of fields (columns) in a table does not affect data retrieval or functionality."
+},
+{
+    question: "Consider the following logic arithmetic for AND gate: A = 1, B = 1 → A AND B = ?",
+    options: [
+        "0",
+        "1",
+        "B AND 0",
+        "A AND 1"
+    ],
+    correct: 1,
+    explanation: "The AND gate outputs 1 only if both inputs are 1; otherwise, it outputs 0."
+},
+{
+    question: "The output Q in the circuit below is equal to: (NOR gate with inputs A and B)",
+    options: [
+        "A AND B",
+        "A OR B",
+        "A + B",
+        "A + B (Inverted)"
+    ],
+    correct: 3,
+    explanation: "A NOR gate outputs the inverse of an OR operation, meaning the result is NOT (A + B)."
+},
+{
+    question: "Which of the following is an activity of system implementation?",
+    options: [
+        "Deciding on which hardware to use.",
+        "Writing algorithms.",
+        "Training of users.",
+        "Writing output formats."
+    ],
+    correct: 2,
+    explanation: "System implementation involves installing the system and training users to ensure smooth adoption."
+},
+{
+    question: "Which of the following defines pilot implementation of a new system in an organization?",
+    options: [
+        "Abandoning the old system and switching to a new one immediately.",
+        "Making the new system alongside the old one.",
+        "Using the new system only in a department.",
+        "Letting users of the old system process then later use the new one."
+    ],
+    correct: 2,
+    explanation: "Pilot implementation tests the new system in a small part of the organization before full deployment."
+},
+{
+    question: "One detail found in the user’s guide of a system is:",
+    options: [
+        "Users' job descriptions.",
+        "Upgrade processes.",
+        "Algorithms.",
+        "Codes for various tasks."
+    ],
+    correct: 1,
+    explanation: "A user guide typically includes steps on how to update and maintain the system."
+},
+{
+    question: "The number 4683 is not a possible number in octal because it:",
+    options: [
+        "Neither contains binary digits.",
+        "Contains only four digits.",
+        "Contains the digit 8.",
+        "Is not divisible by 8."
+    ],
+    correct: 2,
+    explanation: "Octal (base 8) numbers only use digits 0-7. Since 4683 contains the digit 8, it is not a valid octal number."
+},
+{
+    question: "One way to avoid repetitive stress injury is to:",
+    options: [
+        "Use LCD monitors.",
+        "Avoid eye contact with the monitor.",
+        "Use new tablets.",
+        "Use adjustable chair."
+    ],
+    correct: 3,
+    explanation: "An adjustable chair promotes proper posture, reducing strain on the body and preventing repetitive stress injuries."
+},
+{
+    question: "Different programmers can write program modules in different platforms using high-level non-procedural languages. Which generation of programming languages could be most easily used to integrate their different modules?",
+    options: [
+        "First",
+        "Second",
+        "Third",
+        "Fourth"
+    ],
+    correct: 3,
+    explanation: "Fourth-generation languages (4GLs) are designed for higher-level abstraction, making it easier to integrate different modules across platforms."
+},
+{
+    question: "Which of the following determines whether a project should be built or not?",
+    options: [
+        "Identification",
+        "Feasibility assessment",
+        "Program specification",
+        "System evaluation"
+    ],
+    correct: 1,
+    explanation: "A feasibility assessment examines technical, financial, and operational aspects to determine whether a project is viable."
+},
+{
+    question: "In the analysis phase, the development of which of the following clearly states the goals and objectives of the project?",
+    options: [
+        "Need evaluation",
+        "Program specification",
+        "Design",
+        "Documentation"
+    ],
+    correct: 1,
+    explanation: "The program specification outlines the goals, objectives, and requirements of a system before development begins."
+},
+{
+    question: "What would be the main advantage of using a prototyping in the design phase of an information system?",
+    options: [
+        "Provides enough evidence of system failure.",
+        "Is the final design of the information system.",
+        "Helps answer system development questions.",
+        "Helps to train the users before conversion."
+    ],
+    correct: 2,
+    explanation: "Prototyping allows developers and stakeholders to visualize and refine system requirements before full implementation."
+},
+{
+    question: "The organized process or set of steps that needs to be followed to build an ICT system is known as:",
+    options: [
+        "Information System Analysis.",
+        "Project Management.",
+        "System Development Life Cycle.",
+        "Software Development Life Cycle."
+    ],
+    correct: 2,
+    explanation: "The System Development Life Cycle (SDLC) provides structured phases (planning, design, implementation, testing, etc.) to develop an ICT system efficiently."
+},
+{
+    question: "A manager who needs to develop an information system that would enable the importance of very reliable and recent data from a database would require:",
+    options: [
+        "A new management information system.",
+        "A real-time processing system.",
+        "An accounting information system.",
+        "A transaction processing system."
+    ],
+    correct: 1,
+    explanation: "A real-time processing system ensures that data is updated and available instantly for decision-making."
+},
+{
+    question: "After a system has been successfully designed, the end-users must evaluate to see that it meets their needs and functions correctly. This type of testing is called:",
+    options: [
+        "Unit testing",
+        "Program testing",
+        "Acceptance testing",
+        "Module testing"
+    ],
+    correct: 2,
+    explanation: "Acceptance testing verifies whether the system meets business requirements and user expectations before deployment."
+}
+
+
+            // end of questions...
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = [];
+        let timeLeft = 3600; // 60 minutes in seconds
+        let timerInterval;
+
+        function startTest() {
+            document.querySelector('.welcome-screen').style.display = 'none';
+            document.querySelector('.quiz-container').style.display = 'block';
+            startTimer();
+            displayQuestion();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById("timer").textContent = `Time Remaining: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    autoSubmit();
+                }
+            }, 1000);
+        }
+
+        function autoSubmit() {
+            showResults();
+        }
+
+        function displayQuestion() {
+            const questionElement = document.getElementById("question");
+            const optionsElement = document.getElementById("options");
+            const progressText = document.getElementById("progress-text");
+            const progressBarFill = document.getElementById("progress-bar-fill");
+
+            if (currentQuestion >= questions.length) {
+                showResults();
+                return;
+            }
+
+            questionElement.innerHTML = questions[currentQuestion].question;
+            optionsElement.innerHTML = '';
+            
+            questions[currentQuestion].options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.className = "option-btn";
+                button.innerHTML = option;
+                button.onclick = () => selectAnswer(index);
+                optionsElement.appendChild(button);
+            });
+
+            // Update progress
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressText.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+            progressBarFill.style.width = `${progress}%`;
+        }
+
+        function selectAnswer(selectedIndex) {
+            const buttons = document.querySelectorAll(".option-btn");
+            buttons.forEach(button => button.disabled = true);
+            
+            const correctIndex = questions[currentQuestion].correct;
+            userAnswers[currentQuestion] = selectedIndex;
+
+            buttons[selectedIndex].classList.add("selected");
+            
+            if (selectedIndex === correctIndex) {
+                score++;
+            }
+
+            setTimeout(() => {
+                currentQuestion++;
+                displayQuestion();
+            }, 1000);
+        }
+
+        function showResults() {
+            clearInterval(timerInterval);
+            document.querySelector(".quiz-content").style.display = "none";
+            const resultsElement = document.getElementById("results");
+            const scoreElement = document.getElementById("score");
+            const correctionsElement = document.getElementById("corrections");
+
+            resultsElement.style.display = "block";
+            scoreElement.textContent = `${score}/${questions.length}`;
+            
+            // Show corrections
+            questions.forEach((q, index) => {
+                if (userAnswers[index] !== q.correct) {
+                    const correction = document.createElement("div");
+                    correction.className = "correction-item";
+                    correction.innerHTML = `
+                        <h3 class="incorrect">Question ${index + 1}: ${q.question}</h3>
+                        <p>Your answer: ${q.options[userAnswers[index]]}</p>
+                        <p class="correct">Correct answer: ${q.options[q.correct]}</p>
+                        <p><em>Explanation:</em> ${q.explanation}</p>
+                    `;
+                    correctionsElement.appendChild(correction);
+                }
+            });
+
+            // Display grade based on score
+            let grade = '';
+            if (score === questions.length) {
+                grade = 'Excellent';
+            } else if (score >= questions.length * 0.75) {
+                grade = 'Good';
+            } else {
+                grade = 'Needs Improvement';
+            }
+            const gradeElement = document.createElement('p');
+            gradeElement.innerHTML = `<strong>Grade: ${grade}</strong>`;
+            resultsElement.appendChild(gradeElement);
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = [];
+            timeLeft = 3600;
+            document.querySelector(".quiz-content").style.display = "block";
+            document.getElementById("results").style.display = "none";
+            document.getElementById("corrections").innerHTML = '';
+            startTimer();
+            displayQuestion();
+        }
+    </script>
+</body>
+</html>
