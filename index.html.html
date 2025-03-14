@@ -3,10 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polymath Education Network</title>
+    <title>GCE Preparation & Resources past question- Polymath Education Network</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
     <style>
-        
+       /* Slider Container */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    height: 400px; /* Adjust as needed */
+    margin: 0 auto;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Slider Images */
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Active Image */
+.slider img.active {
+    opacity: 1;
+}
+
+/* Scroll Text Container */
+.scroll-text {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%); /* Center the text container */
+    padding: 10px 20px; /* Padding around the text */
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 25px; /* Rounded corners */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow for scrolling effect */
+    z-index: 2; /* Ensure text is above the slider images */
+    display: inline-block; /* Make the container fit the text size */
+}
+
+/* Scroll Text Styling */
+.scroll-text h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333; /* Dark text for contrast */
+    display: inline-block; /* Make the text container fit the text */
+    padding-right: 100%; /* Ensure the text scrolls off the screen */
+    animation: scrollText 15s linear infinite; /* Scrolling animation */
+}
+
+/* Scrolling Text Animation */
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Scroll to the left */
+    }
+}
     </style>
 </head>
 <body>
@@ -19,8 +82,6 @@
             <a href="about us.html">About</a>
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
-            <a href="icttest.html">ICT TEST</a> <!-- New ICT TEST option -->
-            <a href="gce1.HTML">GCE ICT Paper 1 – 2014</a> <!-- New ICT TEST option -->
         </div>
 
         <!-- Image Slider -->
@@ -28,9 +89,9 @@
             <img src="image1.jpg" alt="Image 1" class="active"> <!-- First image -->
             <img src="GCE.png" alt="Image 2"> <!-- Second image -->
             <img src="obc.png" alt="Image 3"> <!-- Third image -->
-            <img src="hnd.jpg" alt="Image 1" class="active"> <!-- First image -->
-            <img src="image4.png" alt="Image 4"> <!-- Second image -->
-            <img src="image5.png" alt="Image 5"> <!-- Third image -->
+            <img src="hnd.jpg" alt="Image 4"> <!-- Fourth image -->
+            <img src="image4.png" alt="Image 5"> <!-- Fifth image -->
+            <img src="image5.png" alt="Image 6"> <!-- Sixth image -->
         </div>
         <div class="scroll-text">
             <h2>"POLYMATH EDUCATION NETWORK, Bringing education to your doorsteps—empowering minds, unlocking futures, one lesson at a time."</h2> <!-- Scrolling text -->
@@ -88,6 +149,16 @@
             </div>
         </div>
 
+        <!-- New Polymath Brain Box Button -->
+        <div class="dropdown">
+            <button>Polymath Brain Box</button>
+            <div class="dropdown-content">
+                <a href="icttest.html">I.T self testing</a>
+                <a href="gce1.HTML">GCE ICT Paper 1 – 2014</a>
+                <a href="#">loading</a>
+            </div>
+        </div>
+
         <!-- About, Services, and Contact Sections -->
         <br><br><br>
         <section id="about">
@@ -138,6 +209,18 @@ The questions provided here are intended solely for educational and revision pur
     <p class="news-description">We are offering free ict and compter science practicals starting march 1.</p>
     <a href="https://chat.whatsapp.com/BzhdbAm1kZOHGuB71aceR5" class="news-read-more">Learn More</a>
 </div>
+<div class="news-item">
+    <img src="hnd.jpg" alt="News Image 2" class="news-image"> <!-- Placeholder image -->
+    <h3 class="news-title">CAMEROON HND</h3>
+    <p class="news-description">The Cameroon HND offers practical training in various fields like Engineering, IT, Business, and more. Visit their website to learn more about the programs, admission details, and how to apply. Don't miss out on this opportunity to shape your future.</p>
+    <a href="https://www.cameroonhnd.com/" class="news-read-more">Learn More</a>
+</div>
+<div class="news-item">
+            <img src="GCE.png" alt="GCE 2025 Candidate Guidelines" class="news-image">
+            <h3 class="news-title">GCE 2025 Candidate Guidelines</h3>
+            <p class="news-description">Important guidelines every candidate should follow for a smooth GCE experience.</p>
+            <a href="news.html" class="news-read-more" target="_blank">Read more</a>
+        </div>
                 <!-- more news items -->
             </div>
         </section>
@@ -152,25 +235,37 @@ The questions provided here are intended solely for educational and revision pur
     <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
 </footer>
-    <script src="//code.tidio.co/njjyjhdth8hhvtwnwl9mbvk0piv9foot.js" async></script>
+<script src="//code.tidio.co/njjyjhdth8hhvtwnwl9mbvk0piv9foot.js" async></script>
 <script>
-        function toggleMenu() {
-            const menuPopup = document.getElementById("menuPopup");
-            if (menuPopup.style.display === "block") {
-                menuPopup.style.display = "none"; // Hide the popup
-            } else {
-                menuPopup.style.display = "block"; // Show the popup
-            }
+        // Image Slider Functionality
+        const slides = document.querySelectorAll('.slider img'); // Select all images in the slider
+        let currentSlide = 0; // Initialize the index of the current slide
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active'); // Remove 'active' class from all slides
+                slide.style.opacity = 0; // Hide all slides
+            });
+            slides[index].classList.add('active'); // Add 'active' class to the current slide
+            slides[index].style.opacity = 1; // Show the current slide
         }
 
-        // Close the popup if clicked outside
-        window.onclick = function(event) {
-            const menuPopup = document.getElementById("menuPopup");
-            if (event.target !== menuPopup && !event.target.matches('.menu-button')) {
-                menuPopup.style.display = "none";
-            }
-        };
-    </script>
-    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length; // Move to the next slide in a circular manner
+            showSlide(currentSlide); // Display the current slide
+        }
+
+        // Set interval for automatic slide change every 5 seconds
+        setInterval(nextSlide, 5000); // Change slide every 5000 milliseconds (5 seconds)
+
+        // Show the first slide on initial load
+        showSlide(currentSlide);
+
+        // Menu Toggle Functionality
+        function toggleMenu() {
+            var menuPopup = document.getElementById("menuPopup");
+            menuPopup.style.display = menuPopup.style.display === "block" ? "none" : "block";
+        }
+</script>
 </body>
 </html>
