@@ -1,1 +1,474 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymath Education Network - Competitive Exam Resources</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto;
+        }
+        
+        .exams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .exam-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .exam-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .exam-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+        
+        .exam-body {
+            padding: 1.5rem;
+        }
+        
+        .exam-body h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .exam-meta {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .deadline {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Polymath<span>Edu</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#exams">Exams</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Your Gateway to Professional Examinations in Cameroon</h1>
+            <p>Comprehensive resources and preparation materials for all major competitive exams in public health, customs, education, and engineering.</p>
+            <a href="#exams" class="btn">View Current Exams</a>
+        </div>
+    </section>
+    
+    <section class="container" id="exams">
+        <h2 class="section-title">Current Competitive Examinations</h2>
+        
+        <div class="exams-grid">
+            <!-- Public Health Exam -->
+            <div class="exam-card">
+                <div class="exam-header">
+                    <h3>Public Health Professionals</h3>
+                </div>
+                <div class="exam-body">
+                    <p>Aptitude Test for registration in the National Order of Health Professionals for holders of HND, BTS, HPD, DSEP, or Bachelor's degrees in Health Sciences.</p>
+                    <div class="exam-meta">
+                        <span class="deadline">Deadline: 21st July 2025</span>
+                        <span>South West Region</span>
+                    </div>
+                    <h4>Eligibility:</h4>
+                    <ul>
+                        <li>Cameroonian nationality</li>
+                        <li>HND/BTS, HPD/DSEP, or BSc/Licence in Health Sciences</li>
+                    </ul>
+                    <h4>Exam Dates:</h4>
+                    <p>Written: 9th August 2025<br>
+                    Practical: 20-23 August 2025</p>
+                    <a href="#contact" class="btn">Get Preparation Materials</a>
+                </div>
+            </div>
+            
+            <!-- Customs Exam -->
+            <div class="exam-card">
+                <div class="exam-header">
+                    <h3>Customs Officers Recruitment</h3>
+                </div>
+                <div class="exam-body">
+                    <p>Direct competitive examination for recruitment of 120 personnel into the Revenue Services (Customs) civil servants.</p>
+                    <div class="exam-meta">
+                        <span class="deadline">Deadline: 4th July 2025</span>
+                        <span>Nationwide</span>
+                    </div>
+                    <h4>Positions:</h4>
+                    <ul>
+                        <li>60 Assistant Controllers (Category C)</li>
+                        <li>60 Clerical Assistants (Category D)</li>
+                    </ul>
+                    <h4>Requirements:</h4>
+                    <p>Category C: GCE O/L or BEPC<br>
+                    Category D: FSLC or CEP</p>
+                    <h4>Exam Dates: 19-20 July 2025</h4>
+                    <a href="#contact" class="btn">Get Preparation Materials</a>
+                </div>
+            </div>
+            
+            <!-- GTTC Exam -->
+            <div class="exam-card">
+                <div class="exam-header">
+                    <h3>GTTC Entrance Examination</h3>
+                </div>
+                <div class="exam-body">
+                    <p>Competitive examination for admission into Government Teacher Training Colleges (GTTC) nationwide.</p>
+                    <div class="exam-meta">
+                        <span class="deadline">Deadline: 7th July 2025</span>
+                        <span>6,130 places available</span>
+                    </div>
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>Age 17-32 years</li>
+                        <li>GCE Advanced Level or equivalent</li>
+                    </ul>
+                    <h4>GTTC Types:</h4>
+                    <ul>
+                        <li>Traditional (3,220 places)</li>
+                        <li>Bilingual (2,570 places)</li>
+                        <li>Specialized (340 places)</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Preparation Materials</a>
+                </div>
+            </div>
+            
+            <!-- FET Exam -->
+            <div class="exam-card">
+                <div class="exam-header">
+                    <h3>FET Engineering Entrance</h3>
+                </div>
+                <div class="exam-body">
+                    <p>Competitive entrance examination into the Faculty of Engineering and Technology (FET) at University of Buea.</p>
+                    <div class="exam-meta">
+                        <span class="deadline">Deadline: 22nd Sept 2025</span>
+                        <span>520 places available</span>
+                    </div>
+                    <h4>Programs:</h4>
+                    <ul>
+                        <li>Civil Engineering</li>
+                        <li>Computer Engineering</li>
+                        <li>Chemical/Petroleum Eng.</li>
+                        <li>Electrical/Electronic Eng.</li>
+                        <li>Mechanical Engineering</li>
+                    </ul>
+                    <h4>Requirements:</h4>
+                    <p>GCE O/L (5 subjects incl. Math, Physics) + A/L (Math +1)</p>
+                    <a href="#contact" class="btn">Get Preparation Materials</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container" id="about">
+        <h2 class="section-title">About Polymath Education Network</h2>
+        <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <h3 style="color: var(--primary-color);">Our Mission</h3>
+            <p>To provide comprehensive, accurate, and up-to-date information about competitive examinations in Cameroon, along with high-quality preparation materials to help candidates succeed in their professional aspirations.</p>
+            
+            <h3 style="color: var(--primary-color); margin-top: 2rem;">Our Services</h3>
+            <ul>
+                <li>Detailed exam information and updates</li>
+                <li>Past questions and answers compilation</li>
+                <li>Preparatory classes and coaching</li>
+                <li>Registration assistance</li>
+                <li>Exam strategy and methodology guidance</li>
+            </ul>
+            
+            <h3 style="color: var(--primary-color); margin-top: 2rem;">Why Choose Us?</h3>
+            <p>With years of experience in exam preparation, we understand the specific requirements of each competitive examination in Cameroon. Our materials are carefully curated to match the official syllabi and examination patterns.</p>
+        </div>
+    </section>
+    
+    <section class="container" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+                <h3 style="color: var(--primary-color); margin-top: 0;">Get in Touch</h3>
+                <p>For inquiries about exam preparation materials, registration assistance, or any other questions:</p>
+                
+                <p><strong>Phone:</strong> 675 194 883</p>
+                <p><strong>Email:</strong> info@polymathedunetwork.cm</p>
+                
+                <h4 style="color: var(--primary-color); margin-top: 1.5rem;">Services Offered:</h4>
+                <ul>
+                    <li>Past Questions and Answers</li>
+                    <li>Preparatory Classes</li>
+                    <li>Non-Conviction Certificates</li>
+                    <li>Exam Methodology Guides</li>
+                    <li>Full Syllabus Compilations</li>
+                    <li>Registration Assistance</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 style="color: var(--primary-color); margin-top: 0;">Exam Preparation Assistance</h3>
+                <p>We provide specialized support for:</p>
+                <ul>
+                    <li>ENAM</li>
+                    <li>NASLA</li>
+                    <li>CUSTOM</li>
+                    <li>TREASURY</li>
+                    <li>ENS</li>
+                    <li>NURSING</li>
+                    <li>MEDICINE</li>
+                    <li>FET</li>
+                    <li>COT</li>
+                    <li>IELTS</li>
+                </ul>
+                
+                <div style="margin-top: 2rem; background-color: var(--light-color); padding: 1rem; border-radius: 5px;">
+                    <h4 style="color: var(--primary-color); margin-top: 0;">Urgent Notice</h4>
+                    <p>Application deadlines for many competitive exams are approaching soon. Contact us immediately for assistance with your application and preparation.</p>
+                    <a href="tel:675194883" class="btn" style="display: inline-block; margin-top: 1rem;">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Polymath Education</h3>
+                    <p>Your trusted partner for competitive exam preparation in Cameroon.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#exams">Current Exams</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Exam Categories</h3>
+                    <ul>
+                        <li><a href="#exams">Public Sector</a></li>
+                        <li><a href="#exams">Education</a></li>
+                        <li><a href="#exams">Health</a></li>
+                        <li><a href="#exams">Engineering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="tel:675194883">Phone: 675 194 883</a></li>
+                        <li><a href="mailto:info@polymathedunetwork.cm">Email Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Polymath Education Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
