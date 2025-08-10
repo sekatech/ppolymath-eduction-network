@@ -1,273 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" sizes="32x32" href="file.jpg">
-    <link rel="icon" type="image/png" sizes="16x16" href="file.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCE Preparation & Resources past question- Polymath Education Network</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+    <meta name="description" content="Polymath Education Network provides free GCE preparation resources, past questions, and study materials for students in Cameroon.">
+    <meta name="keywords" content="GCE Cameroon, past questions, exam preparation, concours, HND, study resources">
+    <meta name="author" content="Polymath Education Network">
+    <meta property="og:title" content="GCE Preparation & Resources - Polymath Education Network">
+    <meta property="og:description" content="Free GCE, concours, and HND study resources for Cameroonian students">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" sizes="32x32" href="file.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="file.jpg">
+    <title>GCE Preparation & Resources past questions- Polymath Education Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-       /* Slider Container */
-.slider {
-    position: relative;
-    width: 100%;
-    max-width: 800px; /* Adjust as needed */
-    height: 400px; /* Adjust as needed */
-    margin: 0 auto;
-    overflow: hidden;
-    border: 2px solid #ccc;
-    border-radius: 10px; /* Rounded corners */
-}
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --light-text: #f9fafb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
 
-/* Slider Images */
-.slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the container without distortion */
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
 
-/* Active Image */
-.slider img.active {
-    opacity: 1;
-}
+        /* Slider Images */
+        .slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
-/* Scroll Text Container */
-.scroll-text {
-    position: absolute;
-    bottom: 20px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%); /* Center the text container */
-    padding: 10px 20px; /* Padding around the text */
-    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
-    backdrop-filter: blur(10px); /* Blur effect */
-    border-radius: 25px; /* Rounded corners */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow for scrolling effect */
-    z-index: 2; /* Ensure text is above the slider images */
-    display: inline-block; /* Make the container fit the text size */
-}
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
 
-/* Scroll Text Styling */
-.scroll-text h2 {
-    margin: 0;
-    font-size: 1.2em;
-    color: #333; /* Dark text for contrast */
-    display: inline-block; /* Make the text container fit the text */
-    padding-right: 100%; /* Ensure the text scrolls off the screen */
-    animation: scrollText 50s linear infinite; /* Scrolling animation */
-}
+        /* Active Image */
+        .slider img.active {
+            opacity: 1;
+        }
 
-/* Scrolling Text Animation */
-@keyframes scrollText {
-    0% {
-        transform: translateX(100%); /* Start off-screen to the right */
-    }
-    100% {
-        transform: translateX(-100%); /* Scroll to the left */
-    }
-}
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--light-text);
+            transform: scale(1.2);
+        }
+
+        /* Scroll Text Container */
+        .scroll-text {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--light-text);
+            text-align: center;
+            z-index: 5;
+        }
+
+        .scroll-text h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: scrollText 20s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+
+        .wave-divider .shape-fill {
+            fill: var(--bg-color);
+        }
     </style>
 </head>
 <body>
-    <!-- Header with Navigation Bar and Slider -->
-    <header>
-        <!-- Menu Button -->
-        <button class="menu-button" onclick="toggleMenu()">&#9776;</button> <!-- Hamburger icon -->
-        <div class="menu-popup" id="menuPopup">
-            <a href="#home">Home</a>
-            <a href="about us.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-        </div>
-
-        <!-- Image Slider -->
-        <div class="slider">
-            <img src="image1.jpg" alt="Image 1" class="active"> <!-- First image -->
-            <img src="GCE.png" alt="Image 2"> <!-- Second image -->
-            <img src="obc.png" alt="Image 3"> <!-- Third image -->
-            <img src="hnd.jpg" alt="Image 4"> <!-- Fourth image -->
-            <img src="image4.png" alt="Image 5"> <!-- Fifth image -->
-            <img src="image5.png" alt="Image 6"> <!-- Sixth image -->
-        </div>
-        <div class="scroll-text">
-            <h2>"POLYMATH EDUCATION NETWORK BRINGS TO YOU A NEW BOOK CALLED BEYOND THE BROWSER the best front end web development book in the continent, '''''''                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! stay tuned"</h2> <!-- Scrolling text -->
+    <!-- Header with Navigation Bar -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <span>Polymath</span> Education
+                </a>
+                
+                <button class="menu-button" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="menu-popup" id="menuPopup">
+                    <a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                    <a href="about us.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="services.html" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a>
+                    <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
+            </nav>
         </div>
     </header>
 
+    <!-- Hero Section with Slider -->
+    <section class="hero" id="home">
+        <div class="slider-container">
+            <div class="slider">
+                <img src="image1.jpg" alt="Educational Resources" class="active">
+                <img src="GCE.png" alt="GCE Preparation">
+                <img src="obc.png" alt="OBC Resources">
+                <img src="hnd.jpg" alt="HND Materials">
+                <img src="image4.png" alt="Study Materials">
+                <img src="image5.png" alt="Learning Resources">
+            </div>
+            
+            <div class="slider-nav" id="sliderNav"></div>
+            
+            <div class="scroll-text">
+                <h2>"POLYMATH EDUCATION NETWORK BRINGS TO YOU A NEW BOOK CALLED BEYOND THE BROWSER - the best front end web development book in the continent! Stay tuned for more updates!"</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
     <!-- Main Content Section -->
-    <main id="home">
-        <h1>Welcome to Polymath Education Network</h1>
-        <p>The best GCE and concours preparation website in Cameroon.</p>
-
-        <!-- Buttons with Dropdowns -->
-        <div class="dropdown">
-            <button>GCE</button>
-            <div class="dropdown-content">
-                <a href="ordinary-level.html">Ordinary Level</a>
-                <a href="advanced-level.html">Advanced Level</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button>Concours</button>
-            <div class="dropdown-content">
-                <a href="Cnc.html">2025 concours</a>
-                <a href="soon.html">NAPHI</a>
-                <a href="soon.html">THE COT</a>
-                <a href="soon.html">FET AGRICULTURE</a>
-                <a href="soon.html">MEDICINE</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button>HND</button>
-            <div class="dropdown-content">
-                <a href="https://drive.google.com/file/d/139TssIhBsM3DRoL1fIZGstFaN4LUX0rn/view?usp=drive_link">Computer Engineering</a>
-                <a href="https://drive.google.com/file/d/17UPcPqgYC8gxf7H1xBFIGBmhOGAs_CN3/view?usp=drive_link">Enterprise Creation AND Entrepreneurship all faculty</a>
-                <a href="soon.html">IT Programs</a>
-                <a href="soon.html">Nursing</a>
-                <a href="soon.html">Agriculture</a>
-                <a href="soon.html">Law</a>
-                <a href="soon.html">Business</a>
-                <a href="soon.html">Education</a>
-                <a href="soon.html">Engineering</a>
-                <a href="soon.html">Science</a>
-                <a href="soon.html">Social Science</a>
-                <a href="soon.html">Medical Laboratory</a>
-                <a href="soon.html">Pharmacy</a>
-                <a href="soon.html">Physiotherapy</a>
-                <a href="soon.html">Crop Production</a>
-                <a href="soon.html">Animal Production</a>
-                <a href="soon.html">Food Science</a>
-                <a href="soon.html">Rural Development</a>
-                <a href="soon.html">Civil Law</a>
-                <a href="soon.html">Criminal Law</a>
-                <a href="soon.html">International Law</a>
-            </div>
-        </div>
-
-        <!-- New Polymath Brain Box Button -->
-        <div class="dropdown">
-            <button>Polymath Brain Box</button>
-            <div class="dropdown-content">
-                <a href="icttest.html">I.T self testing</a>
-                <a href="gce1.HTML">GCE ICT Paper 1 – 2014</a>
-                <a href="#">loading</a>
-            </div>
-        </div>
-
-        <!-- About, Services, and Contact Sections -->
-        <br><br><br>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We are a team dedicated to providing students with quality educational resources ranging from GCE past questions, concour preparation and past questions, HND & Bsc study materials for free to students in and around Cameroon.</p>
-        </section>
-        <section id="about">
-            <h2>Disclaimer</h2>
-            <p>This platform does not claim ownership or authorship of any Cameroon GCE Board materials or any other examination board and strictly adheres to educational and non-commercial use policies. The materials posted here are made available to help students understand exam formats and develop effective study strategies under the rights granted for academic purposes.<br><br><br>
-<b>Thank you, and we wish you success in your studies and examinations!</b>
-</p>
-        </section>
-        <section id="about">
-            <h2>Cameroon GCE Examination Questions Archive</h2>
-            <p>we give credit to all the examination boards for the creation and maintenance of these valuable educational resources.
-</p>
-        </section>
-        <section id="services">
-            <h2>Our Services</h2>
-            <p>You can download GCE past questions<br> download solutions to past questions<br> <br> download past concour papers<br> register for an IT course with us.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Our contact information is found on the footer and header of this page.</p>
-        </section>
-        <div class="image-section">
-            <!-- Image to appear below the main content -->
-            <!--/* the images below are functional i just removed the opening tag
-            /* img src="image4.png" alt="Descriptive Alt Text" />
-            /* img src="image5.png" alt="Descriptive Alt Text" />
-            /* img src="image6.png" alt="Descriptive Alt Text" />
-            </main>
-            -->
-        </div>
-        <section id="news-feed" class="news-feed">
-            <h2>Latest News</h2>
-            <div class="news-items">
-                <div class="news-item">
-                    <img src="IT.jpg" alt="News Image 1" class="news-image">
-                    <h3 class="news-title">POLYMATH EDUCATION PREPARATION CLASES</h3>
-                    <p class="news-description">Contact us or apply now.</p>
-                    <a href="apply.html" class="news-read-more">Apply now</a>
+    <main class="main-content">
+        <div class="container">
+            <section class="intro-section fade-in">
+                <h1 class="main-title">Welcome to Polymath Education Network</h1>
+                <p class="lead-text">The premier GCE and concours preparation platform in Cameroon, offering comprehensive study resources.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#resources" class="btn btn-primary">Explore Resources</a>
+                    <a href="apply.html" class="btn btn-secondary">Join Our Classes</a>
                 </div>
-                <div class="news-item">
-    <img src="news2.jpg" alt="News Image 2" class="news-image"> <!-- Placeholder image -->
-    <h3 class="news-title">FREE ICT PRACTICALS</h3>
-    <p class="news-description">We are offering free ict and compter science practicals starting march 1.</p>
-    <a href="https://chat.whatsapp.com/BzhdbAm1kZOHGuB71aceR5" class="news-read-more">Learn More</a>
-</div>
-<div class="news-item">
-    <img src="hnd.jpg" alt="News Image 2" class="news-image"> <!-- Placeholder image -->
-    <h3 class="news-title">CAMEROON HND</h3>
-    <p class="news-description">The Cameroon HND offers practical training in various fields like Engineering, IT, Business, and more. Visit their website to learn more about the programs, admission details, and how to apply. Don't miss out on this opportunity to shape your future.</p>
-    <a href="https://www.cameroonhnd.com/" class="news-read-more">Learn More</a>
-</div>
-<div class="news-item">
-            <img src="GCE.png" alt="GCE 2025 Candidate Guidelines" class="news-image">
-            <h3 class="news-title">GCE 2025 Candidate Guidelines</h3>
-            <p class="news-description">Important guidelines every candidate should follow for a smooth GCE experience.</p>
-            <a href="news.html" class="news-read-more" target="_blank">Read more</a>
+            </section>
+
+            <!-- Resource Dropdowns Section -->
+            <section class="resources-section" id="resources">
+                <h2 class="section-title">Educational Resources</h2>
+                <p class="section-subtitle">Access our comprehensive collection of study materials</p>
+                
+                <div class="dropdown-grid">
+                    <!-- GCE Dropdown -->
+                    <div class="dropdown-card">
+                        <button class="dropdown-btn">
+                            <i class="fas fa-graduation-cap"></i> GCE
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="ordinary-level.html" class="dropdown-link"><i class="fas fa-book-open"></i> Ordinary Level</a>
+                            <a href="advanced-level.html" class="dropdown-link"><i class="fas fa-book"></i> Advanced Level</a>
+                        </div>
+                    </div>
+
+                    <!-- Concours Dropdown -->
+                    <div class="dropdown-card">
+                        <button class="dropdown-btn">
+                            <i class="fas fa-trophy"></i> Concours
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="Cnc.html" class="dropdown-link"><i class="fas fa-calendar-alt"></i> 2025 concours</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-flask"></i> NAPHI</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-stethoscope"></i> THE COT</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-leaf"></i> FET AGRICULTURE</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-user-md"></i> MEDICINE</a>
+                        </div>
+                    </div>
+
+                    <!-- HND Dropdown -->
+                    <div class="dropdown-card">
+                        <button class="dropdown-btn">
+                            <i class="fas fa-university"></i> HND
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="https://drive.google.com/file/d/139TssIhBsM3DRoL1fIZGstFaN4LUX0rn/view?usp=drive_link" class="dropdown-link"><i class="fas fa-laptop-code"></i> Computer Engineering</a>
+                            <a href="https://drive.google.com/file/d/17UPcPqgYC8gxf7H1xBFIGBmhOGAs_CN3/view?usp=drive_link" class="dropdown-link"><i class="fas fa-business-time"></i> Enterprise Creation</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-code"></i> IT Programs</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-heartbeat"></i> Nursing</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-tractor"></i> Agriculture</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-gavel"></i> Law</a>
+                        </div>
+                    </div>
+
+                    <!-- Polymath Brain Box -->
+                    <div class="dropdown-card">
+                        <button class="dropdown-btn">
+                            <i class="fas fa-brain"></i> Brain Box
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="icttest.html" class="dropdown-link"><i class="fas fa-laptop"></i> I.T self testing</a>
+                            <a href="gce1.HTML" class="dropdown-link"><i class="fas fa-file-alt"></i> GCE ICT Paper 1 – 2014</a>
+                            <a href="#" class="dropdown-link"><i class="fas fa-spinner"></i> Loading</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section" id="about">
+                <div class="about-card fade-in">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i> About Us</h2>
+                    <p>We are a team dedicated to providing students with quality educational resources ranging from GCE past questions, concour preparation and past questions, HND & Bsc study materials for free to students in and around Cameroon.</p>
+                </div>
+
+                <div class="about-card fade-in">
+                    <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Disclaimer</h2>
+                    <p>This platform does not claim ownership or authorship of any Cameroon GCE Board materials or any other examination board and strictly adheres to educational and non-commercial use policies. The materials posted here are made available to help students understand exam formats and develop effective study strategies under the rights granted for academic purposes.</p>
+                    <p class="highlight-text">Thank you, and we wish you success in your studies and examinations!</p>
+                </div>
+
+                <div class="about-card fade-in">
+                    <h2 class="section-title"><i class="fas fa-archive"></i> Cameroon GCE Examination Questions Archive</h2>
+                    <p>We give credit to all the examination boards for the creation and maintenance of these valuable educational resources.</p>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="services-section" id="services">
+                <h2 class="section-title"><i class="fas fa-concierge-bell"></i> Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <i class="fas fa-download"></i>
+                        <h3>Download Resources</h3>
+                        <p>Access GCE past questions and solutions for comprehensive exam preparation.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Concours Papers</h3>
+                        <p>Download past concour papers to enhance your competitive exam readiness.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>IT Courses</h3>
+                        <p>Register for our IT courses to develop valuable technical skills.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Feed Section -->
+            <section class="news-section" id="news">
+                <h2 class="section-title"><i class="fas fa-newspaper"></i> Latest News</h2>
+                <div class="news-grid" id="newsContainer">
+                    <!-- News items will be loaded dynamically -->
+                </div>
+            </section>
         </div>
-                <!-- more news items -->
-            </div>
-        </section>
     </main>
 
     <!-- Footer Section -->
-    <footer>
-    <p>&copy; 2025 Polymath Education Network. All rights reserved.</p>
-    <p>Designed by <a href="https://lumoracom.vercel.app/" target="_blank" rel="noopener noreferrer">Lumora</a></p> <!-- Lumora as a link -->
-    <a href="#home">Home</a>
-    <a href="about us.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-</footer>
-<script src="//code.tidio.co/njjyjhdth8hhvtwnwl9mbvk0piv9foot.js" async></script>
-<script>
-        // Image Slider Functionality
-        const slides = document.querySelectorAll('.slider img'); // Select all images in the slider
-        let currentSlide = 0; // Initialize the index of the current slide
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Polymath Education</h3>
+                    <p>Providing quality educational resources to students across Cameroon.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about us.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="ordinary-level.html"><i class="fas fa-chevron-right"></i> GCE O-Level</a></li>
+                        <li><a href="advanced-level.html"><i class="fas fa-chevron-right"></i> GCE A-Level</a></li>
+                        <li><a href="Cnc.html"><i class="fas fa-chevron-right"></i> Concours</a></li>
+                        <li><a href="icttest.html"><i class="fas fa-chevron-right"></i> IT Testing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@polymathedunet.com</li>
+                        <li><i class="fas fa-phone"></i> +237 6XX XXX XXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Cameroon</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Polymath Education Network. All rights reserved.</p>
+                <p>Designed by <a href="https://lumoracom.vercel.app/" target="_blank" rel="noopener noreferrer">Lumora</a></p>
+            </div>
+        </div>
+    </footer>
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active'); // Remove 'active' class from all slides
-                slide.style.opacity = 0; // Hide all slides
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JSON Data Script -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Polymath Education Network",
+        "description": "Providing free GCE preparation resources, past questions, and study materials for students in Cameroon.",
+        "url": "https://yourwebsite.com",
+        "logo": "https://yourwebsite.com/logo.png",
+        "sameAs": [
+            "https://facebook.com/yourpage",
+            "https://twitter.com/yourhandle"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+237-XXX-XXX-XXX",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+
+    <script src="//code.tidio.co/njjyjhdth8hhvtwnwl9mbvk0piv9foot.js" async></script>
+    <script>
+        // Enhanced JavaScript with modern features
+        
+        // DOM Elements
+        const menuButton = document.querySelector('.menu-button');
+        const menuPopup = document.getElementById('menuPopup');
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slider img');
+        const sliderNav = document.getElementById('sliderNav');
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+        const fab = document.querySelector('.fab');
+        const newsContainer = document.getElementById('newsContainer');
+
+        // Initialize variables
+        let currentSlide = 0;
+        let slideInterval;
+        let isMenuOpen = false;
+
+        // Initialize the page
+        function init() {
+            createSliderNavigation();
+            startSlider();
+            loadNewsItems();
+            setupDropdowns();
+            setupScrollEvents();
+            setupIntersectionObserver();
+        }
+
+        // Create slider navigation dots
+        function createSliderNavigation() {
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('slider-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                sliderNav.appendChild(dot);
             });
-            slides[index].classList.add('active'); // Add 'active' class to the current slide
-            slides[index].style.opacity = 1; // Show the current slide
         }
 
+        // Start automatic slider
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Reset slider interval
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startSlider();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetInterval();
+        }
+
+        // Go to next slide
         function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length; // Move to the next slide in a circular manner
-            showSlide(currentSlide); // Display the current slide
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
         }
 
-        // Set interval for automatic slide change every 5 seconds
-        setInterval(nextSlide, 5000); // Change slide every 5000 milliseconds (5 seconds)
+        // Update slider display
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
 
-        // Show the first slide on initial load
-        showSlide(currentSlide);
-
-        // Menu Toggle Functionality
+        // Toggle mobile menu
         function toggleMenu() {
-            var menuPopup = document.getElementById("menuPopup");
-            menuPopup.style.display = menuPopup.style.display === "block" ? "none" : "block";
+            isMenuOpen = !isMenuOpen;
+            menuPopup.style.display = isMenuOpen ? 'flex' : 'none';
+            menuButton.innerHTML = isMenuOpen ? 
+                '<i class="fas fa-times"></i>' : 
+                '<i class="fas fa-bars"></i>';
         }
-</script>
+
+        // Setup dropdown functionality
+        function setupDropdowns() {
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+                    
+                    // Close all other dropdowns first
+                    document.querySelectorAll('.dropdown-content').forEach(item => {
+                        if (item !== content) {
+                            item.style.maxHeight = null;
+                            item.previousElementSibling.querySelector('.fa-chevron-down').classList.remove('rotate');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('rotate');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.classList.add('rotate');
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
+                    document.querySelectorAll('.dropdown-content').forEach(content => {
+                        content.style.maxHeight = null;
+                        content.previousElementSibling.querySelector('.fa-chevron-down').classList.remove('rotate');
+                    });
+                }
+            });
+        }
+
+        // Load news items dynamically
+        function loadNewsItems() {
+            const newsData = [
+                {
+                    title: "POLYMATH EDUCATION PREPARATION CLASSES",
+                    description: "Contact us or apply now for our specialized courses.",
+                    image: "IT.jpg",
+                    link: "apply.html"
+                },
+                {
+                    title: "FREE ICT PRACTICALS",
+                    description: "We are offering free ICT and computer science practicals starting March 1.",
+                    image: "news2.jpg",
+                    link: "https://chat.whatsapp.com/BzhdbAm1kZOHGuB71aceR5"
+                },
+                {
+                    title: "CAMEROON HND",
+                    description: "The Cameroon HND offers practical training in various fields like Engineering, IT, Business, and more.",
+                    image: "hnd.jpg",
+                    link: "https://www.cameroonhnd.com/"
+                },
+                {
+                    title: "GCE 2025 CANDIDATE GUIDELINES",
+                    description: "Important guidelines every candidate should follow for a smooth GCE experience.",
+                    image: "GCE.png",
+                    link: "news.html"
+                },
+                {
+                    title: "THE GCE 2025 TIME TABLE",
+                    description: "Go to read more to download the official GCE timetable.",
+                    image: "GCE.png",
+                    link: "https://camgceb.org/wp-content/uploads/2024/01/2024-GCE-TimeTable.pdf"
+                },
+                {
+                    title: "GCE 2025 COMING SOON",
+                    description: "Get to the official GCE board website for more information.",
+                    image: "news4.jpg",
+                    link: "https://camgceb.org/"
+                }
+            ];
+
+            newsData.forEach((news, index) => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-card fade-in';
+                newsItem.style.animationDelay = `${index * 0.1}s`;
+                
+                newsItem.innerHTML = `
+                    <div class="news-image-container">
+                        <img src="${news.image}" alt="${news.title}" class="news-image">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-description">${news.description}</p>
+                        <a href="${news.link}" class="news-link" ${news.link.startsWith('http') ? 'target="_blank"' : ''}>
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                `;
+                
+                newsContainer.appendChild(newsItem);
+            });
+        }
+
+        // Setup scroll events
+        function setupScrollEvents() {
+            // Show/hide FAB based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    fab.style.display = 'flex';
+                } else {
+                    fab.style.display = 'none';
+                }
+            });
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Setup Intersection Observer for animations
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
