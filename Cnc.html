@@ -3,472 +3,1043 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polymath Education Network - Competitive Exam Resources</title>
+    <title>Cameroon University Concours Portal | Polymath Education Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Base Styles */
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #e74c3c;
-            --accent-color: #3498db;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
+            color: var(--dark);
+            background-color: #f8fafc;
         }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
+
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        .header-content {
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
-        .logo span {
-            color: var(--secondary-color);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
         }
-        
-        nav ul li a:hover {
-            color: var(--secondary-color);
+
+        .logo span {
+            color: var(--primary-dark);
         }
-        
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1200x400');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 5rem 0;
+            padding: 80px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .hero h1 {
-            font-size: 2.5rem;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            animation: fadeInDown 0.8s ease;
         }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 800px;
             margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeIn 1s ease 0.3s forwards;
+            opacity: 0;
         }
-        
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            animation: fadeIn 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+
         .btn {
             display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            font-size: 1.1rem;
         }
-        
-        .btn:hover {
-            background-color: #c0392b;
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
         }
-        
+
+        .btn-primary:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
         .section-title {
             text-align: center;
-            margin: 3rem 0 2rem;
-            color: var(--primary-color);
+            margin-bottom: 2rem;
             position: relative;
+            color: var(--primary);
+            font-size: 2rem;
         }
-        
-        .section-title:after {
+
+        .section-title::after {
             content: '';
             display: block;
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            margin: 0.5rem auto;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto;
+            border-radius: 2px;
         }
-        
-        .exams-grid {
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Concours Cards */
+        .concours-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        
-        .exam-card {
+
+        .concours-card {
             background-color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
-        .exam-card:hover {
-            transform: translateY(-5px);
+
+        .concours-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        
-        .exam-header {
-            background-color: var(--primary-color);
+
+        .concours-header {
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 1rem;
+            position: relative;
         }
-        
-        .exam-body {
-            padding: 1.5rem;
+
+        .concours-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        
-        .exam-body h3 {
-            margin-top: 0;
-            color: var(--primary-color);
+
+        .concours-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
         }
-        
-        .exam-meta {
+
+        .concours-subtitle {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .concours-body {
+            padding: 25px;
+        }
+
+        .concours-meta {
             display: flex;
             justify-content: space-between;
-            margin: 1rem 0;
+            margin-bottom: 20px;
             font-size: 0.9rem;
-            color: #666;
+            color: var(--gray);
         }
-        
-        .deadline {
-            color: var(--secondary-color);
-            font-weight: bold;
+
+        .concours-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
-        
-        footer {
-            background-color: var(--dark-color);
+
+        .concours-meta-item i {
+            color: var(--primary);
+        }
+
+        .concours-details {
+            margin-bottom: 20px;
+        }
+
+        .concours-details-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .concours-details-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: var(--primary-dark);
+        }
+
+        .concours-details-value {
+            flex: 1;
+        }
+
+        .concours-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            background-color: var(--primary);
             color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 3rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 15px;
         }
-        
-        .footer-content {
+
+        .concours-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resources-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .resources-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .resource-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .resource-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: var(--primary-dark);
+            gap: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        
-        .footer-column h3 {
-            color: var(--secondary-color);
-            margin-top: 0;
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
         }
-        
-        .footer-column ul {
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-col ul {
             list-style: none;
-            padding: 0;
         }
-        
-        .footer-column ul li {
-            margin-bottom: 0.5rem;
+
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
-        
-        .footer-column ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
+
+        .footer-col ul li a {
             color: white;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .copyright {
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-col ul li a i {
+            color: var(--primary);
+            width: 20px;
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #444;
-            color: #bbb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            opacity: 0.7;
             font-size: 0.9rem;
         }
-        
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            .header-content {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
                 flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .concours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 250px;
                 text-align: center;
             }
             
-            nav ul {
-                margin-top: 1rem;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 0.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container header-content">
-            <div class="logo">Polymath<span>Edu</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#exams">Exams</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <span>Polymath</span> Concours Hub
+                </a>
+                <div class="nav-links">
+                    <a href="#concours" class="btn btn-primary">View Concours</a>
+                </div>
             </nav>
         </div>
     </header>
-    
-    <section class="hero" id="home">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Cameroon University Concours Portal</h1>
+            <p class="hero-subtitle">Comprehensive information and resources for all competitive entrance examinations into Cameroon State Universities for the 2025/2026 academic year</p>
+            <div class="cta-buttons">
+                <a href="#concours" class="btn btn-primary">Explore Concours</a>
+                <a href="#resources" class="btn btn-secondary">Study Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
         <div class="container">
-            <h1>Your Gateway to Professional Examinations in Cameroon</h1>
-            <p>Comprehensive resources and preparation materials for all major competitive exams in public health, customs, education, and engineering.</p>
-            <a href="#exams" class="btn">View Current Exams</a>
+            <section id="concours">
+                <h2 class="section-title">Available Concours</h2>
+                <p class="section-subtitle">Browse through all the competitive entrance examinations for the 2025/2026 academic year. Click on any concours to view detailed information.</p>
+                
+                <!-- Filter Controls -->
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Concours</button>
+                    <button class="filter-btn" data-filter="engineering">Engineering</button>
+                    <button class="filter-btn" data-filter="medicine">Medicine</button>
+                    <button class="filter-btn" data-filter="agriculture">Agriculture</button>
+                    <button class="filter-btn" data-filter="technology">Technology</button>
+                </div>
+                
+                <!-- Concours Grid -->
+                <div class="concours-grid" id="concoursContainer">
+                    <!-- Concours cards will be loaded dynamically -->
+                </div>
+            </section>
         </div>
-    </section>
-    
-    <section class="container" id="exams">
-        <h2 class="section-title">Current Competitive Examinations</h2>
         
-        <div class="exams-grid">
-            <!-- Public Health Exam -->
-            <div class="exam-card">
-                <div class="exam-header">
-                    <h3>Public Health Professionals</h3>
-                </div>
-                <div class="exam-body">
-                    <p>Aptitude Test for registration in the National Order of Health Professionals for holders of HND, BTS, HPD, DSEP, or Bachelor's degrees in Health Sciences.</p>
-                    <div class="exam-meta">
-                        <span class="deadline">Deadline: 21st July 2025</span>
-                        <span>South West Region</span>
-                    </div>
-                    <h4>Eligibility:</h4>
-                    <ul>
-                        <li>Cameroonian nationality</li>
-                        <li>HND/BTS, HPD/DSEP, or BSc/Licence in Health Sciences</li>
-                    </ul>
-                    <h4>Exam Dates:</h4>
-                    <p>Written: 9th August 2025<br>
-                    Practical: 20-23 August 2025</p>
-                    <a href="#contact" class="btn">Get Preparation Materials</a>
-                </div>
-            </div>
-            
-            <!-- Customs Exam -->
-            <div class="exam-card">
-                <div class="exam-header">
-                    <h3>Customs Officers Recruitment</h3>
-                </div>
-                <div class="exam-body">
-                    <p>Direct competitive examination for recruitment of 120 personnel into the Revenue Services (Customs) civil servants.</p>
-                    <div class="exam-meta">
-                        <span class="deadline">Deadline: 4th July 2025</span>
-                        <span>Nationwide</span>
-                    </div>
-                    <h4>Positions:</h4>
-                    <ul>
-                        <li>60 Assistant Controllers (Category C)</li>
-                        <li>60 Clerical Assistants (Category D)</li>
-                    </ul>
-                    <h4>Requirements:</h4>
-                    <p>Category C: GCE O/L or BEPC<br>
-                    Category D: FSLC or CEP</p>
-                    <h4>Exam Dates: 19-20 July 2025</h4>
-                    <a href="#contact" class="btn">Get Preparation Materials</a>
-                </div>
-            </div>
-            
-            <!-- GTTC Exam -->
-            <div class="exam-card">
-                <div class="exam-header">
-                    <h3>GTTC Entrance Examination</h3>
-                </div>
-                <div class="exam-body">
-                    <p>Competitive examination for admission into Government Teacher Training Colleges (GTTC) nationwide.</p>
-                    <div class="exam-meta">
-                        <span class="deadline">Deadline: 7th July 2025</span>
-                        <span>6,130 places available</span>
-                    </div>
-                    <h4>Requirements:</h4>
-                    <ul>
-                        <li>Age 17-32 years</li>
-                        <li>GCE Advanced Level or equivalent</li>
-                    </ul>
-                    <h4>GTTC Types:</h4>
-                    <ul>
-                        <li>Traditional (3,220 places)</li>
-                        <li>Bilingual (2,570 places)</li>
-                        <li>Specialized (340 places)</li>
-                    </ul>
-                    <a href="#contact" class="btn">Get Preparation Materials</a>
-                </div>
-            </div>
-            
-            <!-- FET Exam -->
-            <div class="exam-card">
-                <div class="exam-header">
-                    <h3>FET Engineering Entrance</h3>
-                </div>
-                <div class="exam-body">
-                    <p>Competitive entrance examination into the Faculty of Engineering and Technology (FET) at University of Buea.</p>
-                    <div class="exam-meta">
-                        <span class="deadline">Deadline: 22nd Sept 2025</span>
-                        <span>520 places available</span>
-                    </div>
-                    <h4>Programs:</h4>
-                    <ul>
-                        <li>Civil Engineering</li>
-                        <li>Computer Engineering</li>
-                        <li>Chemical/Petroleum Eng.</li>
-                        <li>Electrical/Electronic Eng.</li>
-                        <li>Mechanical Engineering</li>
-                    </ul>
-                    <h4>Requirements:</h4>
-                    <p>GCE O/L (5 subjects incl. Math, Physics) + A/L (Math +1)</p>
-                    <a href="#contact" class="btn">Get Preparation Materials</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="container" id="about">
-        <h2 class="section-title">About Polymath Education Network</h2>
-        <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-            <h3 style="color: var(--primary-color);">Our Mission</h3>
-            <p>To provide comprehensive, accurate, and up-to-date information about competitive examinations in Cameroon, along with high-quality preparation materials to help candidates succeed in their professional aspirations.</p>
-            
-            <h3 style="color: var(--primary-color); margin-top: 2rem;">Our Services</h3>
-            <ul>
-                <li>Detailed exam information and updates</li>
-                <li>Past questions and answers compilation</li>
-                <li>Preparatory classes and coaching</li>
-                <li>Registration assistance</li>
-                <li>Exam strategy and methodology guidance</li>
-            </ul>
-            
-            <h3 style="color: var(--primary-color); margin-top: 2rem;">Why Choose Us?</h3>
-            <p>With years of experience in exam preparation, we understand the specific requirements of each competitive examination in Cameroon. Our materials are carefully curated to match the official syllabi and examination patterns.</p>
-        </div>
-    </section>
-    
-    <section class="container" id="contact">
-        <h2 class="section-title">Contact Us</h2>
-        <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-            <div>
-                <h3 style="color: var(--primary-color); margin-top: 0;">Get in Touch</h3>
-                <p>For inquiries about exam preparation materials, registration assistance, or any other questions:</p>
+        <!-- Resources Section -->
+        <section class="resources-section" id="resources">
+            <div class="container resources-content">
+                <h2 class="section-title" style="color: white;">Study Resources</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Essential materials to help you prepare for your concours examinations</p>
                 
-                <p><strong>Phone:</strong> 650990946</p>
-                <p><strong>Email:</strong>polymatheducationnetwork@gmail.com</p>
-                
-                <h4 style="color: var(--primary-color); margin-top: 1.5rem;">Services Offered:</h4>
-                <ul>
-                    <li>Past Questions and Answers</li>
-                    <li>Preparatory Classes</li>
-                    <li>Non-Conviction Certificates</li>
-                    <li>Exam Methodology Guides</li>
-                    <li>Full Syllabus Compilations</li>
-                    <li>Registration Assistance</li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 style="color: var(--primary-color); margin-top: 0;">Exam Preparation Assistance</h3>
-                <p>We provide specialized support for:</p>
-                <ul>
-                    <li>ENAM</li>
-                    <li>NASLA</li>
-                    <li>CUSTOM</li>
-                    <li>TREASURY</li>
-                    <li>ENS</li>
-                    <li>NURSING</li>
-                    <li>MEDICINE</li>
-                    <li>FET</li>
-                    <li>COT</li>
-                    <li>IELTS</li>
-                </ul>
-                
-                <div style="margin-top: 2rem; background-color: var(--light-color); padding: 1rem; border-radius: 5px;">
-                    <h4 style="color: var(--primary-color); margin-top: 0;">Urgent Notice</h4>
-                    <p>Application deadlines for many competitive exams are approaching soon. Contact us immediately for assistance with your application and preparation.</p>
-                    <a href="tel:650990946" class="btn" style="display: inline-block; margin-top: 1rem;">Call Now</a>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="resource-title">Past Questions</h3>
+                        <p class="resource-desc">Download past questions from previous years to familiarize yourself with the exam format.</p>
+                        <a href="#" class="resource-link">
+                            Download Now <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3 class="resource-title">Syllabus Guides</h3>
+                        <p class="resource-desc">Get detailed syllabus breakdowns for each concours to focus your studies.</p>
+                        <a href="#" class="resource-link">
+                            View Syllabi <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3 class="resource-title">Preparation Courses</h3>
+                        <p class="resource-desc">Enroll in our specialized preparation courses led by experienced instructors.</p>
+                        <a href="#" class="resource-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+        </section>
+        
+        <div class="container">
+            <section>
+                <h2 class="section-title">Important Dates</h2>
+                <p class="section-subtitle">Mark your calendar with these critical deadlines for the 2025/2026 concours season</p>
+                
+                <div class="concours-grid" id="datesContainer">
+                    <!-- Important dates will be loaded dynamically -->
+                </div>
+            </section>
         </div>
-    </section>
-    
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
+            <div class="footer-grid">
+                <div class="footer-col">
                     <h3>Polymath Education</h3>
-                    <p>Your trusted partner for competitive exam preparation in Cameroon.</p>
+                    <p>Providing quality educational resources and guidance to students across Cameroon to help them succeed in competitive university entrance examinations.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
                 
-                <div class="footer-column">
+                <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#exams">Current Exams</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#concours"><i class="fas fa-chevron-right"></i> All Concours</a></li>
+                        <li><a href="#resources"><i class="fas fa-chevron-right"></i> Study Resources</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Preparation Courses</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Exam Categories</h3>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="#exams">Public Sector</a></li>
-                        <li><a href="#exams">Education</a></li>
-                        <li><a href="#exams">Health</a></li>
-                        <li><a href="#exams">Engineering</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Connect With Us</h3>
-                    <ul>
-                        <li><a href="tel:650990946">Phone: 650 990 946</a></li>
-                        <li><a href="polymatheducationnetwork@gmail.com">Email Us</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@polymath.cm</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +237 6XX XXX XXX</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Bamenda, Cameroon</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="copyright">
+            <div class="footer-bottom">
                 <p>&copy; 2025 Polymath Education Network. All rights reserved.</p>
+                <p>Designed by <a href="https://lumoracom.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Lumora</a></p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Concours Data
+        const concoursData = [
+            {
+                id: 1,
+                title: "COLTECH Entrance",
+                subtitle: "College of Technology, University of Bamenda",
+                category: "technology",
+                date: "September 20, 2025",
+                places: "Multiple programs",
+                examCenters: "Bamenda, Bafoussam, Douala, Yaoundé",
+                applicationDeadline: "September 15, 2025",
+                fee: "20,000 FCFA",
+                programs: [
+                    "Agribusiness Technology",
+                    "Agricultural & Environmental Engineering",
+                    "Animal Production Technology",
+                    "Crop Production Technology",
+                    "Food Science & Technology",
+                    "Forestry & Wildlife Technology",
+                    "Electric Power Engineering",
+                    "Telecommunication Engineering",
+                    "Renewable Energy Engineering",
+                    "Computer Networks & Systems",
+                    "Software Engineering"
+                ],
+                requirements: "4+ GCE O/L + 2 A/L Sciences or equivalent",
+                examStructure: "2 written papers (Math/Sciences + General Knowledge)"
+            },
+            {
+                id: 2,
+                title: "Faculty of Agriculture & Veterinary Medicine",
+                subtitle: "University of Buea",
+                category: "agriculture",
+                date: "September 24, 2025",
+                places: "400 (First Year), 57 (Second Year)",
+                examCenters: "Buea, Bamenda, Douala, Yaoundé",
+                applicationDeadline: "September 22, 2025",
+                fee: "20,000 FCFA (Mobile Money)",
+                programs: [
+                    "Agricultural Economics",
+                    "Agricultural Extension",
+                    "Animal Science",
+                    "Crop Production",
+                    "Fisheries & Aquaculture",
+                    "Food Science & Technology",
+                    "Forestry & Wildlife",
+                    "Plant Health Management",
+                    "Soil Science",
+                    "Veterinary Medicine"
+                ],
+                requirements: "5 GCE O/L (Eng, Math, Bio, Chem) + 2 A/L Sciences or Bac C/D",
+                examStructure: "Biology (3hrs), Chemistry (3hrs) + File Study"
+            },
+            {
+                id: 3,
+                title: "Faculty of Engineering & Technology (FET)",
+                subtitle: "University of Buea",
+                category: "engineering",
+                date: "September 25, 2025",
+                places: "520 total (Bachelor & Master)",
+                examCenters: "Buea, Bamenda, Douala, Yaoundé",
+                applicationDeadline: "September 22, 2025",
+                fee: "20,000 FCFA",
+                programs: [
+                    "Civil Engineering",
+                    "Computer Engineering",
+                    "Chemical & Petroleum Engineering",
+                    "Electrical & Electronic Engineering",
+                    "Mechanical Engineering"
+                ],
+                requirements: "5 GCE O/L (Eng, Math, Physics) + 2 A/L (Math + Sci) or equivalent",
+                examStructure: "Mathematics (3hrs), Physics (3hrs)"
+            },
+            {
+                id: 4,
+                title: "Medicine & Pharmacy Concours",
+                subtitle: "National Qualifying Examination",
+                category: "medicine",
+                date: "September 5, 2025",
+                places: "1,120 across all institutions",
+                examCenters: "Multiple centers nationwide",
+                applicationDeadline: "August 22, 2025",
+                fee: "20,000 FCFA (Express Union)",
+                programs: [
+                    "Medicine (750 places)",
+                    "Pharmacy (250 places)",
+                    "Odontostomatology (120 places)"
+                ],
+                requirements: "Bac C/D or GCE A/L (Bio + Chem same session), max age 23",
+                examStructure: "Biology, Chemistry, Physics + General Knowledge"
+            },
+            {
+                id: 5,
+                title: "Faculty of Health Sciences",
+                subtitle: "University of Bamenda",
+                category: "medicine",
+                date: "September 13, 2025",
+                places: "100 each for Nursing & Medical Lab Science",
+                examCenters: "Bamenda Campus",
+                applicationDeadline: "September 11, 2025",
+                fee: "20,000 FCFA (NFC Bank)",
+                programs: [
+                    "Nursing/Midwifery",
+                    "Medical Laboratory Science"
+                ],
+                requirements: "4 GCE O/L (Eng, Bio, Chem) + 2 A/L Sciences or Bac C/D/I, max age 28",
+                examStructure: "Biology (coeff 4), Chemistry & Physics (coeff 2) + File Study"
+            },
+            {
+                id: 6,
+                title: "NAHPI Entrance",
+                subtitle: "National Higher Polytechnic Institute",
+                category: "engineering",
+                date: "September 21, 2025",
+                places: "Multiple engineering programs",
+                examCenters: "Bafoussam, Bambili, Buea, Douala, Yaoundé",
+                applicationDeadline: "September 12, 2025",
+                fee: "20,000 FCFA (UBA Bank)",
+                programs: [
+                    "Biotechnology & Food Process Eng",
+                    "Chemical & Process Engineering",
+                    "Computer Engineering",
+                    "Biomedical Engineering",
+                    "Meteorology Engineering",
+                    "Electrical & Electronic Eng",
+                    "Industrial Engineering",
+                    "Mining & Mineral Eng",
+                    "Petroleum Engineering"
+                ],
+                requirements: "GCE O/A Levels or Bac with science subjects",
+                examStructure: "Technical tests (3 papers) + File Study"
+            },
+            {
+                id: 7,
+                title: "Higher Institute of Transport & Logistics",
+                subtitle: "University of Bamenda",
+                category: "technology",
+                date: "September 23, 2025",
+                places: "500 total across departments",
+                examCenters: "Bafoussam, Bambili, Buea, Douala, Yaoundé",
+                applicationDeadline: "September 23, 2025 (noon)",
+                fee: "20,000 FCFA (NFC Bank)",
+                programs: [
+                    "Air Transport",
+                    "Customs",
+                    "Land Transport",
+                    "Maritime Transport",
+                    "Tourism & Hospitality",
+                    "Transit & Logistics"
+                ],
+                requirements: "2 GCE A/L or Bac + 4 GCE O/L (with English)",
+                examStructure: "Math/Economics + General Knowledge"
+            }
+        ];
+
+        // Important Dates Data
+        const importantDates = [
+            {
+                title: "Medicine & Pharmacy Application Deadline",
+                date: "August 22, 2025",
+                description: "Last day to submit online applications for the national medical qualifying exam"
+            },
+            {
+                title: "Medicine & Pharmacy Exam",
+                date: "September 5, 2025",
+                description: "National qualifying examination for medical training in Cameroon"
+            },
+            {
+                title: "Faculty of Health Sciences Deadline",
+                date: "September 11, 2025",
+                description: "Last day to apply for Nursing/Medical Lab Science at UB"
+            },
+            {
+                title: "Faculty of Health Sciences Exam",
+                date: "September 13, 2025",
+                description: "Entrance exam for Nursing & Medical Lab Science programs"
+            },
+            {
+                title: "NAHPI Application Deadline",
+                date: "September 12, 2025",
+                description: "Last day to apply for engineering programs at NAHPI"
+            },
+            {
+                title: "NAHPI Entrance Exam",
+                date: "September 21, 2025",
+                description: "Competitive exam for National Higher Polytechnic Institute"
+            },
+            {
+                title: "COLTECH Entrance Exam",
+                date: "September 20, 2025",
+                description: "Entrance exam for College of Technology, University of Bamenda"
+            },
+            {
+                title: "Agriculture & Vet Med Exam",
+                date: "September 24, 2025",
+                description: "Entrance exam for Faculty of Agriculture & Veterinary Medicine"
+            },
+            {
+                title: "FET Entrance Exam",
+                date: "September 25, 2025",
+                description: "Entrance exam for Faculty of Engineering & Technology"
+            }
+        ];
+
+        // DOM Elements
+        const concoursContainer = document.getElementById('concoursContainer');
+        const datesContainer = document.getElementById('datesContainer');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        // Initialize the page
+        function init() {
+            renderConcoursCards(concoursData);
+            renderImportantDates(importantDates);
+            setupFiltering();
+        }
+
+        // Render concours cards
+        function renderConcoursCards(concours) {
+            concoursContainer.innerHTML = '';
+            
+            concours.forEach(item => {
+                const card = document.createElement('div');
+                card.className = `concours-card ${item.category}`;
+                card.innerHTML = `
+                    <div class="concours-header">
+                        <span class="concours-badge">${item.category.toUpperCase()}</span>
+                        <h3 class="concours-title">${item.title}</h3>
+                        <p class="concours-subtitle">${item.subtitle}</p>
+                    </div>
+                    <div class="concours-body">
+                        <div class="concours-meta">
+                            <div class="concours-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>${item.date}</span>
+                            </div>
+                            <div class="concours-meta-item">
+                                <i class="fas fa-users"></i>
+                                <span>${item.places}</span>
+                            </div>
+                        </div>
+                        <div class="concours-details">
+                            <div class="concours-details-item">
+                                <span class="concours-details-label">Exam Centers:</span>
+                                <span class="concours-details-value">${item.examCenters}</span>
+                            </div>
+                            <div class="concours-details-item">
+                                <span class="concours-details-label">Deadline:</span>
+                                <span class="concours-details-value">${item.applicationDeadline}</span>
+                            </div>
+                            <div class="concours-details-item">
+                                <span class="concours-details-label">Fee:</span>
+                                <span class="concours-details-value">${item.fee}</span>
+                            </div>
+                        </div>
+                        <a href="#" class="concours-link" data-id="${item.id}">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                `;
+                concoursContainer.appendChild(card);
+            });
+        }
+
+        // Render important dates
+        function renderImportantDates(dates) {
+            datesContainer.innerHTML = '';
+            
+            dates.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'concours-card';
+                card.innerHTML = `
+                    <div class="concours-header" style="background: linear-gradient(135deg, var(--secondary), #059669);">
+                        <h3 class="concours-title">${item.title}</h3>
+                        <p class="concours-subtitle">${item.date}</p>
+                    </div>
+                    <div class="concours-body">
+                        <p style="margin-bottom: 0;">${item.description}</p>
+                    </div>
+                `;
+                datesContainer.appendChild(card);
+            });
+        }
+
+        // Setup filtering functionality
+        function setupFiltering() {
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    
+                    if (filter === 'all') {
+                        document.querySelectorAll('.concours-card').forEach(card => {
+                            card.style.display = 'block';
+                        });
+                    } else {
+                        document.querySelectorAll('.concours-card').forEach(card => {
+                            if (card.classList.contains(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
