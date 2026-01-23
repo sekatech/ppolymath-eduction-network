@@ -9,23 +9,182 @@
     <meta property="og:title" content="GCE Preparation & Resources - Polymath Education Network">
     <meta property="og:description" content="Free GCE, concours, and HND study resources for Cameroonian students">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.stechdigitalink.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.stechdigitalink.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.stechdigitalink.com">
     <link rel="icon" type="image/png" sizes="32x32" href="file.jpg">
     <link rel="icon" type="image/png" sizes="16x16" href="file.jpg">
     <title>GCE Preparation & Resources past questions- Polymath Education Network</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
+            --primary-color: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #6366f1;
+            --secondary-color: #10b981;
+            --accent-color: #8b5cf6;
             --text-color: #1f2937;
+            --text-light: #6b7280;
             --light-text: #f9fafb;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --border-radius: 12px;
-            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --transition: all 0.3s ease;
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo::after {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            margin-left: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        .menu-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--box-shadow);
+        }
+
+        .menu-popup {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            padding: 100px 30px 30px;
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .menu-popup.show {
+            display: flex;
+            transform: translateX(0);
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            background-color: rgba(79, 70, 229, 0.08);
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .nav-link i {
+            width: 20px;
+            text-align: center;
         }
 
         /* Slider Container */
@@ -33,14 +192,13 @@
             position: relative;
             width: 100%;
             max-width: 1200px;
-            height: 500px;
-            margin: 0 auto;
+            height: 600px;
+            margin: 100px auto 0;
             overflow: hidden;
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow-lg);
         }
 
-        /* Slider Images */
         .slider {
             width: 100%;
             height: 100%;
@@ -58,7 +216,6 @@
             transition: opacity 1s ease-in-out;
         }
 
-        /* Active Image */
         .slider img.active {
             opacity: 1;
         }
@@ -66,7 +223,7 @@
         /* Slider Navigation */
         .slider-nav {
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -85,33 +242,480 @@
 
         .slider-dot.active {
             background-color: var(--light-text);
-            transform: scale(1.2);
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         /* Scroll Text Container */
         .scroll-text {
             position: absolute;
-            bottom: 50px;
+            bottom: 70px;
             left: 0;
             right: 0;
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            background: linear-gradient(to right, rgba(79, 70, 229, 0.9), rgba(139, 92, 246, 0.9));
             color: var(--light-text);
             text-align: center;
             z-index: 5;
+            backdrop-filter: blur(5px);
         }
 
         .scroll-text h2 {
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 500;
             white-space: nowrap;
             overflow: hidden;
-            animation: scrollText 20s linear infinite;
+            animation: scrollText 25s linear infinite;
         }
 
         @keyframes scrollText {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            margin-top: -1px;
+        }
+
+        .wave-divider svg {
+            width: calc(100% + 1.3px);
+            height: 100px;
+            display: block;
+        }
+
+        .wave-divider .shape-fill {
+            fill: var(--bg-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            background-color: var(--bg-color);
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .lead-text {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-light);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(79, 70, 229, 0.05);
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            margin: 10px auto 30px;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .dropdown-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .dropdown-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .dropdown-btn {
+            width: 100%;
+            padding: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dropdown-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .dropdown-btn i.fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-btn i.fa-chevron-down.rotate {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            background-color: rgba(79, 70, 229, 0.05);
+            color: var(--primary-color);
+            padding-left: 25px;
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .about-card .section-title {
+            font-size: 1.5rem;
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-card .section-title::after {
+            display: none;
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services-section {
+            margin-bottom: 80px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .news-image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        .news-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .news-link:hover {
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: var(--light-text);
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .footer-col p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a, .footer-col ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #d1d5db;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+            text-decoration: underline;
         }
 
         /* Floating Action Button */
@@ -121,51 +725,127 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background-color: var(--primary-color);
+            background: var(--gradient-primary);
             color: white;
             border-radius: 50%;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 22px;
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
             cursor: pointer;
-            z-index: 1000;
+            z-index: 999;
             transition: var(--transition);
         }
 
         .fab:hover {
             transform: scale(1.1);
-            background-color: var(--secondary-color);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
         }
 
-        /* Loading Animation */
+        /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .fade-in {
+            opacity: 0;
             animation: fadeIn 0.8s ease forwards;
         }
 
-        /* Wave Divider */
-        .wave-divider {
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .slider-container {
+                height: 500px;
+            }
+            
+            .main-title {
+                font-size: 2.3rem;
+            }
         }
 
-        .wave-divider svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 100px;
+        @media (max-width: 768px) {
+            .slider-container {
+                height: 400px;
+                margin-top: 80px;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
-        .wave-divider .shape-fill {
-            fill: var(--bg-color);
+        @media (max-width: 576px) {
+            .slider-container {
+                height: 350px;
+                border-radius: var(--border-radius-sm);
+            }
+            
+            .main-title {
+                font-size: 1.8rem;
+            }
+            
+            .lead-text {
+                font-size: 1.1rem;
+            }
+            
+            .dropdown-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fab {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header, .fab, .slider-nav, .scroll-text {
+                display: none !important;
+            }
+            
+            .slider-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -178,15 +858,18 @@
                     <span>Polymath</span> Education
                 </a>
                 
-                <button class="menu-button" onclick="toggleMenu()">
+                <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
                 
                 <div class="menu-popup" id="menuPopup">
-                    <a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                    <a href="about us.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
-                    <a href="services.html" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a>
-                    <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                    <button class="menu-button" onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px;" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <a href="#home" class="nav-link" onclick="toggleMenu()"><i class="fas fa-home"></i> Home</a>
+                    <a href="about us.html" class="nav-link" onclick="toggleMenu()"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="services.html" class="nav-link" onclick="toggleMenu()"><i class="fas fa-concierge-bell"></i> Services</a>
+                    <a href="contact.html" class="nav-link" onclick="toggleMenu()"><i class="fas fa-envelope"></i> Contact</a>
                 </div>
             </nav>
         </div>
@@ -196,18 +879,18 @@
     <section class="hero" id="home">
         <div class="slider-container">
             <div class="slider">
-                <img src="image1.jpg" alt="Educational Resources" class="active">
-                <img src="GCE.png" alt="GCE Preparation">
-                <img src="obc.png" alt="OBC Resources">
-                <img src="hnd.jpg" alt="HND Materials">
-                <img src="image4.png" alt="Study Materials">
-                <img src="image5.png" alt="Learning Resources">
+                <img src="image1.jpg" alt="Educational Resources for Cameroon students" class="active">
+                <img src="GCE.png" alt="GCE Preparation materials and past questions">
+                <img src="obc.png" alt="OBC Resources for competitive exams">
+                <img src="hnd.jpg" alt="HND Materials for higher education">
+                <img src="image4.png" alt="Study Materials for exam success">
+                <img src="image5.png" alt="Learning Resources for students">
             </div>
             
             <div class="slider-nav" id="sliderNav"></div>
             
             <div class="scroll-text">
-                <h2>" BEYOND THE BROWSER - Stay tuned for more updates!"</h2>
+                <h2>"BEYOND THE BROWSER - Stay tuned for more updates from Polymath Education Network!"</h2>
             </div>
         </div>
     </section>
@@ -224,73 +907,75 @@
         <div class="container">
             <section class="intro-section fade-in">
                 <h1 class="main-title">Welcome to Polymath Education Network</h1>
-                <p class="lead-text">The premier GCE and concours preparation platform in Cameroon, offering comprehensive study resources.</p>
+                <p class="lead-text">The premier GCE and concours preparation platform in Cameroon, offering comprehensive study resources, past questions, and exam preparation materials for students across the nation.</p>
                 
                 <div class="cta-buttons">
-                    <a href="#resources" class="btn btn-primary">Explore Resources</a>
-                    <a href="apply.html" class="btn btn-secondary">Join Our Classes</a>
+                    <a href="#resources" class="btn btn-primary"><i class="fas fa-book-open"></i> Explore Resources</a>
+                    <a href="apply.html" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Join Our Classes</a>
                 </div>
             </section>
 
             <!-- Resource Dropdowns Section -->
             <section class="resources-section" id="resources">
                 <h2 class="section-title">Educational Resources</h2>
-                <p class="section-subtitle">Access our comprehensive collection of study materials</p>
+                <p class="section-subtitle">Access our comprehensive collection of study materials, past questions, and exam preparation resources</p>
                 
                 <div class="dropdown-grid">
                     <!-- GCE Dropdown -->
                     <div class="dropdown-card">
-                        <button class="dropdown-btn">
-                            <i class="fas fa-graduation-cap"></i> GCE
+                        <button class="dropdown-btn" aria-expanded="false">
+                            <i class="fas fa-graduation-cap"></i> GCE Resources
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="ordinary-level.html" class="dropdown-link"><i class="fas fa-book-open"></i> Ordinary Level</a>
-                            <a href="advanced-level.html" class="dropdown-link"><i class="fas fa-book"></i> Advanced Level</a>
+                            <a href="ordinary-level.html" class="dropdown-link"><i class="fas fa-book-open"></i> Ordinary Level Past Questions</a>
+                            <a href="advanced-level.html" class="dropdown-link"><i class="fas fa-book"></i> Advanced Level Past Questions</a>
+                            <a href="gce-guides.html" class="dropdown-link"><i class="fas fa-file-alt"></i> GCE Study Guides</a>
                         </div>
                     </div>
 
                     <!-- Concours Dropdown -->
                     <div class="dropdown-card">
-                        <button class="dropdown-btn">
-                            <i class="fas fa-trophy"></i> Concours
+                        <button class="dropdown-btn" aria-expanded="false">
+                            <i class="fas fa-trophy"></i> Concours Preparation
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="Cnc.html" class="dropdown-link"><i class="fas fa-calendar-alt"></i> 2025 concours</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-flask"></i> NAPHI</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-stethoscope"></i> THE COT</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-leaf"></i> FET AGRICULTURE</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-user-md"></i> MEDICINE</a>
+                            <a href="Cnc.html" class="dropdown-link"><i class="fas fa-calendar-alt"></i> 2025 Concours Papers</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-flask"></i> NAPHI Entrance Exams</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-stethoscope"></i> THE COT Materials</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-leaf"></i> FET Agriculture</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-user-md"></i> Medical School Prep</a>
                         </div>
                     </div>
 
                     <!-- HND Dropdown -->
                     <div class="dropdown-card">
-                        <button class="dropdown-btn">
-                            <i class="fas fa-university"></i> HND
+                        <button class="dropdown-btn" aria-expanded="false">
+                            <i class="fas fa-university"></i> HND & University
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-content">
                             <a href="https://drive.google.com/file/d/139TssIhBsM3DRoL1fIZGstFaN4LUX0rn/view?usp=drive_link" class="dropdown-link"><i class="fas fa-laptop-code"></i> Computer Engineering</a>
                             <a href="https://drive.google.com/file/d/17UPcPqgYC8gxf7H1xBFIGBmhOGAs_CN3/view?usp=drive_link" class="dropdown-link"><i class="fas fa-business-time"></i> Enterprise Creation</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-code"></i> IT Programs</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-heartbeat"></i> Nursing</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-tractor"></i> Agriculture</a>
-                            <a href="soon.html" class="dropdown-link"><i class="fas fa-gavel"></i> Law</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-code"></i> IT Programs & Materials</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-heartbeat"></i> Nursing Resources</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                            <a href="soon.html" class="dropdown-link"><i class="fas fa-gavel"></i> Law Study Materials</a>
                         </div>
                     </div>
 
                     <!-- Polymath Brain Box -->
                     <div class="dropdown-card">
-                        <button class="dropdown-btn">
-                            <i class="fas fa-brain"></i> Brain Box
+                        <button class="dropdown-btn" aria-expanded="false">
+                            <i class="fas fa-brain"></i> Brain Box & Testing
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="icttest.html" class="dropdown-link"><i class="fas fa-laptop"></i> I.T self testing</a>
+                            <a href="icttest.html" class="dropdown-link"><i class="fas fa-laptop"></i> I.T Self Testing</a>
                             <a href="gce1.HTML" class="dropdown-link"><i class="fas fa-file-alt"></i> GCE ICT Paper 1 – 2014</a>
-                            <a href="#" class="dropdown-link"><i class="fas fa-spinner"></i> Loading</a>
+                            <a href="practice-tests.html" class="dropdown-link"><i class="fas fa-spinner"></i> Interactive Practice Tests</a>
+                            <a href="quiz-zone.html" class="dropdown-link"><i class="fas fa-question-circle"></i> Quiz Zone</a>
                         </div>
                     </div>
                 </div>
@@ -300,18 +985,24 @@
             <section class="about-section" id="about">
                 <div class="about-card fade-in">
                     <h2 class="section-title"><i class="fas fa-info-circle"></i> About Us</h2>
-                    <p>We are a team dedicated to providing students with quality educational resources ranging from GCE past questions, concour preparation and past questions, HND & Bsc study materials for free to students in and around Cameroon.</p>
+                    <p>Polymath Education Network is a dedicated team providing students with quality educational resources including GCE past questions, concours preparation materials, HND & BSc study materials - all free for students in and around Cameroon. Our mission is to democratize access to quality education.</p>
+                    <a href="about us.html" class="news-link" style="margin-top: 15px; display: inline-block;">
+                        Learn More About Us <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div class="about-card fade-in">
-                    <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Disclaimer</h2>
+                    <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h2>
                     <p>This platform does not claim ownership or authorship of any Cameroon GCE Board materials or any other examination board and strictly adheres to educational and non-commercial use policies. The materials posted here are made available to help students understand exam formats and develop effective study strategies under the rights granted for academic purposes.</p>
                     <p class="highlight-text">Thank you, and we wish you success in your studies and examinations!</p>
                 </div>
 
                 <div class="about-card fade-in">
-                    <h2 class="section-title"><i class="fas fa-archive"></i> Cameroon GCE Examination Questions Archive</h2>
-                    <p>We give credit to all the examination boards for the creation and maintenance of these valuable educational resources.</p>
+                    <h2 class="section-title"><i class="fas fa-archive"></i> Cameroon GCE Examination Archive</h2>
+                    <p>We maintain an extensive archive of Cameroon GCE examination questions and solutions. We give credit to all the examination boards for the creation and maintenance of these valuable educational resources that help thousands of students prepare for their exams each year.</p>
+                    <a href="archive.html" class="news-link" style="margin-top: 15px; display: inline-block;">
+                        Browse Our Archive <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </section>
 
@@ -322,24 +1013,30 @@
                     <div class="service-card fade-in">
                         <i class="fas fa-download"></i>
                         <h3>Download Resources</h3>
-                        <p>Access GCE past questions and solutions for comprehensive exam preparation.</p>
+                        <p>Access comprehensive GCE past questions, solutions, and study materials for effective exam preparation.</p>
                     </div>
                     <div class="service-card fade-in">
                         <i class="fas fa-file-pdf"></i>
                         <h3>Concours Papers</h3>
-                        <p>Download past concour papers to enhance your competitive exam readiness.</p>
+                        <p>Download past concours papers and solutions to enhance your competitive exam readiness and performance.</p>
                     </div>
                     <div class="service-card fade-in">
                         <i class="fas fa-laptop-code"></i>
-                        <h3>IT Courses</h3>
-                        <p>Register for our IT courses to develop valuable technical skills.</p>
+                        <h3>IT Courses & Testing</h3>
+                        <p>Register for our IT courses and practice tests to develop valuable technical skills for today's digital world.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Preparation Classes</h3>
+                        <p>Join our specialized preparation classes for GCE, concours, and university entrance exams with expert tutors.</p>
                     </div>
                 </div>
             </section>
 
             <!-- News Feed Section -->
             <section class="news-section" id="news">
-                <h2 class="section-title"><i class="fas fa-newspaper"></i> Latest News</h2>
+                <h2 class="section-title"><i class="fas fa-newspaper"></i> Latest News & Updates</h2>
+                <p class="section-subtitle">Stay informed with the latest educational news, exam updates, and resource additions</p>
                 <div class="news-grid" id="newsContainer">
                     <!-- News items will be loaded dynamically -->
                 </div>
@@ -353,77 +1050,100 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Polymath Education</h3>
-                    <p>Providing quality educational resources to students across Cameroon.</p>
+                    <p>Providing quality educational resources to students across Cameroon. Empowering the next generation through accessible education.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about us.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="about us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Resources</h3>
+                    <h3>Educational Resources</h3>
                     <ul>
                         <li><a href="ordinary-level.html"><i class="fas fa-chevron-right"></i> GCE O-Level</a></li>
                         <li><a href="advanced-level.html"><i class="fas fa-chevron-right"></i> GCE A-Level</a></li>
-                        <li><a href="Cnc.html"><i class="fas fa-chevron-right"></i> Concours</a></li>
+                        <li><a href="Cnc.html"><i class="fas fa-chevron-right"></i> Concours Materials</a></li>
                         <li><a href="icttest.html"><i class="fas fa-chevron-right"></i> IT Testing</a></li>
+                        <li><a href="hnd-resources.html"><i class="fas fa-chevron-right"></i> HND Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Contact Info</h3>
+                    <h3>Contact Information</h3>
                     <ul>
                         <li><i class="fas fa-envelope"></i> info@polymathedunet.com</li>
-                        <li><i class="fas fa-phone"></i> +237 6 74 90 91 05 </li>
-                        <li><i class="fas fa-map-marker-alt"></i> Cameroon</li>
+                        <li><i class="fas fa-phone"></i> +237 6 74 90 91 05</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Cameroon, Central Africa</li>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 8:00 AM - 6:00 PM</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Polymath Education Network. All rights reserved.</p>
-                <p>Designed by <a href="https://lumoracom.vercel.app/" target="_blank" rel="noopener noreferrer">Lumora</a></p>
+                <p>&copy; <span id="currentYear"></span> Polymath Education Network. All rights reserved.</p>
+                <p>Designed by <a href="https://www.stechdigitalink.com" target="_blank" rel="noopener noreferrer">S-tech Digital Ink</a> | <span id="currentDate"></span></p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Action Button -->
-    <div class="fab" onclick="scrollToTop()">
+    <div class="fab" onclick="scrollToTop()" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- JSON Data Script -->
+    <!-- JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
         "name": "Polymath Education Network",
         "description": "Providing free GCE preparation resources, past questions, and study materials for students in Cameroon.",
-        "url": "https://yourwebsite.com",
-        "logo": "https://yourwebsite.com/logo.png",
-        "sameAs": [
-            "https://facebook.com/yourpage",
-            "https://twitter.com/yourhandle"
-        ],
+        "url": "https://www.stechdigitalink.com",
+        "logo": "https://www.stechdigitalink.com/images/logo.png",
+        "founder": {
+            "@type": "Person",
+            "name": "Polymath Education Team"
+        },
+        "foundingDate": "2020",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Cameroon"
+        },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+237 6 74 90 91 05",
-            "contactType": "customer service"
-        }
+            "telephone": "+237-674-909-105",
+            "contactType": "customer service",
+            "email": "info@polymathedunet.com",
+            "availableLanguage": ["English", "French"]
+        },
+        "sameAs": [
+            "https://facebook.com/polymathedunet",
+            "https://twitter.com/polymathedunet",
+            "https://instagram.com/polymathedunet"
+        ],
+        "knowsAbout": [
+            "GCE Cameroon",
+            "Exam Preparation",
+            "Educational Resources",
+            "Past Questions",
+            "Concours Preparation"
+        ]
     }
     </script>
 
     <script src="//code.tidio.co/njjyjhdth8hhvtwnwl9mbvk0piv9foot.js" async></script>
     <script>
-        // Enhanced JavaScript with modern features
+        // Modern JavaScript for Polymath Education Network Website
         
         // DOM Elements
         const menuButton = document.querySelector('.menu-button');
@@ -434,6 +1154,8 @@
         const dropdownBtns = document.querySelectorAll('.dropdown-btn');
         const fab = document.querySelector('.fab');
         const newsContainer = document.getElementById('newsContainer');
+        const currentYearElement = document.getElementById('currentYear');
+        const currentDateElement = document.getElementById('currentDate');
 
         // Initialize variables
         let currentSlide = 0;
@@ -448,6 +1170,8 @@
             setupDropdowns();
             setupScrollEvents();
             setupIntersectionObserver();
+            updateFooterDate();
+            setupAccessibility();
         }
 
         // Create slider navigation dots
@@ -455,6 +1179,8 @@
             slides.forEach((slide, index) => {
                 const dot = document.createElement('div');
                 dot.classList.add('slider-dot');
+                dot.setAttribute('role', 'button');
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
                 if (index === 0) dot.classList.add('active');
                 dot.addEventListener('click', () => goToSlide(index));
                 sliderNav.appendChild(dot);
@@ -477,6 +1203,10 @@
             currentSlide = index;
             updateSlider();
             resetInterval();
+            
+            // Update aria-live region for screen readers
+            const slideLabel = slides[index].getAttribute('alt') || `Slide ${index + 1}`;
+            announceToScreenReader(`Now showing: ${slideLabel}`);
         }
 
         // Go to next slide
@@ -489,45 +1219,61 @@
         function updateSlider() {
             slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === currentSlide);
+                slide.setAttribute('aria-hidden', index !== currentSlide);
             });
             
             const dots = document.querySelectorAll('.slider-dot');
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
+                dot.setAttribute('aria-current', index === currentSlide ? 'true' : 'false');
             });
         }
 
-        // Toggle mobile menu
+        // Toggle mobile menu with improved accessibility
         function toggleMenu() {
             isMenuOpen = !isMenuOpen;
-            menuPopup.style.display = isMenuOpen ? 'flex' : 'none';
-            menuButton.innerHTML = isMenuOpen ? 
-                '<i class="fas fa-times"></i>' : 
-                '<i class="fas fa-bars"></i>';
+            menuPopup.classList.toggle('show', isMenuOpen);
+            
+            const menuIcon = menuButton.querySelector('i');
+            menuIcon.classList.toggle('fa-bars', !isMenuOpen);
+            menuIcon.classList.toggle('fa-times', isMenuOpen);
+            
+            menuButton.setAttribute('aria-expanded', isMenuOpen);
+            menuButton.setAttribute('aria-label', isMenuOpen ? 'Close menu' : 'Open menu');
+            
+            // Trap focus in menu when open
+            if (isMenuOpen) {
+                trapFocus(menuPopup);
+            }
         }
 
-        // Setup dropdown functionality
+        // Setup dropdown functionality with accessibility
         function setupDropdowns() {
             dropdownBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const content = this.nextElementSibling;
                     const icon = this.querySelector('.fa-chevron-down');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     
                     // Close all other dropdowns first
                     document.querySelectorAll('.dropdown-content').forEach(item => {
                         if (item !== content) {
                             item.style.maxHeight = null;
-                            item.previousElementSibling.querySelector('.fa-chevron-down').classList.remove('rotate');
+                            const otherBtn = item.previousElementSibling;
+                            otherBtn.setAttribute('aria-expanded', 'false');
+                            otherBtn.querySelector('.fa-chevron-down')?.classList.remove('rotate');
                         }
                     });
                     
                     // Toggle current dropdown
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                        icon.classList.remove('rotate');
-                    } else {
+                    if (!isExpanded) {
                         content.style.maxHeight = content.scrollHeight + 'px';
-                        icon.classList.add('rotate');
+                        icon?.classList.add('rotate');
+                        this.setAttribute('aria-expanded', 'true');
+                    } else {
+                        content.style.maxHeight = null;
+                        icon?.classList.remove('rotate');
+                        this.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
@@ -537,7 +1283,9 @@
                 if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
                     document.querySelectorAll('.dropdown-content').forEach(content => {
                         content.style.maxHeight = null;
-                        content.previousElementSibling.querySelector('.fa-chevron-down').classList.remove('rotate');
+                        const btn = content.previousElementSibling;
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.querySelector('.fa-chevron-down')?.classList.remove('rotate');
                     });
                 }
             });
@@ -548,55 +1296,70 @@
             const newsData = [
                 {
                     title: "POLYMATH EDUCATION PREPARATION CLASSES",
-                    description: "Contact us or apply now for our specialized courses.",
+                    description: "Contact us or apply now for our specialized courses in GCE, concours, and university entrance preparation.",
                     image: "IT.jpg",
-                    link: "apply.html"
+                    link: "apply.html",
+                    date: "2025-01-15"
                 },
                 {
-                    title: "FREE ICT PRACTICALS",
-                    description: "We are offering free ICT and computer science practicals starting septembre .",
+                    title: "FREE ICT PRACTICALS SESSIONS",
+                    description: "We are offering free ICT and computer science practicals starting September. Limited spots available!",
                     image: "news2.jpg",
-                    link: "https://chat.whatsapp.com/BzhdbAm1kZOHGuB71aceR5"
+                    link: "https://chat.whatsapp.com/BzhdbAm1kZOHGuB71aceR5",
+                    date: "2025-01-10"
                 },
                 {
-                    title: "CAMEROON HND",
+                    title: "CAMEROON HND RESOURCES UPDATED",
                     description: "The Cameroon HND offers practical training in various fields like Engineering, IT, Business, and more.",
                     image: "hnd.jpg",
-                    link: "https://www.cameroonhnd.com/"
+                    link: "https://www.cameroonhnd.com/",
+                    date: "2025-01-05"
                 },
                 {
-                    title: "GCE 2026 CANDIDATE GUIDELINES",
-                    description: "Important guidelines every candidate should follow for a smooth GCE experience.",
+                    title: "GCE 2026 CANDIDATE GUIDELINES RELEASED",
+                    description: "Important guidelines every candidate should follow for a smooth GCE examination experience.",
                     image: "GCE.png",
-                    link: "news.html"
+                    link: "news.html",
+                    date: "2024-12-20"
                 },
                 {
-                    title: "THE GCE 2026 TIME TABLE",
-                    description: "Go to read more to download the official GCE timetable.",
+                    title: "THE GCE 2026 TIME TABLE AVAILABLE",
+                    description: "Go to read more to download the official GCE timetable for the 2026 examination session.",
                     image: "GCE.png",
-                    link: "https://camgceb.org/wp-content/uploads/2024/01/2024-GCE-TimeTable.pdf"
+                    link: "https://camgceb.org/wp-content/uploads/2024/01/2024-GCE-TimeTable.pdf",
+                    date: "2024-12-15"
                 },
                 {
-                    title: "GCE 2026 COMING SOON",
-                    description: "Get to the official GCE board website for more information.",
+                    title: "GCE 2026 PREPARATION MATERIALS ADDED",
+                    description: "Get to the official GCE board website for more information and check our updated resource library.",
                     image: "news4.jpg",
-                    link: "https://camgceb.org/"
+                    link: "https://camgceb.org/",
+                    date: "2024-12-10"
                 }
             ];
 
             newsData.forEach((news, index) => {
-                const newsItem = document.createElement('div');
+                const newsItem = document.createElement('article');
                 newsItem.className = 'news-card fade-in';
                 newsItem.style.animationDelay = `${index * 0.1}s`;
                 
+                const formattedDate = new Date(news.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
                 newsItem.innerHTML = `
                     <div class="news-image-container">
-                        <img src="${news.image}" alt="${news.title}" class="news-image">
+                        <img src="${news.image}" alt="${news.title}" class="news-image" loading="lazy">
                     </div>
                     <div class="news-content">
+                        <div style="font-size: 0.85rem; color: var(--primary-color); margin-bottom: 8px; font-weight: 500;">
+                            <i class="far fa-calendar-alt"></i> ${formattedDate}
+                        </div>
                         <h3 class="news-title">${news.title}</h3>
                         <p class="news-description">${news.description}</p>
-                        <a href="${news.link}" class="news-link" ${news.link.startsWith('http') ? 'target="_blank"' : ''}>
+                        <a href="${news.link}" class="news-link" ${news.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>
                             Read More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -604,6 +1367,26 @@
                 
                 newsContainer.appendChild(newsItem);
             });
+        }
+
+        // Update footer with current date
+        function updateFooterDate() {
+            const now = new Date();
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+            
+            const currentYear = now.getFullYear();
+            const currentMonth = months[now.getMonth()];
+            
+            if (currentYearElement) {
+                currentYearElement.textContent = currentYear;
+            }
+            
+            if (currentDateElement) {
+                currentDateElement.textContent = `${currentMonth} ${currentYear}`;
+            }
         }
 
         // Setup scroll events
@@ -614,6 +1397,14 @@
                     fab.style.display = 'flex';
                 } else {
                     fab.style.display = 'none';
+                }
+                
+                // Add header shadow on scroll
+                const header = document.querySelector('.header');
+                if (window.pageYOffset > 50) {
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.12)';
+                } else {
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
                 }
             });
         }
@@ -635,7 +1426,8 @@
                     }
                 });
             }, {
-                threshold: 0.1
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             });
 
             document.querySelectorAll('.fade-in').forEach(element => {
@@ -643,9 +1435,145 @@
             });
         }
 
+        // Setup accessibility features
+        function setupAccessibility() {
+            // Add skip to content link
+            const skipLink = document.createElement('a');
+            skipLink.href = '#main-content';
+            skipLink.className = 'skip-to-content';
+            skipLink.textContent = 'Skip to main content';
+            skipLink.style.cssText = `
+                position: absolute;
+                top: -40px;
+                left: 0;
+                background: var(--primary-color);
+                color: white;
+                padding: 8px 16px;
+                z-index: 1001;
+                text-decoration: none;
+            `;
+            skipLink.addEventListener('focus', function() {
+                this.style.top = '0';
+            });
+            skipLink.addEventListener('blur', function() {
+                this.style.top = '-40px';
+            });
+            document.body.prepend(skipLink);
+            
+            // Update main content ID for skip link
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) {
+                mainContent.id = 'main-content';
+            }
+        }
+
+        // Trap focus for modal/dialog (used for mobile menu)
+        function trapFocus(element) {
+            const focusableElements = element.querySelectorAll(
+                'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+            
+            element.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+                if (e.key === 'Escape') {
+                    toggleMenu();
+                }
+            });
+            
+            // Focus first element
+            setTimeout(() => firstFocusable?.focus(), 100);
+        }
+
+        // Announce changes to screen readers
+        function announceToScreenReader(message) {
+            const announcer = document.getElementById('sr-announcer') || createScreenReaderAnnouncer();
+            announcer.textContent = message;
+        }
+
+        function createScreenReaderAnnouncer() {
+            const announcer = document.createElement('div');
+            announcer.id = 'sr-announcer';
+            announcer.style.cssText = `
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            `;
+            announcer.setAttribute('aria-live', 'polite');
+            announcer.setAttribute('aria-atomic', 'true');
+            document.body.appendChild(announcer);
+            return announcer;
+        }
+
+        // Keyboard navigation for slider
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlider();
+                resetInterval();
+            } else if (e.key === 'ArrowRight') {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlider();
+                resetInterval();
+            }
+        });
+
+        // Pause slider on hover
+        const sliderContainer = document.querySelector('.slider-container');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            sliderContainer.addEventListener('mouseleave', startSlider);
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (isMenuOpen && !menuPopup.contains(e.target) && !menuButton.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+
         // Initialize the page when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
+
+        // Add load event listener for additional optimizations
+        window.addEventListener('load', function() {
+            // Lazy load images that are not in viewport
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+            
+            // Add loaded class to body for CSS transitions
+            document.body.classList.add('loaded');
+        });
     </script>
 </body>
 </html>
-
