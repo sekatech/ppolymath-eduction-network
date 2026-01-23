@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Polymath Education Network - Premier GCE preparation resources, past questions, and study materials for students in Cameroon">
-    <meta name="keywords" content="GCE Cameroon, past questions, exam preparation, concours, HND, study resources, Cameroonian education">
+    <meta name="description" content="Polymath Education Network provides free GCE preparation resources, past questions, and study materials for students in Cameroon.">
+    <meta name="keywords" content="GCE Cameroon, past questions, exam preparation, concours, HND, study resources">
     <meta name="author" content="Polymath Education Network">
     <meta property="og:title" content="GCE Preparation & Resources - Polymath Education Network">
     <meta property="og:description" content="Free GCE, concours, and HND study resources for Cameroonian students">
@@ -30,10 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- CSS Variables and Base Styles -->
     <style>
+        /* Professional Color Palette */
         :root {
-            /* Professional Color Palette */
             --primary-dark: #0A2463;
             --primary-main: #1E40AF;
             --primary-light: #3B82F6;
@@ -45,7 +44,6 @@
             --accent-error: #EF4444;
             --accent-info: #8B5CF6;
             
-            /* Neutral Colors */
             --neutral-900: #111827;
             --neutral-800: #1F2937;
             --neutral-700: #374151;
@@ -58,20 +56,9 @@
             --neutral-50: #F9FAFB;
             --white: #FFFFFF;
             
-            /* Typography */
             --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-body: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
             
-            /* Spacing */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            --space-3xl: 4rem;
-            
-            /* Border Radius */
             --radius-sm: 4px;
             --radius-md: 8px;
             --radius-lg: 12px;
@@ -79,245 +66,78 @@
             --radius-2xl: 24px;
             --radius-full: 9999px;
             
-            /* Shadows */
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             
-            /* Transitions */
-            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Z-indices */
-            --z-dropdown: 1000;
-            --z-sticky: 1020;
-            --z-fixed: 1030;
-            --z-modal-backdrop: 1040;
-            --z-modal: 1050;
-            --z-popover: 1060;
-            --z-tooltip: 1070;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Reset & Base Styles */
-        *,
-        *::before,
-        *::after {
+        /* Reset & Base */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         html {
-            font-size: 16px;
             scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
             font-family: var(--font-body);
-            font-size: 1rem;
-            line-height: 1.6;
             color: var(--neutral-800);
             background-color: var(--neutral-50);
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--space-md);
-            color: var(--neutral-900);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        h3 {
-            font-size: 1.875rem;
-        }
-
-        h4 {
-            font-size: 1.5rem;
-        }
-
-        h5 {
-            font-size: 1.25rem;
-        }
-
-        h6 {
-            font-size: 1.125rem;
-        }
-
-        p {
-            margin-bottom: var(--space-md);
-        }
-
-        .text-lead {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            color: var(--neutral-700);
-        }
-
-        .text-small {
-            font-size: 0.875rem;
-            color: var(--neutral-600);
-        }
-
-        /* Container */
         .container {
             width: 100%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-xl);
+            padding: 0 20px;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: 0.875rem 2rem;
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 600;
-            line-height: 1.5;
-            text-decoration: none;
-            border-radius: var(--radius-lg);
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all var(--transition-base);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .btn:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(20, 20);
-                opacity: 0;
-            }
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
-            color: var(--white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--primary-light), var(--primary-main));
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--secondary-main), var(--secondary-dark));
-            color: var(--white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--secondary-light), var(--secondary-main));
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: var(--primary-main);
-            color: var(--primary-main);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-main);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-icon {
-            width: 3rem;
-            height: 3rem;
-            padding: 0;
-            border-radius: var(--radius-full);
-        }
-
-        /* Header & Navigation */
+        /* Header */
         .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            z-index: var(--z-fixed);
-            transition: all var(--transition-base);
+            z-index: 1000;
+            transition: var(--transition);
         }
 
         .header.scrolled {
             box-shadow: var(--shadow-lg);
-            background: rgba(255, 255, 255, 0.98);
         }
 
         .nav-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
+            height: 70px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: 10px;
             text-decoration: none;
             font-family: var(--font-heading);
-            font-weight: 800;
-            font-size: 1.75rem;
+            font-weight: 700;
+            font-size: 1.5rem;
             color: var(--primary-dark);
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
             border-radius: var(--radius-md);
             display: flex;
@@ -330,18 +150,17 @@
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: var(--space-2xl);
+            gap: 30px;
         }
 
         .nav-link {
             font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 500;
             color: var(--neutral-700);
             text-decoration: none;
             position: relative;
-            padding: var(--space-sm) 0;
-            transition: color var(--transition-base);
+            padding: 8px 0;
+            transition: var(--transition);
         }
 
         .nav-link:hover {
@@ -355,19 +174,11 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--primary-main), var(--primary-dark));
-            transition: width var(--transition-base);
+            background: var(--primary-main);
+            transition: width 0.3s ease;
         }
 
         .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link.active {
-            color: var(--primary-main);
-        }
-
-        .nav-link.active::after {
             width: 100%;
         }
 
@@ -382,17 +193,12 @@
             cursor: pointer;
             color: var(--neutral-700);
             border-radius: var(--radius-md);
-            transition: all var(--transition-base);
-        }
-
-        .mobile-menu-btn:hover {
-            background: var(--neutral-100);
         }
 
         /* Hero Section */
         .hero {
-            padding-top: 160px;
-            padding-bottom: var(--space-3xl);
+            padding-top: 120px;
+            padding-bottom: 60px;
             background: linear-gradient(135deg, var(--neutral-50) 0%, #f0f7ff 100%);
             position: relative;
             overflow: hidden;
@@ -416,905 +222,74 @@
             max-width: 600px;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            background: linear-gradient(135deg, var(--secondary-main), var(--secondary-dark));
-            color: var(--white);
-            padding: var(--space-sm) var(--space-lg);
-            border-radius: var(--radius-full);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: var(--space-xl);
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
+        .hero-title {
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1;
-            margin-bottom: var(--space-sm);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--neutral-600);
-            font-weight: 500;
-        }
-
-        /* Features Section */
-        .section {
-            padding: var(--space-3xl) 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--neutral-600);
-            max-width: 600px;
-            margin: 0 auto var(--space-3xl);
-            font-size: 1.125rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-2xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .feature-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-base);
-            border: 1px solid var(--neutral-200);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-2xl);
-            border-color: var(--primary-light);
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-            margin-bottom: var(--space-xl);
-        }
-
-        .feature-title {
-            font-size: 1.25rem;
-            margin-bottom: var(--space-md);
-        }
-
-        /* Resources Section */
-        .resources-section {
-            background: linear-gradient(135deg, var(--neutral-50) 0%, #f8fafc 100%);
-        }
-
-        .resource-tabs {
-            display: flex;
-            gap: var(--space-md);
-            justify-content: center;
-            margin-bottom: var(--space-2xl);
-            flex-wrap: wrap;
-        }
-
-        .resource-tab {
-            padding: var(--space-md) var(--space-xl);
-            background: var(--white);
-            border: 2px solid var(--neutral-200);
-            border-radius: var(--radius-lg);
-            font-family: var(--font-heading);
-            font-weight: 600;
-            color: var(--neutral-700);
-            cursor: pointer;
-            transition: all var(--transition-base);
-        }
-
-        .resource-tab:hover {
-            border-color: var(--primary-main);
-            color: var(--primary-main);
-        }
-
-        .resource-tab.active {
-            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
-            border-color: transparent;
-            color: var(--white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-xl);
-        }
-
-        .resource-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-base);
-            border: 1px solid var(--neutral-200);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .resource-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .resource-content {
-            padding: var(--space-xl);
-        }
-
-        .resource-category {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-md);
-            background: var(--neutral-100);
-            color: var(--neutral-700);
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-        }
-
-        .resource-title {
-            font-size: 1.25rem;
-            margin-bottom: var(--space-md);
-        }
-
-        .resource-meta {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            color: var(--neutral-600);
-            font-size: 0.875rem;
-            margin-top: var(--space-md);
-        }
-
-        /* Interactive Quiz Section */
-        .quiz-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e3a8a 100%);
-            color: var(--white);
-        }
-
-        .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .quiz-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .quiz-progress {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-full);
-            margin-bottom: var(--space-xl);
-            overflow: hidden;
-        }
-
-        .quiz-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary-main), var(--secondary-light));
-            border-radius: var(--radius-full);
-            transition: width var(--transition-base);
-        }
-
-        .quiz-question {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: var(--space-xl);
-            text-align: center;
-        }
-
-        .quiz-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
-        }
-
-        .quiz-option {
-            padding: var(--space-lg);
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-lg);
-            cursor: pointer;
-            transition: all var(--transition-base);
-        }
-
-        .quiz-option:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .quiz-option.selected {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: var(--secondary-main);
-        }
-
-        .quiz-navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: var(--space-xl);
-        }
-
-        /* News Section */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-        }
-
-        .news-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-base);
-            border: 1px solid var(--neutral-200);
-        }
-
-        .news-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .news-date {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-md);
-            background: var(--neutral-100);
-            color: var(--neutral-700);
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--neutral-900);
-            color: var(--neutral-200);
-            padding: var(--space-3xl) 0 var(--space-xl);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .footer-col-title {
-            color: var(--white);
-            font-size: 1.125rem;
-            margin-bottom: var(--space-lg);
-            position: relative;
-            padding-bottom: var(--space-sm);
-        }
-
-        .footer-col-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-main), var(--primary-dark));
-            border-radius: var(--radius-full);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: var(--space-sm);
-        }
-
-        .footer-links a {
-            color: var(--neutral-400);
-            text-decoration: none;
-            transition: color var(--transition-base);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-light);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: var(--space-xl);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--space-md);
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: all var(--transition-base);
-        }
-
-        .social-link:hover {
-            background: var(--primary-main);
-            transform: translateY(-2px);
-        }
-
-        .copyright {
-            color: var(--neutral-500);
-            font-size: 0.875rem;
-        }
-
-        /* Cookie Consent */
-        .cookie-consent {
-            position: fixed;
-            bottom: var(--space-xl);
-            left: var(--space-xl);
-            right: var(--space-xl);
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-2xl);
-            z-index: var(--z-modal);
-            display: none;
-            max-width: 500px;
-            border: 1px solid var(--neutral-200);
-        }
-
-        .cookie-consent.show {
-            display: block;
-            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .cookie-content {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-lg);
-        }
-
-        .cookie-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--secondary-main), var(--secondary-dark));
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .cookie-actions {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-lg);
-        }
-
-        /* Loading States */
-        .loading {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        /* Modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: var(--z-modal);
-            padding: var(--space-xl);
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-2xl);
-            animation: modalSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes modalSlideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            padding: var(--space-xl);
-            border-bottom: 1px solid var(--neutral-200);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .modal-body {
-            padding: var(--space-xl);
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            color: var(--neutral-600);
-            transition: all var(--transition-base);
-        }
-
-        .modal-close:hover {
-            background: var(--neutral-100);
+            margin-bottom: 20px;
             color: var(--neutral-900);
         }
 
-        /* Toast Notifications */
-        .toast-container {
-            position: fixed;
-            top: var(--space-xl);
-            right: var(--space-xl);
-            z-index: var(--z-tooltip);
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--neutral-700);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
             display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .toast {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            box-shadow: var(--shadow-xl);
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-md);
-            max-width: 400px;
-            animation: toastSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid var(--accent-success);
-        }
-
-        @keyframes toastSlideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .toast.error {
-            border-left-color: var(--accent-error);
-        }
-
-        .toast.warning {
-            border-left-color: var(--accent-warning);
-        }
-
-        .toast.info {
-            border-left-color: var(--accent-info);
-        }
-
-        .toast-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .toast-close {
-            background: none;
-            border: none;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            color: var(--neutral-600);
-            transition: all var(--transition-base);
-            flex-shrink: 0;
-            margin-left: auto;
-        }
-
-        .toast-close:hover {
-            background: var(--neutral-100);
-            color: var(--neutral-900);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
-            h1 {
-                font-size: 2.75rem;
-            }
-            
-            h2 {
-                font-size: 2.25rem;
-            }
-            
-            .nav-menu {
-                gap: var(--space-xl);
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.25rem;
-            }
-            
-            h2 {
-                font-size: 1.875rem;
-            }
-            
-            .container {
-                padding: 0 var(--space-lg);
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: var(--space-xl);
-                box-shadow: var(--shadow-lg);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all var(--transition-base);
-                gap: var(--space-lg);
-            }
-            
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .hero {
-                padding-top: 140px;
-            }
-            
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-            
-            .section {
-                padding: var(--space-2xl) 0;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .cookie-consent {
-                left: var(--space-md);
-                right: var(--space-md);
-                bottom: var(--space-md);
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .btn {
-                padding: 0.75rem 1.5rem;
-            }
-            
-            .feature-card,
-            .resource-card,
-            .news-card {
-                padding: var(--space-xl);
-            }
-        }
-
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, var(--primary-main), var(--secondary-main));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .mt-1 { margin-top: var(--space-xs); }
-        .mt-2 { margin-top: var(--space-sm); }
-        .mt-3 { margin-top: var(--space-md); }
-        .mt-4 { margin-top: var(--space-lg); }
-        .mt-5 { margin-top: var(--space-xl); }
-        .mt-6 { margin-top: var(--space-2xl); }
-
-        .mb-1 { margin-bottom: var(--space-xs); }
-        .mb-2 { margin-bottom: var(--space-sm); }
-        .mb-3 { margin-bottom: var(--space-md); }
-        .mb-4 { margin-bottom: var(--space-lg); }
-        .mb-5 { margin-bottom: var(--space-xl); }
-        .mb-6 { margin-bottom: var(--space-2xl); }
-
-        .gap-1 { gap: var(--space-xs); }
-        .gap-2 { gap: var(--space-sm); }
-        .gap-3 { gap: var(--space-md); }
-        .gap-4 { gap: var(--space-lg); }
-        .gap-5 { gap: var(--space-xl); }
-        .gap-6 { gap: var(--space-2xl); }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        .pulse-animation {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--neutral-100);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--neutral-300);
-            border-radius: var(--radius-full);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--neutral-400);
-        }
-    </style>
-
-    <!-- Component Styles -->
-    <style>
-        /* Advanced Slider Component */
-        .advanced-slider {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            margin: var(--space-2xl) 0;
-        }
-
+        /* Slider */
         .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 40px auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .slider {
             width: 100%;
             height: 100%;
             position: relative;
         }
 
-        .slider-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .slider-slide.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slider-slide.prev {
-            transform: translateX(-100%);
-        }
-
-        .slide-image {
+        .slider img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .slide-content {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: var(--white);
-            padding: var(--space-2xl);
+            opacity: 0;
+            transition: opacity 0.8s ease;
         }
 
-        .slider-controls {
+        .slider img.active {
+            opacity: 1;
+        }
+
+        .slider-nav {
             position: absolute;
-            bottom: var(--space-xl);
-            right: var(--space-xl);
-            display: flex;
-            gap: var(--space-md);
-            z-index: 2;
-        }
-
-        .slider-btn {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius-full);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all var(--transition-base);
-        }
-
-        .slider-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: var(--space-xl);
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: var(--space-sm);
-            z-index: 2;
+            gap: 10px;
+            z-index: 10;
         }
 
         .slider-dot {
             width: 12px;
             height: 12px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius-full);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
-            transition: all var(--transition-base);
+            transition: var(--transition);
         }
 
         .slider-dot.active {
@@ -1322,435 +297,662 @@
             transform: scale(1.2);
         }
 
-        /* Countdown Timer */
-        .countdown-container {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary-main));
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            text-align: center;
+        .scroll-text {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
             color: var(--white);
-            margin: var(--space-2xl) 0;
-        }
-
-        .countdown-title {
-            font-size: 1.5rem;
-            margin-bottom: var(--space-xl);
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-lg);
-            flex-wrap: wrap;
-        }
-
-        .countdown-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 80px;
-        }
-
-        .countdown-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: var(--space-xs);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .countdown-label {
-            font-size: 0.875rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* File Upload Component */
-        .upload-container {
-            background: var(--white);
-            border: 2px dashed var(--neutral-300);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
             text-align: center;
-            transition: all var(--transition-base);
-            cursor: pointer;
+            z-index: 5;
         }
 
-        .upload-container:hover {
-            border-color: var(--primary-main);
+        .scroll-text h2 {
+            margin: 0;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            animation: scrollText 20s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius-lg);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-main), var(--secondary-dark));
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--neutral-900);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--neutral-600);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Dropdown Grid - Maintains your original structure */
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .dropdown-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--neutral-200);
+            transition: var(--transition);
+        }
+
+        .dropdown-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .dropdown-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dropdown-btn i.fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-btn i.fa-chevron-down.rotate {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            color: var(--neutral-700);
+            text-decoration: none;
+            border-bottom: 1px solid var(--neutral-100);
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            background: var(--neutral-50);
+            color: var(--primary-main);
+            padding-left: 25px;
+        }
+
+        .dropdown-link i {
+            width: 20px;
+            color: var(--primary-main);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
             background: var(--neutral-50);
         }
 
-        .upload-container.dragover {
-            border-color: var(--primary-main);
-            background: rgba(30, 64, 175, 0.05);
-            transform: scale(1.02);
-        }
-
-        .upload-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary-main));
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-            margin: 0 auto var(--space-lg);
-        }
-
-        .upload-text {
-            color: var(--neutral-600);
-            margin-bottom: var(--space-lg);
-        }
-
-        .upload-btn {
-            background: var(--neutral-100);
-            color: var(--neutral-700);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-lg);
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-base);
-        }
-
-        .upload-btn:hover {
-            background: var(--neutral-200);
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            width: 100%;
-            background: var(--neutral-200);
-            border-radius: var(--radius-full);
-            overflow: hidden;
-            height: 8px;
-            margin: var(--space-md) 0;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-main), var(--secondary-main));
-            border-radius: var(--radius-full);
-            transition: width 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: progressShimmer 1.5s infinite;
-        }
-
-        @keyframes progressShimmer {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        /* Testimonials Carousel */
-        .testimonials-container {
-            position: relative;
-            overflow: hidden;
-            margin: var(--space-2xl) 0;
-        }
-
-        .testimonials-track {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .testimonial-card {
-            flex: 0 0 100%;
-            max-width: 100%;
+        .about-card {
             background: var(--white);
             border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
+            padding: 30px;
             box-shadow: var(--shadow-lg);
+            margin-bottom: 30px;
             border: 1px solid var(--neutral-200);
         }
 
-        .testimonial-content {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: var(--neutral-700);
-            margin-bottom: var(--space-xl);
-            position: relative;
-            padding-left: var(--space-xl);
-        }
-
-        .testimonial-content::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -10px;
-            font-size: 3rem;
-            color: var(--primary-light);
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-
-        .author-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-full);
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            margin-bottom: var(--space-xs);
-        }
-
-        .author-info p {
-            color: var(--neutral-600);
-            font-size: 0.875rem;
+        .about-card:last-child {
             margin-bottom: 0;
         }
 
-        /* Study Timer */
-        .study-timer {
-            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-main));
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            color: var(--white);
-            text-align: center;
+        .highlight-text {
+            background: linear-gradient(120deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-left: 4px solid var(--secondary-main);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            font-weight: 500;
         }
 
-        .timer-display {
-            font-size: 3.5rem;
-            font-weight: 800;
-            font-family: var(--font-heading);
-            margin: var(--space-xl) 0;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .timer-controls {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-        }
-
-        /* Search Component */
-        .search-container {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto var(--space-2xl);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            padding-right: 3.5rem;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            border: 2px solid var(--neutral-300);
-            border-radius: var(--radius-xl);
+        /* Services Section */
+        .services-section {
+            padding: 60px 0;
             background: var(--white);
-            transition: all var(--transition-base);
         }
 
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-main);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
-        }
-
-        .search-btn {
-            position: absolute;
-            right: 0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 2.5rem;
-            height: 2.5rem;
-            background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
-            border: none;
-            border-radius: var(--radius-lg);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all var(--transition-base);
-        }
-
-        .search-btn:hover {
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        /* Statistics Dashboard */
-        .stats-dashboard {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            margin: var(--space-2xl) 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .stat-card {
+        .service-card {
             background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
+            border-radius: var(--radius-xl);
+            padding: 30px;
             text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-base);
-            border: 1px solid var(--neutral-200);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
+            border: 1px solid var(--neutral-200);
+            transition: var(--transition);
         }
 
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary-main));
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-main);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
             font-size: 1.25rem;
-            margin: 0 auto var(--space-md);
+            margin-bottom: 15px;
+            color: var(--neutral-900);
         }
 
-        /* Calendar Component */
-        .calendar-container {
+        /* News Section */
+        .news-section {
+            padding: 60px 0;
+            background: var(--neutral-50);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
             background: var(--white);
             border-radius: var(--radius-xl);
-            padding: var(--space-xl);
+            overflow: hidden;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--neutral-200);
+            transition: var(--transition);
         }
 
-        .calendar-header {
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .news-image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--neutral-900);
+        }
+
+        .news-description {
+            color: var(--neutral-600);
+            margin-bottom: 20px;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-main);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .news-link:hover {
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--neutral-900);
+            color: var(--neutral-200);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 1.125rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-main);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--neutral-400);
+            text-decoration: none;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--space-lg);
+            gap: 10px;
         }
 
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: var(--space-xs);
+        .footer-links a:hover {
+            color: var(--primary-light);
+            transform: translateX(5px);
         }
 
-        .calendar-day {
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-main);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
             text-align: center;
-            font-weight: 600;
-            color: var(--neutral-600);
-            padding: var(--space-sm);
+            color: var(--neutral-500);
             font-size: 0.875rem;
         }
 
-        .calendar-date {
-            text-align: center;
-            padding: var(--space-sm);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all var(--transition-base);
+        .footer-bottom a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        .calendar-date:hover {
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cookie Consent - Fixed for mobile */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 20px;
+            box-shadow: var(--shadow-2xl);
+            z-index: 9999;
+            display: none;
+            border-top: 3px solid var(--primary-main);
+        }
+
+        .cookie-consent.show {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-text h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .cookie-text p {
+            color: var(--neutral-600);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .cookie-btn.accept {
+            background: var(--primary-main);
+            color: var(--white);
+        }
+
+        .cookie-btn.accept:hover {
+            background: var(--primary-dark);
+        }
+
+        .cookie-btn.decline {
+            background: transparent;
+            border-color: var(--neutral-300);
+            color: var(--neutral-700);
+        }
+
+        .cookie-btn.decline:hover {
             background: var(--neutral-100);
         }
 
-        .calendar-date.active {
+        .cookie-btn.settings {
+            background: transparent;
+            border-color: var(--primary-main);
+            color: var(--primary-main);
+        }
+
+        .cookie-btn.settings:hover {
+            background: rgba(30, 64, 175, 0.1);
+        }
+
+        /* FAB */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
             background: linear-gradient(135deg, var(--primary-main), var(--primary-dark));
             color: var(--white);
-        }
-
-        /* User Profile Card */
-        .profile-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 990;
             box-shadow: var(--shadow-lg);
-            text-align: center;
-            border: 1px solid var(--neutral-200);
-            max-width: 400px;
-            margin: 0 auto;
+            transition: var(--transition);
         }
 
-        .profile-avatar {
-            width: 100px;
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .fab.show {
+            display: flex;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                gap: 15px;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .slider-container {
+                height: 300px;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-text {
+                min-width: 100%;
+            }
+
+            .cookie-actions {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .dropdown-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fab {
+                bottom: 80px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                width: 100%;
+            }
+
+            .cookie-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wave-divider {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-divider svg {
+            width: calc(100% + 1.3px);
             height: 100px;
-            border-radius: var(--radius-full);
-            object-fit: cover;
-            margin: 0 auto var(--space-lg);
-            border: 4px solid var(--neutral-200);
+            display: block;
         }
 
-        .profile-badge {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-md);
-            background: linear-gradient(135deg, var(--secondary-main), var(--secondary-dark));
-            color: var(--white);
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-top: var(--space-md);
+        .wave-divider .shape-fill {
+            fill: var(--neutral-50);
         }
     </style>
 </head>
 <body>
-    <!-- Cookie Consent Modal -->
+    <!-- Cookie Consent -->
     <div class="cookie-consent" id="cookieConsent">
         <div class="cookie-content">
-            <div class="cookie-icon">
-                <i class="fas fa-cookie-bite"></i>
+            <div class="cookie-text">
+                <h4>🍪 We Value Your Privacy</h4>
+                <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept", you consent to our use of cookies.</p>
             </div>
-            <div>
-                <h4>🍪 We Use Cookies</h4>
-                <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
-                <div class="cookie-actions">
-                    <button class="btn btn-primary" onclick="acceptCookies()">Accept All</button>
-                    <button class="btn btn-outline" onclick="showCookieSettings()">Settings</button>
-                    <button class="btn btn-outline" onclick="declineCookies()">Decline</button>
-                </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn accept" onclick="acceptCookies()">Accept All</button>
+                <button class="cookie-btn settings" onclick="showCookieSettings()">Customize</button>
+                <button class="cookie-btn decline" onclick="declineCookies()">Reject All</button>
             </div>
         </div>
     </div>
-
-    <!-- Toast Container -->
-    <div class="toast-container" id="toastContainer"></div>
 
     <!-- Header -->
     <header class="header" id="header">
         <div class="container nav-container">
             <a href="#" class="logo">
                 <div class="logo-icon">P</div>
-                <span>Polymath</span>
+                <span>Polymath Education</span>
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#resources" class="nav-link">Resources</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#quiz" class="nav-link">Practice</a>
-                <a href="#news" class="nav-link">News</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="about us.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="services.html" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
             </nav>
 
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1762,1450 +964,605 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-star"></i>
-                    <span>#1 Educational Platform in Cameroon</span>
-                </div>
-                
-                <h1>Master Your <span class="text-gradient">GCE Exams</span> With Confidence</h1>
-                
-                <p class="text-lead">
-                    Access comprehensive study materials, past questions, and expert guidance 
-                    for GCE, Concours, and HND exams. Join thousands of successful students.
-                </p>
-                
-                <div class="mt-5">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Welcome to Polymath Education Network</h1>
+                <p class="hero-subtitle">The premier GCE and concours preparation platform in Cameroon, offering comprehensive study resources.</p>
+                <div class="hero-buttons">
                     <a href="#resources" class="btn btn-primary">
                         <i class="fas fa-book-open"></i> Explore Resources
                     </a>
-                    <a href="apply.html" class="btn btn-secondary ml-3">
-                        <i class="fas fa-user-graduate"></i> Join Free Classes
+                    <a href="apply.html" class="btn btn-secondary">
+                        <i class="fas fa-user-graduate"></i> Join Our Classes
                     </a>
                 </div>
-
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">10K+</div>
-                        <div class="stat-label">Past Questions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50K+</div>
-                        <div class="stat-label">Students Helped</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Success Rate</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Slider -->
+    <!-- Slider -->
     <div class="container">
-        <div class="advanced-slider">
-            <div class="slider-container" id="slider">
-                <!-- Slides will be loaded dynamically -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="image1.jpg" alt="Educational Resources" class="active">
+                <img src="GCE.png" alt="GCE Preparation">
+                <img src="obc.png" alt="OBC Resources">
+                <img src="hnd.jpg" alt="HND Materials">
+                <img src="image4.png" alt="Study Materials">
+                <img src="image5.png" alt="Learning Resources">
             </div>
-            <div class="slider-controls">
-                <button class="slider-btn" id="prevSlide">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slider-btn" id="nextSlide">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            
+            <div class="slider-nav" id="sliderNav"></div>
+            
+            <div class="scroll-text">
+                <h2>"BEYOND THE BROWSER - Stay tuned for more updates!"</h2>
             </div>
-            <div class="slider-dots" id="sliderDots"></div>
         </div>
     </div>
 
-    <!-- Features Section -->
-    <section class="section" id="features">
-        <div class="container">
-            <h2 class="section-title">Why Choose Polymath?</h2>
-            <p class="section-subtitle">
-                We provide everything you need to excel in your exams, all in one place.
-            </p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="feature-title">Comprehensive Database</h3>
-                    <p>Access 10+ years of past questions and solutions for all subjects and levels.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="feature-title">Performance Analytics</h3>
-                    <p>Track your progress with detailed analytics and personalized recommendations.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="feature-title">Expert Community</h3>
-                    <p>Connect with teachers and top students for guidance and support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
 
     <!-- Resources Section -->
-    <section class="section resources-section" id="resources">
+    <section class="resources-section" id="resources">
         <div class="container">
-            <h2 class="section-title">Study Resources</h2>
-            <p class="section-subtitle">
-                Browse our extensive collection of educational materials
-            </p>
+            <h2 class="section-title">Educational Resources</h2>
+            <p class="section-subtitle">Access our comprehensive collection of study materials</p>
             
-            <div class="resource-tabs" id="resourceTabs">
-                <button class="resource-tab active" data-category="gce">GCE Materials</button>
-                <button class="resource-tab" data-category="concours">Concours</button>
-                <button class="resource-tab" data-category="hnd">HND & University</button>
-                <button class="resource-tab" data-category="brainbox">Brain Box</button>
-            </div>
-            
-            <div class="resources-grid" id="resourcesGrid">
-                <!-- Resources will be loaded dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Quiz Section -->
-    <section class="section quiz-section" id="quiz">
-        <div class="container">
-            <h2 class="section-title text-center">Test Your Knowledge</h2>
-            
-            <div class="quiz-container">
-                <div class="quiz-header">
-                    <h3>Daily Challenge</h3>
-                    <div class="quiz-progress">
-                        <div class="quiz-progress-bar" id="quizProgress"></div>
+            <!-- Your Original Dropdown Structure -->
+            <div class="dropdown-grid">
+                <!-- GCE Dropdown -->
+                <div class="dropdown-card">
+                    <button class="dropdown-btn">
+                        <i class="fas fa-graduation-cap"></i> GCE
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="ordinary-level.html" class="dropdown-link">
+                            <i class="fas fa-book-open"></i> Ordinary Level
+                        </a>
+                        <a href="advanced-level.html" class="dropdown-link">
+                            <i class="fas fa-book"></i> Advanced Level
+                        </a>
                     </div>
                 </div>
-                
-                <div class="quiz-question" id="quizQuestion"></div>
-                
-                <div class="quiz-options" id="quizOptions"></div>
-                
-                <div class="quiz-navigation">
-                    <button class="btn btn-outline" id="prevQuestion">
-                        <i class="fas fa-arrow-left"></i> Previous
+
+                <!-- Concours Dropdown -->
+                <div class="dropdown-card">
+                    <button class="dropdown-btn">
+                        <i class="fas fa-trophy"></i> Concours
+                        <i class="fas fa-chevron-down"></i>
                     </button>
-                    <span id="questionCounter">Question 1/5</span>
-                    <button class="btn btn-primary" id="nextQuestion">
-                        Next <i class="fas fa-arrow-right"></i>
+                    <div class="dropdown-content">
+                        <a href="Cnc.html" class="dropdown-link">
+                            <i class="fas fa-calendar-alt"></i> 2025 concours
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-flask"></i> NAPHI
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-stethoscope"></i> THE COT
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-leaf"></i> FET AGRICULTURE
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-user-md"></i> MEDICINE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HND Dropdown -->
+                <div class="dropdown-card">
+                    <button class="dropdown-btn">
+                        <i class="fas fa-university"></i> HND
+                        <i class="fas fa-chevron-down"></i>
                     </button>
+                    <div class="dropdown-content">
+                        <a href="https://drive.google.com/file/d/139TssIhBsM3DRoL1fIZGstFaN4LUX0rn/view?usp=drive_link" 
+                           class="dropdown-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-laptop-code"></i> Computer Engineering
+                        </a>
+                        <a href="https://drive.google.com/file/d/17UPcPqgYC8gxf7H1xBFIGBmhOGAs_CN3/view?usp=drive_link" 
+                           class="dropdown-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-business-time"></i> Enterprise Creation
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-code"></i> IT Programs
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-heartbeat"></i> Nursing
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-tractor"></i> Agriculture
+                        </a>
+                        <a href="soon.html" class="dropdown-link">
+                            <i class="fas fa-gavel"></i> Law
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Polymath Brain Box -->
+                <div class="dropdown-card">
+                    <button class="dropdown-btn">
+                        <i class="fas fa-brain"></i> Brain Box
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="icttest.html" class="dropdown-link">
+                            <i class="fas fa-laptop"></i> I.T self testing
+                        </a>
+                        <a href="gce1.HTML" class="dropdown-link">
+                            <i class="fas fa-file-alt"></i> GCE ICT Paper 1 – 2014
+                        </a>
+                        <a href="#" class="dropdown-link">
+                            <i class="fas fa-spinner"></i> Loading
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Study Timer -->
-    <div class="container">
-        <div class="study-timer mt-6">
-            <h3 class="text-center">Study Timer</h3>
-            <div class="timer-display" id="timerDisplay">25:00</div>
-            <div class="timer-controls">
-                <button class="btn btn-primary" id="startTimer">
-                    <i class="fas fa-play"></i> Start
-                </button>
-                <button class="btn btn-outline" id="pauseTimer">
-                    <i class="fas fa-pause"></i> Pause
-                </button>
-                <button class="btn btn-outline" id="resetTimer">
-                    <i class="fas fa-redo"></i> Reset
-                </button>
-                <select class="btn btn-outline" id="timerDuration">
-                    <option value="25">25 min</option>
-                    <option value="50">50 min</option>
-                    <option value="90">90 min</option>
-                </select>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-card fade-in">
+                <h2 class="section-title"><i class="fas fa-info-circle"></i> About Us</h2>
+                <p>We are a team dedicated to providing students with quality educational resources ranging from GCE past questions, concour preparation and past questions, HND & Bsc study materials for free to students in and around Cameroon.</p>
             </div>
-        </div>
-    </div>
 
-    <!-- Countdown to Exams -->
-    <div class="container">
-        <div class="countdown-container">
-            <h3 class="countdown-title">Countdown to GCE 2026</h3>
-            <div class="countdown-timer" id="countdownTimer">
-                <div class="countdown-unit">
-                    <div class="countdown-value" id="days">00</div>
-                    <div class="countdown-label">Days</div>
+            <div class="about-card fade-in">
+                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Disclaimer</h2>
+                <p>This platform does not claim ownership or authorship of any Cameroon GCE Board materials or any other examination board and strictly adheres to educational and non-commercial use policies. The materials posted here are made available to help students understand exam formats and develop effective study strategies under the rights granted for academic purposes.</p>
+                <p class="highlight-text">Thank you, and we wish you success in your studies and examinations!</p>
+            </div>
+
+            <div class="about-card fade-in">
+                <h2 class="section-title"><i class="fas fa-archive"></i> Cameroon GCE Examination Questions Archive</h2>
+                <p>We give credit to all the examination boards for the creation and maintenance of these valuable educational resources.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-concierge-bell"></i> Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <i class="fas fa-download"></i>
+                    <h3>Download Resources</h3>
+                    <p>Access GCE past questions and solutions for comprehensive exam preparation.</p>
                 </div>
-                <div class="countdown-unit">
-                    <div class="countdown-value" id="hours">00</div>
-                    <div class="countdown-label">Hours</div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Concours Papers</h3>
+                    <p>Download past concour papers to enhance your competitive exam readiness.</p>
                 </div>
-                <div class="countdown-unit">
-                    <div class="countdown-value" id="minutes">00</div>
-                    <div class="countdown-label">Minutes</div>
-                </div>
-                <div class="countdown-unit">
-                    <div class="countdown-value" id="seconds">00</div>
-                    <div class="countdown-label">Seconds</div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>IT Courses</h3>
+                    <p>Register for our IT courses to develop valuable technical skills.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- News Section -->
-    <section class="section" id="news">
+    <section class="news-section" id="news">
         <div class="container">
-            <h2 class="section-title">Latest News & Updates</h2>
-            <p class="section-subtitle">
-                Stay informed about exam schedules, new resources, and educational news
-            </p>
-            
-            <div class="news-grid" id="newsGrid">
+            <h2 class="section-title"><i class="fas fa-newspaper"></i> Latest News</h2>
+            <div class="news-grid" id="newsContainer">
                 <!-- News will be loaded dynamically -->
             </div>
         </div>
     </section>
 
-    <!-- Statistics Dashboard -->
-    <div class="container">
-        <div class="stats-dashboard">
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-download"></i>
-                </div>
-                <h4>15,247</h4>
-                <p>Resources Downloaded</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h4>8,932</h4>
-                <p>Active Students</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h4>94.7%</h4>
-                <p>Success Rate</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h4>2,450</h4>
-                <p>Study Hours Logged</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="container">
-        <div class="testimonials-container">
-            <div class="testimonials-track" id="testimonialsTrack">
-                <!-- Testimonials will be loaded dynamically -->
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3 class="footer-col-title">Polymath Education</h3>
-                    <p>
-                        Empowering Cameroonian students with quality educational resources 
-                        for GCE, Concours, and higher education exams.
-                    </p>
+                    <h3>Polymath Education</h3>
+                    <p>Providing quality educational resources to students across Cameroon.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                
                 <div class="footer-col">
-                    <h3 class="footer-col-title">Quick Links</h3>
+                    <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="about us.html"><i class="fas fa-chevron-right"></i> About</a></li>
                         <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-col">
-                    <h3 class="footer-col-title">Resources</h3>
+                    <h3>Resources</h3>
                     <ul class="footer-links">
                         <li><a href="ordinary-level.html"><i class="fas fa-chevron-right"></i> GCE O-Level</a></li>
                         <li><a href="advanced-level.html"><i class="fas fa-chevron-right"></i> GCE A-Level</a></li>
                         <li><a href="Cnc.html"><i class="fas fa-chevron-right"></i> Concours</a></li>
-                        <li><a href="hnd.html"><i class="fas fa-chevron-right"></i> HND Materials</a></li>
-                        <li><a href="brainbox.html"><i class="fas fa-chevron-right"></i> Brain Box</a></li>
+                        <li><a href="icttest.html"><i class="fas fa-chevron-right"></i> IT Testing</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-col">
-                    <h3 class="footer-col-title">Contact Info</h3>
+                    <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@polymathedunet.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+237 6 74 90 91 05</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Cameroon, Central Africa</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
-                        </li>
+                        <li><i class="fas fa-envelope"></i> info@polymathedunet.com</li>
+                        <li><i class="fas fa-phone"></i> +237 6 74 90 91 05</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Cameroon</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p class="copyright">
-                    &copy; <span id="currentYear"></span> Polymath Education Network. All rights reserved.
-                </p>
-                <p class="copyright">
-                    Designed by <a href="https://www.stechdigitalink.com" target="_blank" rel="noopener">S-tech Digital Ink</a> | 
-                    <span id="currentDate"></span>
-                </p>
+                <p>&copy; <span id="currentYear"></span> Polymath Education Network. All rights reserved.</p>
+                <p>Designed by <a href="https://www.stechdigitalink.com" target="_blank" rel="noopener noreferrer">S-tech Digital Ink</a> | <span id="currentDate"></span></p>
             </div>
         </div>
     </footer>
 
-    <!-- Main JavaScript -->
+    <!-- FAB -->
+    <div class="fab" id="fab" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script>
-        // Configuration and Constants
-        const CONFIG = {
-            API_BASE_URL: 'https://api.polymath-education.com/v1',
-            COOKIE_EXPIRY_DAYS: 365,
-            SLIDER_INTERVAL: 5000,
-            TIMER_DEFAULT: 25 * 60, // 25 minutes in seconds
-            EXAM_DATE: '2026-05-01T08:00:00', // GCE 2026 start date
-        };
-
-        // State Management
-        const state = {
-            currentUser: null,
-            quizProgress: {
-                currentQuestion: 0,
-                score: 0,
-                totalQuestions: 5,
-                answers: []
-            },
-            studyTimer: {
-                running: false,
-                timeLeft: CONFIG.TIMER_DEFAULT,
-                interval: null
-            },
-            resources: {
-                currentCategory: 'gce',
-                items: []
-            },
-            slider: {
-                currentIndex: 0,
-                items: [],
-                interval: null
-            },
-            cookiesAccepted: false
-        };
-
         // DOM Elements
-        const elements = {
-            header: document.getElementById('header'),
-            navMenu: document.getElementById('navMenu'),
-            mobileMenuBtn: document.getElementById('mobileMenuBtn'),
-            cookieConsent: document.getElementById('cookieConsent'),
-            toastContainer: document.getElementById('toastContainer'),
-            currentYear: document.getElementById('currentYear'),
-            currentDate: document.getElementById('currentDate'),
-            slider: document.getElementById('slider'),
-            sliderDots: document.getElementById('sliderDots'),
-            prevSlide: document.getElementById('prevSlide'),
-            nextSlide: document.getElementById('nextSlide'),
-            resourceTabs: document.getElementById('resourceTabs'),
-            resourcesGrid: document.getElementById('resourcesGrid'),
-            quizQuestion: document.getElementById('quizQuestion'),
-            quizOptions: document.getElementById('quizOptions'),
-            quizProgress: document.getElementById('quizProgress'),
-            questionCounter: document.getElementById('questionCounter'),
-            prevQuestion: document.getElementById('prevQuestion'),
-            nextQuestion: document.getElementById('nextQuestion'),
-            timerDisplay: document.getElementById('timerDisplay'),
-            startTimer: document.getElementById('startTimer'),
-            pauseTimer: document.getElementById('pauseTimer'),
-            resetTimer: document.getElementById('resetTimer'),
-            timerDuration: document.getElementById('timerDuration'),
-            countdownTimer: document.getElementById('countdownTimer'),
-            days: document.getElementById('days'),
-            hours: document.getElementById('hours'),
-            minutes: document.getElementById('minutes'),
-            seconds: document.getElementById('seconds'),
-            newsGrid: document.getElementById('newsGrid'),
-            testimonialsTrack: document.getElementById('testimonialsTrack')
-        };
-
-        // Initialize Application
-        class PolymathApp {
-            constructor() {
-                this.init();
-            }
-
-            async init() {
-                this.setupEventListeners();
-                this.updateDates();
-                this.checkCookies();
-                await this.loadInitialData();
-                this.startSlider();
-                this.startCountdown();
-                this.setupIntersectionObserver();
-                this.setupServiceWorker();
-            }
-
-            setupEventListeners() {
-                // Header scroll effect
-                window.addEventListener('scroll', () => {
-                    elements.header.classList.toggle('scrolled', window.scrollY > 50);
-                });
-
-                // Mobile menu
-                elements.mobileMenuBtn.addEventListener('click', () => {
-                    elements.navMenu.classList.toggle('active');
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!elements.navMenu.contains(e.target) && !elements.mobileMenuBtn.contains(e.target)) {
-                        elements.navMenu.classList.remove('active');
-                    }
-                });
-
-                // Smooth scroll for anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', (e) => {
-                        const href = anchor.getAttribute('href');
-                        if (href === '#') return;
-                        
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            target.scrollIntoView({ behavior: 'smooth' });
-                            elements.navMenu.classList.remove('active');
-                        }
-                    });
-                });
-
-                // Resource tabs
-                elements.resourceTabs.addEventListener('click', (e) => {
-                    if (e.target.classList.contains('resource-tab')) {
-                        const category = e.target.dataset.category;
-                        this.switchResourceCategory(category);
-                    }
-                });
-
-                // Quiz navigation
-                elements.prevQuestion.addEventListener('click', () => this.prevQuizQuestion());
-                elements.nextQuestion.addEventListener('click', () => this.nextQuizQuestion());
-
-                // Study timer
-                elements.startTimer.addEventListener('click', () => this.startStudyTimer());
-                elements.pauseTimer.addEventListener('click', () => this.pauseStudyTimer());
-                elements.resetTimer.addEventListener('click', () => this.resetStudyTimer());
-                elements.timerDuration.addEventListener('change', (e) => {
-                    this.resetStudyTimer(parseInt(e.target.value) * 60);
-                });
-
-                // Slider controls
-                elements.prevSlide.addEventListener('click', () => this.prevSlider());
-                elements.nextSlide.addEventListener('click', () => this.nextSlider());
-
-                // Window resize
-                window.addEventListener('resize', this.debounce(() => {
-                    this.handleResize();
-                }, 250));
-            }
-
-            async loadInitialData() {
-                try {
-                    await Promise.all([
-                        this.loadSliderData(),
-                        this.loadResources(),
-                        this.loadNews(),
-                        this.loadTestimonials(),
-                        this.loadQuizQuestions()
-                    ]);
-                } catch (error) {
-                    this.showToast('Failed to load data. Please check your connection.', 'error');
-                }
-            }
-
-            async loadSliderData() {
-                // Mock API response - Replace with actual API call
-                const sliderData = [
-                    {
-                        image: 'image1.jpg',
-                        title: 'Comprehensive GCE Resources',
-                        description: 'Access 10+ years of past questions and solutions'
-                    },
-                    {
-                        image: 'GCE.png',
-                        title: 'Expert Exam Preparation',
-                        description: 'Learn from experienced educators and top performers'
-                    },
-                    {
-                        image: 'obc.png',
-                        title: 'Concours Success',
-                        description: 'Master competitive exams with our specialized materials'
-                    },
-                    {
-                        image: 'hnd.jpg',
-                        title: 'HND & University',
-                        description: 'Resources for higher education and professional exams'
-                    }
-                ];
-
-                state.slider.items = sliderData;
-                this.renderSlider();
-            }
-
-            renderSlider() {
-                elements.slider.innerHTML = '';
-                elements.sliderDots.innerHTML = '';
-
-                state.slider.items.forEach((slide, index) => {
-                    // Create slide
-                    const slideEl = document.createElement('div');
-                    slideEl.className = `slider-slide ${index === 0 ? 'active' : ''}`;
-                    slideEl.innerHTML = `
-                        <img src="${slide.image}" alt="${slide.title}" class="slide-image">
-                        <div class="slide-content">
-                            <h3>${slide.title}</h3>
-                            <p>${slide.description}</p>
-                        </div>
-                    `;
-                    elements.slider.appendChild(slideEl);
-
-                    // Create dot
-                    const dot = document.createElement('div');
-                    dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
-                    dot.addEventListener('click', () => this.goToSlide(index));
-                    elements.sliderDots.appendChild(dot);
-                });
-            }
-
-            startSlider() {
-                state.slider.interval = setInterval(() => {
-                    this.nextSlider();
-                }, CONFIG.SLIDER_INTERVAL);
-            }
-
-            nextSlider() {
-                const slides = document.querySelectorAll('.slider-slide');
-                const dots = document.querySelectorAll('.slider-dot');
-                
-                slides[state.slider.currentIndex].classList.remove('active');
-                dots[state.slider.currentIndex].classList.remove('active');
-                
-                state.slider.currentIndex = (state.slider.currentIndex + 1) % slides.length;
-                
-                slides[state.slider.currentIndex].classList.add('active');
-                dots[state.slider.currentIndex].classList.add('active');
-            }
-
-            prevSlider() {
-                const slides = document.querySelectorAll('.slider-slide');
-                const dots = document.querySelectorAll('.slider-dot');
-                
-                slides[state.slider.currentIndex].classList.remove('active');
-                dots[state.slider.currentIndex].classList.remove('active');
-                
-                state.slider.currentIndex = state.slider.currentIndex === 0 ? slides.length - 1 : state.slider.currentIndex - 1;
-                
-                slides[state.slider.currentIndex].classList.add('active');
-                dots[state.slider.currentIndex].classList.add('active');
-            }
-
-            goToSlide(index) {
-                const slides = document.querySelectorAll('.slider-slide');
-                const dots = document.querySelectorAll('.slider-dot');
-                
-                slides[state.slider.currentIndex].classList.remove('active');
-                dots[state.slider.currentIndex].classList.remove('active');
-                
-                state.slider.currentIndex = index;
-                
-                slides[state.slider.currentIndex].classList.add('active');
-                dots[state.slider.currentIndex].classList.add('active');
-                
-                // Reset interval
-                clearInterval(state.slider.interval);
-                this.startSlider();
-            }
-
-            async loadResources() {
-                // Mock API response - Replace with actual API call
-                const resources = {
-                    gce: [
-                        {
-                            id: 1,
-                            title: 'GCE O-Level Mathematics 2023',
-                            category: 'Mathematics',
-                            image: 'math.jpg',
-                            downloads: '2.4k',
-                            date: '2024-01-15'
-                        },
-                        {
-                            id: 2,
-                            title: 'GCE A-Level Physics Past Papers',
-                            category: 'Physics',
-                            image: 'physics.jpg',
-                            downloads: '1.8k',
-                            date: '2024-01-10'
-                        },
-                        {
-                            id: 3,
-                            title: 'Complete Chemistry Guide',
-                            category: 'Chemistry',
-                            image: 'chemistry.jpg',
-                            downloads: '3.2k',
-                            date: '2024-01-05'
-                        }
-                    ],
-                    concours: [
-                        {
-                            id: 4,
-                            title: 'NAPHI Entrance Exam 2024',
-                            category: 'Medical',
-                            image: 'med.jpg',
-                            downloads: '1.5k',
-                            date: '2024-01-12'
-                        },
-                        {
-                            id: 5,
-                            title: 'COT Preparation Materials',
-                            category: 'Technical',
-                            image: 'cot.jpg',
-                            downloads: '1.2k',
-                            date: '2024-01-08'
-                        }
-                    ],
-                    hnd: [
-                        {
-                            id: 6,
-                            title: 'Computer Engineering HND',
-                            category: 'Engineering',
-                            image: 'comp-eng.jpg',
-                            downloads: '2.1k',
-                            date: '2024-01-14'
-                        },
-                        {
-                            id: 7,
-                            title: 'Business Management Resources',
-                            category: 'Business',
-                            image: 'business.jpg',
-                            downloads: '1.9k',
-                            date: '2024-01-09'
-                        }
-                    ],
-                    brainbox: [
-                        {
-                            id: 8,
-                            title: 'IT Self-Testing Module',
-                            category: 'IT',
-                            image: 'it-test.jpg',
-                            downloads: '3.5k',
-                            date: '2024-01-20'
-                        },
-                        {
-                            id: 9,
-                            title: 'Interactive Quiz Collection',
-                            category: 'Practice',
-                            image: 'quiz.jpg',
-                            downloads: '2.8k',
-                            date: '2024-01-18'
-                        }
-                    ]
-                };
-
-                state.resources.items = resources;
-                this.renderResources('gce');
-            }
-
-            renderResources(category) {
-                const resources = state.resources.items[category] || [];
-                elements.resourcesGrid.innerHTML = '';
-
-                resources.forEach(resource => {
-                    const date = new Date(resource.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                    });
-
-                    const resourceEl = document.createElement('div');
-                    resourceEl.className = 'resource-card';
-                    resourceEl.innerHTML = `
-                        <img src="${resource.image}" alt="${resource.title}" class="resource-image">
-                        <div class="resource-content">
-                            <span class="resource-category">${resource.category}</span>
-                            <h3 class="resource-title">${resource.title}</h3>
-                            <p>${resource.description || 'Comprehensive study material for exam preparation.'}</p>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-download"></i> ${resource.downloads}</span>
-                                <span><i class="far fa-calendar"></i> ${date}</span>
-                            </div>
-                            <button class="btn btn-primary mt-3" onclick="app.downloadResource(${resource.id})">
-                                <i class="fas fa-download"></i> Download
-                            </button>
-                        </div>
-                    `;
-                    elements.resourcesGrid.appendChild(resourceEl);
-                });
-            }
-
-            switchResourceCategory(category) {
-                // Update active tab
-                document.querySelectorAll('.resource-tab').forEach(tab => {
-                    tab.classList.toggle('active', tab.dataset.category === category);
-                });
-
-                // Update resources
-                state.resources.currentCategory = category;
-                this.renderResources(category);
-            }
-
-            async loadQuizQuestions() {
-                // Mock API response - Replace with actual API call
-                const questions = [
-                    {
-                        id: 1,
-                        question: 'What is the value of π to two decimal places?',
-                        options: ['3.14', '3.15', '3.16', '3.17'],
-                        correct: 0
-                    },
-                    {
-                        id: 2,
-                        question: 'Which of these is a prime number?',
-                        options: ['21', '23', '25', '27'],
-                        correct: 1
-                    },
-                    {
-                        id: 3,
-                        question: 'What is the chemical symbol for gold?',
-                        options: ['Go', 'Gd', 'Au', 'Ag'],
-                        correct: 2
-                    },
-                    {
-                        id: 4,
-                        question: 'Who is known as the father of computers?',
-                        options: ['Alan Turing', 'Charles Babbage', 'Bill Gates', 'Steve Jobs'],
-                        correct: 1
-                    },
-                    {
-                        id: 5,
-                        question: 'What is the capital of Cameroon?',
-                        options: ['Douala', 'Yaoundé', 'Bamenda', 'Buea'],
-                        correct: 1
-                    }
-                ];
-
-                state.quizProgress.questions = questions;
-                this.renderQuizQuestion();
-            }
-
-            renderQuizQuestion() {
-                const question = state.quizProgress.questions[state.quizProgress.currentQuestion];
-                if (!question) return;
-
-                elements.quizQuestion.textContent = question.question;
-                elements.questionCounter.textContent = `Question ${state.quizProgress.currentQuestion + 1}/${state.quizProgress.totalQuestions}`;
-                elements.quizProgress.style.width = `${((state.quizProgress.currentQuestion + 1) / state.quizProgress.totalQuestions) * 100}%`;
-
-                elements.quizOptions.innerHTML = '';
-                question.options.forEach((option, index) => {
-                    const optionEl = document.createElement('div');
-                    optionEl.className = `quiz-option ${state.quizProgress.answers[state.quizProgress.currentQuestion] === index ? 'selected' : ''}`;
-                    optionEl.textContent = option;
-                    optionEl.addEventListener('click', () => this.selectQuizOption(index));
-                    elements.quizOptions.appendChild(optionEl);
-                });
-
-                // Update navigation buttons
-                elements.prevQuestion.disabled = state.quizProgress.currentQuestion === 0;
-                elements.nextQuestion.textContent = state.quizProgress.currentQuestion === state.quizProgress.totalQuestions - 1 ? 'Submit' : 'Next';
-            }
-
-            selectQuizOption(optionIndex) {
-                state.quizProgress.answers[state.quizProgress.currentQuestion] = optionIndex;
-                this.renderQuizQuestion();
-            }
-
-            prevQuizQuestion() {
-                if (state.quizProgress.currentQuestion > 0) {
-                    state.quizProgress.currentQuestion--;
-                    this.renderQuizQuestion();
-                }
-            }
-
-            nextQuizQuestion() {
-                if (state.quizProgress.currentQuestion < state.quizProgress.totalQuestions - 1) {
-                    state.quizProgress.currentQuestion++;
-                    this.renderQuizQuestion();
-                } else {
-                    this.submitQuiz();
-                }
-            }
-
-            submitQuiz() {
-                let score = 0;
-                state.quizProgress.questions.forEach((question, index) => {
-                    if (state.quizProgress.answers[index] === question.correct) {
-                        score++;
-                    }
-                });
-
-                state.quizProgress.score = score;
-                
-                this.showToast(`Quiz completed! Your score: ${score}/${state.quizProgress.totalQuestions}`, 'success');
-                
-                // Reset quiz
-                setTimeout(() => {
-                    state.quizProgress.currentQuestion = 0;
-                    state.quizProgress.answers = [];
-                    this.renderQuizQuestion();
-                }, 3000);
-            }
-
-            startStudyTimer() {
-                if (state.studyTimer.running) return;
-
-                state.studyTimer.running = true;
-                state.studyTimer.interval = setInterval(() => {
-                    state.studyTimer.timeLeft--;
-                    
-                    if (state.studyTimer.timeLeft <= 0) {
-                        this.completeStudyTimer();
-                        return;
-                    }
-                    
-                    this.updateTimerDisplay();
-                }, 1000);
-
-                elements.startTimer.disabled = true;
-                elements.pauseTimer.disabled = false;
-            }
-
-            pauseStudyTimer() {
-                if (!state.studyTimer.running) return;
-
-                clearInterval(state.studyTimer.interval);
-                state.studyTimer.running = false;
-                
-                elements.startTimer.disabled = false;
-                elements.pauseTimer.disabled = true;
-            }
-
-            resetStudyTimer(duration = null) {
-                this.pauseStudyTimer();
-                state.studyTimer.timeLeft = duration || CONFIG.TIMER_DEFAULT;
-                this.updateTimerDisplay();
-                
-                elements.startTimer.disabled = false;
-                elements.pauseTimer.disabled = true;
-            }
-
-            updateTimerDisplay() {
-                const minutes = Math.floor(state.studyTimer.timeLeft / 60);
-                const seconds = state.studyTimer.timeLeft % 60;
-                elements.timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
-
-            completeStudyTimer() {
-                this.resetStudyTimer();
-                this.showToast('Study session completed! Time for a break.', 'success');
-                
-                // Play notification sound
-                this.playNotificationSound();
-            }
-
-            startCountdown() {
-                const updateCountdown = () => {
-                    const now = new Date();
-                    const examDate = new Date(CONFIG.EXAM_DATE);
-                    const diff = examDate - now;
-
-                    if (diff <= 0) {
-                        elements.countdownTimer.innerHTML = '<div class="countdown-value">Exam Started!</div>';
-                        return;
-                    }
-
-                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                    elements.days.textContent = days.toString().padStart(2, '0');
-                    elements.hours.textContent = hours.toString().padStart(2, '0');
-                    elements.minutes.textContent = minutes.toString().padStart(2, '0');
-                    elements.seconds.textContent = seconds.toString().padStart(2, '0');
-                };
-
-                updateCountdown();
-                setInterval(updateCountdown, 1000);
-            }
-
-            async loadNews() {
-                // Mock API response - Replace with actual API call
-                const news = [
-                    {
-                        id: 1,
-                        title: '2026 GCE Timetable Released',
-                        excerpt: 'The official timetable for the 2026 GCE examinations has been published.',
-                        image: 'news1.jpg',
-                        date: '2024-01-20',
-                        category: 'Exam Updates'
-                    },
-                    {
-                        id: 2,
-                        title: 'New Concours Materials Added',
-                        excerpt: 'We have added new preparation materials for upcoming concours exams.',
-                        image: 'news2.jpg',
-                        date: '2024-01-18',
-                        category: 'Resources'
-                    },
-                    {
-                        id: 3,
-                        title: 'Free Study Workshops',
-                        excerpt: 'Join our free online workshops for GCE preparation starting next month.',
-                        image: 'news3.jpg',
-                        date: '2024-01-15',
-                        category: 'Events'
-                    }
-                ];
-
-                this.renderNews(news);
-            }
-
-            renderNews(news) {
-                elements.newsGrid.innerHTML = '';
-
-                news.forEach(item => {
-                    const date = new Date(item.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                    });
-
-                    const newsEl = document.createElement('article');
-                    newsEl.className = 'news-card';
-                    newsEl.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}" class="resource-image">
-                        <div class="resource-content">
-                            <span class="resource-category">${item.category}</span>
-                            <span class="news-date">${date}</span>
-                            <h3 class="resource-title">${item.title}</h3>
-                            <p>${item.excerpt}</p>
-                            <a href="news-${item.id}.html" class="news-link">
-                                Read More <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    `;
-                    elements.newsGrid.appendChild(newsEl);
-                });
-            }
-
-            async loadTestimonials() {
-                // Mock API response - Replace with actual API call
-                const testimonials = [
-                    {
-                        id: 1,
-                        content: 'Thanks to Polymath, I scored 4 A\'s in my GCE exams. The resources were exactly what I needed!',
-                        author: 'John Mbua',
-                        role: 'GCE Student',
-                        avatar: 'avatar1.jpg'
-                    },
-                    {
-                        id: 2,
-                        content: 'The concours preparation materials helped me secure admission into medical school. Highly recommended!',
-                        author: 'Sarah Nji',
-                        role: 'Medical Student',
-                        avatar: 'avatar2.jpg'
-                    },
-                    {
-                        id: 3,
-                        content: 'As a teacher, I recommend Polymath to all my students. The quality of materials is outstanding.',
-                        author: 'Mr. Tanyi',
-                        role: 'Mathematics Teacher',
-                        avatar: 'avatar3.jpg'
-                    }
-                ];
-
-                this.renderTestimonials(testimonials);
-            }
-
-            renderTestimonials(testimonials) {
-                elements.testimonialsTrack.innerHTML = '';
-
-                testimonials.forEach(testimonial => {
-                    const testimonialEl = document.createElement('div');
-                    testimonialEl.className = 'testimonial-card';
-                    testimonialEl.innerHTML = `
-                        <div class="testimonial-content">
-                            ${testimonial.content}
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="${testimonial.avatar}" alt="${testimonial.author}" class="author-avatar">
-                            <div class="author-info">
-                                <h4>${testimonial.author}</h4>
-                                <p>${testimonial.role}</p>
-                            </div>
-                        </div>
-                    `;
-                    elements.testimonialsTrack.appendChild(testimonialEl);
-                });
-            }
-
-            updateDates() {
-                const now = new Date();
-                elements.currentYear.textContent = now.getFullYear();
-                
-                const month = now.toLocaleDateString('en-US', { month: 'long' });
-                const year = now.getFullYear();
-                elements.currentDate.textContent = `${month} ${year}`;
-            }
-
-            checkCookies() {
-                const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-                if (!cookiesAccepted) {
-                    setTimeout(() => {
-                        elements.cookieConsent.classList.add('show');
-                    }, 1000);
-                } else {
-                    state.cookiesAccepted = true;
-                }
-            }
-
-            acceptCookies() {
-                localStorage.setItem('cookiesAccepted', 'true');
-                localStorage.setItem('cookieConsentDate', new Date().toISOString());
-                
-                state.cookiesAccepted = true;
-                elements.cookieConsent.classList.remove('show');
-                
-                this.showToast('Cookie preferences saved successfully!', 'success');
-            }
-
-            declineCookies() {
-                localStorage.setItem('cookiesAccepted', 'false');
-                elements.cookieConsent.classList.remove('show');
-                
-                this.showToast('Cookie preferences saved. Some features may be limited.', 'warning');
-            }
-
-            showCookieSettings() {
-                // Implement cookie settings modal
-                this.showToast('Cookie settings will be available soon.', 'info');
-            }
-
-            showToast(message, type = 'info') {
-                const toast = document.createElement('div');
-                toast.className = `toast ${type}`;
-                toast.innerHTML = `
-                    <div class="toast-icon">
-                        <i class="fas fa-${type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-                    </div>
-                    <div class="toast-content">${message}</div>
-                    <button class="toast-close" onclick="this.parentElement.remove()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                `;
-
-                elements.toastContainer.appendChild(toast);
-
-                // Auto-remove after 5 seconds
-                setTimeout(() => {
-                    if (toast.parentElement) {
-                        toast.remove();
-                    }
-                }, 5000);
-            }
-
-            playNotificationSound() {
-                const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAZGF0YQ');
-                audio.volume = 0.3;
-                audio.play().catch(() => {
-                    // Silent fail if audio can't play
-                });
-            }
-
-            downloadResource(resourceId) {
-                // Implement actual download logic
-                this.showToast('Download started!', 'success');
-                
-                // Log download analytics if cookies accepted
-                if (state.cookiesAccepted) {
-                    this.logAnalytics('download', { resourceId });
-                }
-            }
-
-            logAnalytics(event, data) {
-                // Implement analytics logging
-                console.log(`[Analytics] ${event}:`, data);
-            }
-
-            setupIntersectionObserver() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate');
-                        }
-                    });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '50px'
-                });
-
-                document.querySelectorAll('.feature-card, .resource-card, .news-card').forEach(el => {
-                    observer.observe(el);
-                });
-            }
-
-            setupServiceWorker() {
-                if ('serviceWorker' in navigator) {
-                    window.addEventListener('load', () => {
-                        navigator.serviceWorker.register('/sw.js').catch(error => {
-                            console.log('ServiceWorker registration failed:', error);
-                        });
-                    });
-                }
-            }
-
-            handleResize() {
-                // Handle responsive adjustments
-                const isMobile = window.innerWidth < 768;
-                if (isMobile) {
-                    // Mobile-specific adjustments
-                }
-            }
-
-            debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
+        const header = document.getElementById('header');
+        const navMenu = document.getElementById('navMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const fab = document.getElementById('fab');
+        const cookieConsent = document.getElementById('cookieConsent');
+        const currentYear = document.getElementById('currentYear');
+        const currentDate = document.getElementById('currentDate');
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slider img');
+        const sliderNav = document.getElementById('sliderNav');
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+        const newsContainer = document.getElementById('newsContainer');
+
+        // State
+        let currentSlide = 0;
+        let slideInterval;
+        let isMenuOpen = false;
+
+        // Initialize
+        function init() {
+            updateDates();
+            createSliderNavigation();
+            startSlider();
+            loadNews();
+            setupDropdowns();
+            setupEventListeners();
+            checkCookies();
         }
 
-        // Initialize the application
-        const app = new PolymathApp();
-
-        // Global functions for HTML event handlers
-        window.acceptCookies = () => app.acceptCookies();
-        window.declineCookies = () => app.declineCookies();
-        window.showCookieSettings = () => app.showCookieSettings();
-
-        // Export app for debugging
-        window.PolymathApp = app;
-    </script>
-
-    <!-- Additional JavaScript Modules -->
-    <script>
-        // API Service Module
-        class APIService {
-            constructor(baseURL) {
-                this.baseURL = baseURL;
-                this.cache = new Map();
-            }
-
-            async get(endpoint, options = {}) {
-                const cacheKey = `${endpoint}-${JSON.stringify(options)}`;
-                
-                if (this.cache.has(cacheKey) && !options.noCache) {
-                    return this.cache.get(cacheKey);
-                }
-
-                try {
-                    const response = await fetch(`${this.baseURL}${endpoint}`, {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            ...options.headers
-                        },
-                        ...options
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`API Error: ${response.status}`);
-                    }
-
-                    const data = await response.json();
-                    
-                    if (!options.noCache) {
-                        this.cache.set(cacheKey, data);
-                    }
-                    
-                    return data;
-                } catch (error) {
-                    console.error('API Request Failed:', error);
-                    throw error;
-                }
-            }
-
-            async post(endpoint, data, options = {}) {
-                try {
-                    const response = await fetch(`${this.baseURL}${endpoint}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            ...options.headers
-                        },
-                        body: JSON.stringify(data),
-                        ...options
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`API Error: ${response.status}`);
-                    }
-
-                    return await response.json();
-                } catch (error) {
-                    console.error('API Request Failed:', error);
-                    throw error;
-                }
-            }
-
-            clearCache() {
-                this.cache.clear();
-            }
-        }
-
-        // Storage Service Module
-        class StorageService {
-            constructor() {
-                this.prefix = 'polymath_';
-            }
-
-            set(key, value) {
-                try {
-                    localStorage.setItem(this.prefix + key, JSON.stringify(value));
-                    return true;
-                } catch (error) {
-                    console.error('Storage Error:', error);
-                    return false;
-                }
-            }
-
-            get(key, defaultValue = null) {
-                try {
-                    const item = localStorage.getItem(this.prefix + key);
-                    return item ? JSON.parse(item) : defaultValue;
-                } catch (error) {
-                    console.error('Storage Error:', error);
-                    return defaultValue;
-                }
-            }
-
-            remove(key) {
-                localStorage.removeItem(this.prefix + key);
-            }
-
-            clear() {
-                Object.keys(localStorage).forEach(key => {
-                    if (key.startsWith(this.prefix)) {
-                        localStorage.removeItem(key);
-                    }
-                });
-            }
-        }
-
-        // Analytics Service Module
-        class AnalyticsService {
-            constructor() {
-                this.endpoint = 'https://analytics.polymath-education.com/v1/events';
-                this.queue = [];
-                this.flushInterval = 30000; // 30 seconds
-                this.startFlushInterval();
-            }
-
-            track(event, properties = {}) {
-                const eventData = {
-                    event,
-                    properties: {
-                        ...properties,
-                        timestamp: new Date().toISOString(),
-                        userAgent: navigator.userAgent,
-                        url: window.location.href
-                    }
-                };
-
-                this.queue.push(eventData);
-                
-                // Immediate flush for important events
-                if (['download', 'purchase', 'signup'].includes(event)) {
-                    this.flush();
-                }
-            }
-
-            async flush() {
-                if (this.queue.length === 0) return;
-
-                const events = [...this.queue];
-                this.queue = [];
-
-                try {
-                    await fetch(this.endpoint, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ events }),
-                        keepalive: true // Ensures request completes even if page closes
-                    });
-                } catch (error) {
-                    // Requeue failed events
-                    this.queue.unshift(...events);
-                    console.error('Analytics flush failed:', error);
-                }
-            }
-
-            startFlushInterval() {
-                setInterval(() => this.flush(), this.flushInterval);
-            }
-
-            // Page visibility change handler
-            setupVisibilityHandler() {
-                document.addEventListener('visibilitychange', () => {
-                    if (document.visibilityState === 'hidden') {
-                        this.flush();
-                    }
-                });
-            }
-        }
-
-        // Initialize services
-        const apiService = new APIService(CONFIG.API_BASE_URL);
-        const storageService = new StorageService();
-        const analyticsService = new AnalyticsService();
-
-        // Export services for debugging
-        window.apiService = apiService;
-        window.storageService = storageService;
-        window.analyticsService = analyticsService;
-    </script>
-
-    <!-- Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            const swUrl = '/service-worker.js';
+        // Update dates in footer
+        function updateDates() {
+            const now = new Date();
+            currentYear.textContent = now.getFullYear();
             
-            // Register service worker
-            navigator.serviceWorker.register(swUrl).then(registration => {
-                console.log('ServiceWorker registered:', registration);
-                
-                // Check for updates
-                registration.addEventListener('updatefound', () => {
-                    const newWorker = registration.installing;
-                    console.log('ServiceWorker update found:', newWorker);
+            const month = now.toLocaleDateString('en-US', { month: 'long' });
+            const year = now.getFullYear();
+            currentDate.textContent = `${month} ${year}`;
+        }
+
+        // Slider functions
+        function createSliderNavigation() {
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'slider-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                sliderNav.appendChild(dot);
+            });
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetInterval();
+        }
+
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startSlider();
+        }
+
+        // Mobile menu
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = isMenuOpen ? 
+                '<i class="fas fa-times"></i>' : 
+                '<i class="fas fa-bars"></i>';
+        }
+
+        // Dropdown functionality
+        function setupDropdowns() {
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
                     
-                    newWorker.addEventListener('statechange', () => {
-                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            // New content available
-                            if (confirm('New version available! Reload to update?')) {
-                                window.location.reload();
-                            }
+                    // Close other dropdowns
+                    document.querySelectorAll('.dropdown-content').forEach(item => {
+                        if (item !== content) {
+                            item.style.maxHeight = null;
+                            item.previousElementSibling.querySelector('.fa-chevron-down').classList.remove('rotate');
                         }
                     });
+                    
+                    // Toggle current dropdown
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('rotate');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.classList.add('rotate');
+                    }
                 });
-            }).catch(error => {
-                console.log('ServiceWorker registration failed:', error);
             });
-
-            // Handle messages from service worker
-            navigator.serviceWorker.addEventListener('message', event => {
-                if (event.data.type === 'NEW_CONTENT_AVAILABLE') {
-                    app.showToast('New content is available!', 'info');
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
+                    document.querySelectorAll('.dropdown-content').forEach(content => {
+                        content.style.maxHeight = null;
+                        content.previousElementSibling.querySelector('.fa-chevron-down').classList.remove('rotate');
+                    });
                 }
             });
         }
-    </script>
 
-    <!-- Offline Detection -->
-    <script>
-        window.addEventListener('online', () => {
-            app.showToast('You are back online!', 'success');
-        });
+        // Load news
+        function loadNews() {
+            const newsData = [
+                {
+                    title: "POLYMATH EDUCATION PREPARATION CLASSES",
+                    description: "Contact us or apply now for our specialized courses.",
+                    image: "IT.jpg",
+                    link: "apply.html"
+                },
+                {
+                    title: "FREE ICT PRACTICALS",
+                    description: "We are offering free ICT and computer science practicals starting septembre.",
+                    image: "news2.jpg",
+                    link: "https://chat.whatsapp.com/BzhdbAm1kZOHGuB71aceR5"
+                },
+                {
+                    title: "CAMEROON HND",
+                    description: "The Cameroon HND offers practical training in various fields like Engineering, IT, Business, and more.",
+                    image: "hnd.jpg",
+                    link: "https://www.cameroonhnd.com/"
+                },
+                {
+                    title: "GCE 2026 CANDIDATE GUIDELINES",
+                    description: "Important guidelines every candidate should follow for a smooth GCE experience.",
+                    image: "GCE.png",
+                    link: "news.html"
+                },
+                {
+                    title: "THE GCE 2026 TIME TABLE",
+                    description: "Go to read more to download the official GCE timetable.",
+                    image: "GCE.png",
+                    link: "https://camgceb.org/wp-content/uploads/2024/01/2024-GCE-TimeTable.pdf"
+                },
+                {
+                    title: "GCE 2026 COMING SOON",
+                    description: "Get to the official GCE board website for more information.",
+                    image: "news4.jpg",
+                    link: "https://camgceb.org/"
+                }
+            ];
 
-        window.addEventListener('offline', () => {
-            app.showToast('You are offline. Some features may be unavailable.', 'warning');
-        });
-    </script>
-
-    <!-- Performance Monitoring -->
-    <script>
-        if ('performance' in window) {
-            // Report page load performance
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const perfData = performance.getEntriesByType('navigation')[0];
-                    if (perfData) {
-                        const loadTime = perfData.loadEventEnd - perfData.startTime;
-                        analyticsService.track('page_load', {
-                            load_time: Math.round(loadTime),
-                            dcl: perfData.domContentLoadedEventEnd - perfData.startTime,
-                            fcp: performance.getEntriesByName('first-contentful-paint')[0]?.startTime || 0
-                        });
-                    }
-                }, 0);
+            newsData.forEach((news, index) => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-card fade-in';
+                newsItem.style.animationDelay = `${index * 0.1}s`;
+                
+                newsItem.innerHTML = `
+                    <div class="news-image-container">
+                        <img src="${news.image}" alt="${news.title}" class="news-image">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-description">${news.description}</p>
+                        <a href="${news.link}" class="news-link" ${news.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                `;
+                
+                newsContainer.appendChild(newsItem);
             });
         }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+                
+                // Show/hide FAB
+                if (window.pageYOffset > 300) {
+                    fab.classList.add('show');
+                } else {
+                    fab.classList.remove('show');
+                }
+            });
+
+            // Mobile menu
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (isMenuOpen && !navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    toggleMenu();
+                }
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const href = anchor.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        if (isMenuOpen) toggleMenu();
+                    }
+                });
+            });
+        }
+
+        // Cookie functions
+        function checkCookies() {
+            const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+            if (!cookiesAccepted) {
+                setTimeout(() => {
+                    cookieConsent.classList.add('show');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieConsent.classList.remove('show');
+            showToast('Cookie preferences saved!', 'success');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            cookieConsent.classList.remove('show');
+            showToast('Cookies declined. Some features may be limited.', 'warning');
+        }
+
+        function showCookieSettings() {
+            showToast('Cookie settings coming soon!', 'info');
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <div>${message}</div>
+            `;
+            
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10B981' : type === 'warning' ? '#F59E0B' : '#3B82F6'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Add CSS for toast animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 
-    <!-- Error Tracking -->
-    <script>
-        window.addEventListener('error', event => {
-            analyticsService.track('javascript_error', {
-                message: event.message,
-                filename: event.filename,
-                lineno: event.lineno,
-                colno: event.colno
-            });
-        });
-
-        window.addEventListener('unhandledrejection', event => {
-            analyticsService.track('unhandled_rejection', {
-                reason: event.reason?.toString()
-            });
-        });
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Polymath Education Network",
+        "description": "Providing free GCE preparation resources, past questions, and study materials for students in Cameroon.",
+        "url": "https://www.stechdigitalink.com",
+        "logo": "https://www.stechdigitalink.com/polymath.png",
+        "sameAs": [
+            "https://facebook.com/polymathedunet",
+            "https://twitter.com/polymathedunet",
+            "https://instagram.com/polymathedunet"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+237-674-909-105",
+            "contactType": "customer service",
+            "email": "info@polymathedunet.com",
+            "availableLanguage": ["English", "French"]
+        }
+    }
     </script>
 </body>
 </html>
