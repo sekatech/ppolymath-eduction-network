@@ -3,1208 +3,1133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Polymath Education Network</title>
+    <title>File Not Found - S-tech Digital Ink</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --gold: #D4AF37;
-            --deep-blue: #0A2463;
-            --navy: #1A365D;
-            --cream: #F5F1E6;
-            --ivory: #FFFDF5;
-            --mahogany: #4A1C1C;
-            --forest: #1B4332;
-            --bronze: #CD7F32;
-            
-            --classic-font: 'Playfair Display', Georgia, serif;
-            --body-font: 'Crimson Pro', 'Times New Roman', serif;
-            --sans-font: 'Source Sans Pro', Arial, sans-serif;
-            
-            --border-classic: 2px solid var(--gold);
-            --border-light: 1px solid rgba(212, 175, 55, 0.3);
-            --shadow-classic: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: var(--body-font);
+            font-family: 'Montserrat', sans-serif;
             color: #333;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--ivory) 100%);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
+            background-color: #0a1929;
+            padding: 20px;
         }
 
-        /* Classic Background Pattern */
-        body::before {
-            content: '';
+        /* Nature background - subtle and not too visible */
+        .nature-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
+            background-image: url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+            filter: brightness(0.5) contrast(1.2);
+        }
+
+        /* Overlay to make nature background even more subtle */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 25, 41, 0.85) 0%, rgba(5, 15, 30, 0.95) 100%);
             z-index: -1;
         }
 
-        /* Classic Header */
-        .classic-header {
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--navy) 100%);
-            border-bottom: var(--border-classic);
-            padding: 20px 0;
-            position: relative;
-            box-shadow: var(--shadow-classic);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--deep-blue);
-            font-family: var(--classic-font);
-            font-size: 1.8rem;
-            font-weight: 700;
-            border: 2px solid var(--gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .logo-text {
-            font-family: var(--classic-font);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--cream);
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo-tagline {
-            font-family: var(--sans-font);
-            font-size: 0.9rem;
-            color: var(--gold);
-            font-style: italic;
-            margin-top: 3px;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-link {
-            color: var(--cream);
-            text-decoration: none;
-            font-family: var(--sans-font);
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 8px 0;
-            position: relative;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--gold);
-        }
-
-        .nav-link:hover::after {
+        /* Main container */
+        .main-container {
+            max-width: 800px;
             width: 100%;
-        }
-
-        /* Main Content */
-        .classic-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 30px;
-        }
-
-        .coming-soon-card {
-            background: var(--ivory);
-            border: var(--border-classic);
-            border-radius: 10px;
-            padding: 60px;
             text-align: center;
-            box-shadow: var(--shadow-classic);
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 60px;
-        }
-
-        .coming-soon-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.05), transparent);
-            transform: rotate(45deg);
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .classic-title {
-            font-family: var(--classic-font);
-            font-size: 3.5rem;
-            color: var(--navy);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .subtitle {
-            font-family: var(--body-font);
-            font-size: 1.5rem;
-            color: var(--mahogany);
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background: var(--forest);
-            color: white;
-            padding: 10px 30px;
-            border-radius: 50px;
-            font-family: var(--sans-font);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            border: 2px solid var(--gold);
-            box-shadow: 0 4px 15px rgba(27, 67, 50, 0.2);
-        }
-
-        /* Timer Section */
-        .timer-section {
-            margin: 50px 0;
-        }
-
-        .timer-title {
-            font-family: var(--classic-font);
-            font-size: 2rem;
-            color: var(--deep-blue);
-            margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .timer-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .timer-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .timer-unit {
-            background: white;
-            border: var(--border-light);
-            border-radius: 10px;
-            padding: 30px 20px;
-            min-width: 120px;
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .timer-unit:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            border-color: var(--gold);
-        }
-
-        .timer-unit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--bronze));
-        }
-
-        .timer-value {
-            font-family: var(--classic-font);
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--deep-blue);
-            line-height: 1;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .timer-label {
-            font-family: var(--sans-font);
-            font-size: 1rem;
-            color: var(--navy);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* Quote Section */
-        .quote-section {
-            margin-top: 80px;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             margin-bottom: 50px;
         }
 
-        .section-title {
-            font-family: var(--classic-font);
-            font-size: 2.5rem;
-            color: var(--deep-blue);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
+        /* Logo */
+        .logo {
+            margin-bottom: 40px;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--bronze));
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
-        .section-subtitle {
-            font-family: var(--body-font);
-            font-size: 1.2rem;
-            color: var(--mahogany);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+        .logo-tagline {
+            font-size: 1.1rem;
+            color: #64b5f6;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .quotes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .quote-card {
-            background: white;
-            border: var(--border-light);
-            border-radius: 10px;
-            padding: 30px;
-            position: relative;
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .quote-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            border-color: var(--gold);
-        }
-
-        .quote-card::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-family: var(--classic-font);
-            font-size: 5rem;
-            color: rgba(212, 175, 55, 0.1);
+        /* Error message */
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #64b5f6;
             line-height: 1;
+            margin: 30px 0;
+            text-shadow: 0 5px 15px rgba(100, 181, 246, 0.3);
         }
 
-        .quote-text {
-            font-family: var(--body-font);
-            font-size: 1.2rem;
-            color: var(--navy);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            font-style: italic;
-        }
-
-        .quote-author {
-            font-family: var(--sans-font);
+        .error-title {
+            font-size: 2.5rem;
             font-weight: 600;
-            color: var(--deep-blue);
-            font-size: 1rem;
-            text-align: right;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            padding-top: 15px;
-            position: relative;
-        }
-
-        .quote-author::before {
-            content: '—';
-            margin-right: 5px;
-        }
-
-        .african-flag {
-            display: inline-block;
-            width: 20px;
-            height: 15px;
-            background: linear-gradient(90deg, #008751 33%, #FCD116 33% 66%, #CE1126 66%);
-            margin-left: 10px;
-            vertical-align: middle;
-            border-radius: 2px;
-        }
-
-        /* Quote Controls */
-        .quote-controls {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .quote-btn {
-            background: var(--deep-blue);
-            color: white;
-            border: 2px solid var(--gold);
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-family: var(--sans-font);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .quote-btn:hover {
-            background: var(--gold);
-            color: var(--deep-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Footer */
-        .classic-footer {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--deep-blue) 100%);
-            border-top: var(--border-classic);
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-family: var(--classic-font);
-            font-size: 2rem;
-            color: var(--cream);
+            color: #ffffff;
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
-        .footer-text {
-            color: rgba(255, 253, 245, 0.8);
-            font-family: var(--sans-font);
-            font-size: 1rem;
+        .error-message {
+            font-size: 1.2rem;
+            color: #b0bec5;
             line-height: 1.6;
-            margin-bottom: 30px;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 40px;
         }
 
-        .copyright {
-            color: rgba(255, 253, 245, 0.6);
-            font-family: var(--sans-font);
-            font-size: 0.9rem;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        /* Working on it message */
+        .working-message {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: rgba(100, 181, 246, 0.1);
+            border-radius: 50px;
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            margin-bottom: 50px;
         }
 
-        .copyright a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
+        .working-text {
+            font-size: 1.2rem;
+            color: #64b5f6;
+            font-weight: 500;
         }
 
-        .copyright a:hover {
-            text-decoration: underline;
-        }
-
-        /* Progress Bar */
-        .progress-section {
-            margin: 40px 0;
-        }
-
-        .progress-container {
-            width: 100%;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            height: 10px;
-            margin-top: 20px;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold), var(--bronze));
-            border-radius: 10px;
-            transition: width 1s ease;
+        /* Quote container */
+        .quote-container {
+            max-width: 700px;
+            margin: 0 auto;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             overflow: hidden;
         }
 
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shimmer 2s infinite;
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
+        .quote-author {
+            font-size: 1.1rem;
+            color: #64b5f6;
+            font-weight: 500;
+            text-align: right;
         }
 
-        .progress-text {
+        .quote-author:before {
+            content: "— ";
+        }
+
+        /* Quote navigation */
+        .quote-nav {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-family: var(--sans-font);
-            color: var(--navy);
-            font-weight: 600;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 20px;
         }
 
-        /* Responsive Design */
+        .quote-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #64b5f6;
+            transform: scale(1.2);
+        }
+
+        .quote-timer {
+            font-size: 0.9rem;
+            color: #78909c;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            color: #546e7a;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #64b5f6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #90caf9;
+            text-decoration: underline;
+        }
+
+        /* Animation for quote transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
+            .main-container {
+                padding: 30px 20px;
             }
-
-            .nav-links {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .classic-title {
+            
+            .logo-text {
                 font-size: 2.5rem;
             }
-
-            .subtitle {
-                font-size: 1.2rem;
+            
+            .error-code {
+                font-size: 6rem;
             }
-
-            .coming-soon-card {
-                padding: 40px 20px;
-            }
-
-            .timer-unit {
-                min-width: 100px;
-                padding: 20px 15px;
-            }
-
-            .timer-value {
-                font-size: 2.5rem;
-            }
-
-            .quotes-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .quote-card {
-                padding: 25px 20px;
-            }
-
-            .quote-text {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
+            
+            .error-title {
                 font-size: 2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            .classic-title {
+            .logo-text {
                 font-size: 2rem;
             }
-
-            .timer-container {
-                gap: 15px;
+            
+            .error-code {
+                font-size: 5rem;
             }
-
-            .timer-unit {
-                min-width: 80px;
-                padding: 15px 10px;
+            
+            .error-title {
+                font-size: 1.8rem;
             }
-
-            .timer-value {
-                font-size: 2rem;
+            
+            .quote-text {
+                font-size: 1.3rem;
             }
-
-            .quote-controls {
-                flex-direction: column;
-                align-items: center;
+            
+            .quote-container {
+                padding: 20px 15px;
             }
-
-            .quote-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-        }
-
-        /* Classic Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--cream);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--bronze);
         }
     </style>
 </head>
 <body>
-    <!-- Classic Header -->
-    <header class="classic-header">
-        <div class="header-content">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">P</div>
-                <div>
-                    <div class="logo-text">Polymath Education</div>
-                    <div class="logo-tagline">Excellence Through Knowledge</div>
-                </div>
-            </a>
-            
-            <nav class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about us.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="Services.html" class="nav-link">Services</a>
-            </nav>
+    <!-- Nature background -->
+    <div class="nature-bg"></div>
+    <div class="overlay"></div>
+
+    <!-- Main content -->
+    <div class="main-container">
+        <div class="logo">
+            <h1 class="logo-text">S-tech Digital Ink</h1>
+            <div class="logo-tagline">Transforming Ideas into Reality</div>
         </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="classic-container">
-        <div class="coming-soon-card fade-in">
-            <div class="card-content">
-                <h1 class="classic-title fade-in">Resource Coming Soon</h1>
-                <p class="subtitle fade-in delay-1">
-                    The S-tech Digital Ink company is actively updating this page with premium educational content.
-                </p>
-                
-                <div class="status-badge fade-in delay-2">
-                    <i class="fas fa-spinner fa-spin"></i> Under Development
-                </div>
-                
-                <!-- Progress Section -->
-                <div class="progress-section fade-in delay-2">
-                    <div class="progress-text">
-                        <span>Development Progress</span>
-                        <span id="progressPercent">0%</span>
-                    </div>
-                    <div class="progress-container">
-                        <div class="progress-bar" id="progressBar"></div>
-                    </div>
-                </div>
+        <div class="error-code">404</div>
+        <h2 class="error-title">File Not Found</h2>
+        <p class="error-message">
+            The resource you're looking for is currently unavailable or has been moved. 
+            We're working diligently to bring you the best digital experience.
+        </p>
 
-                <!-- Timer Section -->
-                <div class="timer-section fade-in delay-3">
-                    <h2 class="timer-title">Estimated Launch Time</h2>
-                    <div class="timer-container">
-                        <div class="timer-unit">
-                            <div class="timer-value" id="months">0</div>
-                            <div class="timer-label">Months</div>
-                        </div>
-                        <div class="timer-unit">
-                            <div class="timer-value" id="days">0</div>
-                            <div class="timer-label">Days</div>
-                        </div>
-                        <div class="timer-unit">
-                            <div class="timer-value" id="hours">0</div>
-                            <div class="timer-label">Hours</div>
-                        </div>
-                        <div class="timer-unit">
-                            <div class="timer-value" id="minutes">0</div>
-                            <div class="timer-label">Minutes</div>
-                        </div>
-                        <div class="timer-unit">
-                            <div class="timer-value" id="seconds">0</div>
-                            <div class="timer-label">Seconds</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="working-message">
+            <div class="working-text">Working on it • Please check back soon</div>
+        </div>
 
-                <p class="subtitle fade-in delay-4" style="margin-top: 40px;">
-                    Please check back soon for access to comprehensive study materials, 
-                    past questions, and educational resources.
-                </p>
+        <!-- Quote display -->
+        <div class="quote-container">
+            <div id="quoteDisplay" class="quote-text">
+                <!-- Quote will be loaded by JavaScript -->
+            </div>
+            <div id="authorDisplay" class="quote-author">
+                <!-- Author will be loaded by JavaScript -->
             </div>
         </div>
 
-        <!-- Quotes Section -->
-        <section class="quote-section">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Wisdom for Aspiring Minds</h2>
-                <p class="section-subtitle">
-                    Inspirational quotes from legendary thinkers, educators, and African luminaries
-                </p>
+        <!-- Quote navigation -->
+        <div class="quote-nav">
+            <div class="quote-dots" id="quoteDots">
+                <!-- Dots will be generated by JavaScript -->
             </div>
-
-            <div class="quotes-grid" id="quotesGrid">
-                <!-- Quotes will be loaded dynamically -->
-            </div>
-
-            <div class="quote-controls fade-in delay-1">
-                <button class="quote-btn" onclick="showRandomQuote()">
-                    <i class="fas fa-random"></i> Random Quote
-                </button>
-                <button class="quote-btn" onclick="showAfricanQuotes()">
-                    <i class="fas fa-globe-africa"></i> African Wisdom
-                </button>
-                <button class="quote-btn" onclick="refreshAllQuotes()">
-                    <i class="fas fa-sync-alt"></i> Refresh All
-                </button>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="classic-footer">
-        <div class="footer-content">
-            <div class="footer-logo">Polymath Education Network</div>
-            <p class="footer-text">
-                Dedicated to providing quality educational resources for students across Cameroon 
-                and beyond. Excellence in education through comprehensive preparation materials.
-            </p>
-            <div class="copyright">
-                &copy; <span id="currentYear"></span> Polymath Education Network. All rights reserved.<br>
-                Designed by <a href="https://www.stechdigitalink.com" target="_blank" rel="noopener">S-tech Digital Ink</a>
-            </div>
+            <div class="quote-timer" id="quoteTimer">Next quote in: 5s</div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Font Awesome Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <div class="footer">
+        <p>&copy; <span id="currentYear"></span> S-tech Digital Ink. All rights reserved.</p>
+        <p>Contact: <a href="mailto:info@stechdigitalink.com">info@stechdigitalink.com</a></p>
+    </div>
 
     <script>
-        // 50 Educational Quotes with emphasis on African thinkers
+        // 200+ Inspirational Quotes
         const quotes = [
             {
-                text: "Education is the most powerful weapon which you can use to change the world.",
-                author: "Nelson Mandela",
-                category: "african",
-                tags: ["inspiration", "change", "power"]
+                text: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
             },
             {
-                text: "The function of education is to teach one to think intensively and to think critically.",
-                author: "Martin Luther King Jr.",
-                category: "global",
-                tags: ["critical thinking", "purpose"]
-            },
-            {
-                text: "Until the lion learns how to write, every story will glorify the hunter.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["wisdom", "perspective"]
-            },
-            {
-                text: "The roots of education are bitter, but the fruit is sweet.",
-                author: "Aristotle",
-                category: "global",
-                tags: ["perseverance", "reward"]
-            },
-            {
-                text: "If you want to go quickly, go alone. If you want to go far, go together.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["community", "collaboration"]
-            },
-            {
-                text: "Education is not preparation for life; education is life itself.",
-                author: "John Dewey",
-                category: "global",
-                tags: ["philosophy", "life"]
-            },
-            {
-                text: "The sun will shine on those who stand before it shines on those who kneel under them.",
-                author: "Chinua Achebe",
-                category: "african",
-                tags: ["equality", "justice"]
-            },
-            {
-                text: "An investment in knowledge pays the best interest.",
-                author: "Benjamin Franklin",
-                category: "global",
-                tags: ["investment", "value"]
-            },
-            {
-                text: "A child who is not embraced by the village will burn it down to feel its warmth.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["community", "nurture"]
-            },
-            {
-                text: "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-                author: "Mahatma Gandhi",
-                category: "global",
-                tags: ["lifelong learning", "passion"]
-            },
-            {
-                text: "When there is no enemy within, the enemies outside cannot hurt you.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["self-awareness", "strength"]
-            },
-            {
-                text: "The mind is not a vessel to be filled, but a fire to be kindled.",
-                author: "Plutarch",
-                category: "global",
-                tags: ["mindset", "inspiration"]
-            },
-            {
-                text: "He who learns, teaches.",
-                author: "Ethiopian Proverb",
-                category: "african",
-                tags: ["teaching", "knowledge sharing"]
-            },
-            {
-                text: "The beautiful thing about learning is that no one can take it away from you.",
-                author: "B.B. King",
-                category: "global",
-                tags: ["ownership", "value"]
-            },
-            {
-                text: "Knowledge is like a garden: if it is not cultivated, it cannot be harvested.",
-                author: "Guinean Proverb",
-                category: "african",
-                tags: ["cultivation", "effort"]
-            },
-            {
-                text: "Education is the passport to the future, for tomorrow belongs to those who prepare for it today.",
-                author: "Malcolm X",
-                category: "global",
-                tags: ["future", "preparation"]
-            },
-            {
-                text: "A single bracelet does not jingle.",
-                author: "Congolese Proverb",
-                category: "african",
-                tags: ["collaboration", "unity"]
-            },
-            {
-                text: "Intelligence plus character—that is the goal of true education.",
-                author: "Martin Luther King Jr.",
-                category: "global",
-                tags: ["character", "purpose"]
-            },
-            {
-                text: "What you help a child to love can be more important than what you help him to learn.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["love", "education"]
-            },
-            {
-                text: "The only person who is educated is the one who has learned how to learn and change.",
-                author: "Carl Rogers",
-                category: "global",
-                tags: ["adaptability", "growth"]
-            },
-            {
-                text: "A tree is known by its fruit; a man by his deeds.",
-                author: "Nigerian Proverb",
-                category: "african",
-                tags: ["actions", "character"]
-            },
-            {
-                text: "Develop a passion for learning. If you do, you will never cease to grow.",
-                author: "Anthony J. D'Angelo",
-                category: "global",
-                tags: ["passion", "growth"]
-            },
-            {
-                text: "The one who loves you makes you cry; the one who hates you makes you laugh.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["wisdom", "relationships"]
-            },
-            {
-                text: "Education is not the filling of a pail, but the lighting of a fire.",
-                author: "William Butler Yeats",
-                category: "global",
-                tags: ["inspiration", "passion"]
-            },
-            {
-                text: "When you follow in the path of your father, you learn to walk like him.",
-                author: "Ashanti Proverb",
-                category: "african",
-                tags: ["heritage", "learning"]
-            },
-            {
-                text: "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice.",
-                author: "Brian Herbert",
-                category: "global",
-                tags: ["choice", "capacity"]
-            },
-            {
-                text: "Wisdom is like a baobab tree; no one individual can embrace it.",
-                author: "Akan Proverb",
-                category: "african",
-                tags: ["wisdom", "humility"]
-            },
-            {
-                text: "Learning is not attained by chance, it must be sought for with ardor and attended to with diligence.",
-                author: "Abigail Adams",
-                category: "global",
-                tags: ["effort", "dedication"]
-            },
-            {
-                text: "If you want to go fast, go alone. If you want to go far, go together.",
-                author: "Rwandan Proverb",
-                category: "african",
-                tags: ["teamwork", "community"]
-            },
-            {
-                text: "The more that you read, the more things you will know. The more that you learn, the more places you'll go.",
-                author: "Dr. Seuss",
-                category: "global",
-                tags: ["reading", "exploration"]
-            },
-            {
-                text: "A child is a child of everyone.",
-                author: "Somali Proverb",
-                category: "african",
-                tags: ["community", "responsibility"]
-            },
-            {
-                text: "The aim of education is the knowledge, not of facts, but of values.",
-                author: "William S. Burroughs",
-                category: "global",
-                tags: ["values", "purpose"]
-            },
-            {
-                text: "He who does not know one thing knows another.",
-                author: "Kenyan Proverb",
-                category: "african",
-                tags: ["knowledge", "diversity"]
-            },
-            {
-                text: "Education is the movement from darkness to light.",
-                author: "Allan Bloom",
-                category: "global",
-                tags: ["enlightenment", "transformation"]
-            },
-            {
-                text: "A person who sells eggs should not start a fight in the market.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["wisdom", "caution"]
-            },
-            {
-                text: "The only true wisdom is in knowing you know nothing.",
-                author: "Socrates",
-                category: "global",
-                tags: ["humility", "wisdom"]
-            },
-            {
-                text: "Smooth seas do not make skillful sailors.",
-                author: "African Proverb",
-                category: "african",
-                tags: ["challenge", "growth"]
-            },
-            {
-                text: "Education is the key to unlock the golden door of freedom.",
-                author: "George Washington Carver",
-                category: "global",
-                tags: ["freedom", "opportunity"]
-            },
-            {
-                text: "A bird that flies off the earth and lands on an anthill is still on the ground.",
-                author: "Igbo Proverb",
-                category: "african",
-                tags: ["perspective", "reality"]
-            },
-            {
-                text: "Learning never exhausts the mind.",
-                author: "Leonardo da Vinci",
-                category: "global",
-                tags: ["mind", "endurance"]
-            },
-            {
-                text: "When there is peace in the country, the chief does not carry a shield.",
-                author: "Ugandan Proverb",
-                category: "african",
-                tags: ["peace", "leadership"]
-            },
-            {
-                text: "The beautiful thing about learning is nobody can take it away from you.",
-                author: "B.B. King",
-                category: "global",
-                tags: ["ownership", "security"]
-            },
-            {
-                text: "He who is being carried does not realize how far the town is.",
-                author: "Nigerian Proverb",
-                category: "african",
-                tags: ["effort", "appreciation"]
-            },
-            {
-                text: "Change is the end result of all true learning.",
-                author: "Leo Buscaglia",
-                category: "global",
-                tags: ["transformation", "growth"]
-            },
-            {
-                text: "When you befriend a chief, remember that he sits on a rope.",
-                author: "Maasai Proverb",
-                category: "african",
-                tags: ["wisdom", "relationships"]
+                text: "Innovation distinguishes between a leader and a follower.",
+                author: "Steve Jobs"
             },
             {
                 text: "The future belongs to those who believe in the beauty of their dreams.",
-                author: "Eleanor Roosevelt",
-                category: "global",
-                tags: ["dreams", "future"]
+                author: "Eleanor Roosevelt"
             },
             {
-                text: "A single stick may smoke, but it will not burn.",
-                author: "Swahili Proverb",
-                category: "african",
-                tags: ["unity", "strength"]
+                text: "It always seems impossible until it's done.",
+                author: "Nelson Mandela"
             },
             {
-                text: "Education is not received. It is achieved.",
-                author: "Anonymous",
-                category: "global",
-                tags: ["achievement", "effort"]
+                text: "Don't watch the clock; do what it does. Keep going.",
+                author: "Sam Levenson"
             },
             {
-                text: "No matter how long the night, the day is sure to come.",
-                author: "Congolese Proverb",
-                category: "african",
-                tags: ["hope", "perseverance"]
+                text: "The only limit to our realization of tomorrow will be our doubts of today.",
+                author: "Franklin D. Roosevelt"
+            },
+            {
+                text: "Quality is not an act, it is a habit.",
+                author: "Aristotle"
+            },
+            {
+                text: "Strive not to be a success, but rather to be of value.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "The way to get started is to quit talking and begin doing.",
+                author: "Walt Disney"
+            },
+            {
+                text: "Your time is limited, don't waste it living someone else's life.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Life is what happens to you while you're busy making other plans.",
+                author: "John Lennon"
+            },
+            {
+                text: "The mind is everything. What you think you become.",
+                author: "Buddha"
+            },
+            {
+                text: "We become what we think about most of the time.",
+                author: "Earl Nightingale"
+            },
+            {
+                text: "Life is 10% what happens to me and 90% how I react to it.",
+                author: "Charles Swindoll"
+            },
+            {
+                text: "The most difficult thing is the decision to act, the rest is merely tenacity.",
+                author: "Amelia Earhart"
+            },
+            {
+                text: "We may encounter many defeats but we must not be defeated.",
+                author: "Maya Angelou"
+            },
+            {
+                text: "Start where you are. Use what you have. Do what you can.",
+                author: "Arthur Ashe"
+            },
+            {
+                text: "Everything you've ever wanted is on the other side of fear.",
+                author: "George Addair"
+            },
+            {
+                text: "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
+                author: "Jimmy Dean"
+            },
+            {
+                text: "Believe you can and you're halfway there.",
+                author: "Theodore Roosevelt"
+            },
+            {
+                text: "To see what is right and not do it is a lack of courage.",
+                author: "Confucius"
+            },
+            {
+                text: "There are no shortcuts to any place worth going.",
+                author: "Beverly Sills"
+            },
+            {
+                text: "I didn't fail the test. I just found 100 ways to do it wrong.",
+                author: "Benjamin Franklin"
+            },
+            {
+                text: "A person who never made a mistake never tried anything new.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "The power of imagination makes us infinite.",
+                author: "John Muir"
+            },
+            {
+                text: "You must be the change you wish to see in the world.",
+                author: "Mahatma Gandhi"
+            },
+            {
+                text: "What you do today can improve all your tomorrows.",
+                author: "Ralph Marston"
+            },
+            {
+                text: "The only person you are destined to become is the person you decide to be.",
+                author: "Ralph Waldo Emerson"
+            },
+            {
+                text: "Go confidently in the direction of your dreams. Live the life you have imagined.",
+                author: "Henry David Thoreau"
+            },
+            {
+                text: "When I let go of what I am, I become what I might be.",
+                author: "Lao Tzu"
+            },
+            {
+                text: "Great minds discuss ideas; average minds discuss events; small minds discuss people.",
+                author: "Eleanor Roosevelt"
+            },
+            {
+                text: "A year from now you may wish you had started today.",
+                author: "Karen Lamb"
+            },
+            {
+                text: "If you want to lift yourself up, lift up someone else.",
+                author: "Booker T. Washington"
+            },
+            {
+                text: "A hero is someone who has given his or her life to something bigger than oneself.",
+                author: "Joseph Campbell"
+            },
+            {
+                text: "The best time to plant a tree was 20 years ago. The second best time is now.",
+                author: "Chinese Proverb"
+            },
+            {
+                text: "The only way to achieve the impossible is to believe it is possible.",
+                author: "Charles Kingsleigh"
+            },
+            {
+                text: "Don't be afraid to give up the good to go for the great.",
+                author: "John D. Rockefeller"
+            },
+            {
+                text: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+                author: "Thomas A. Edison"
+            },
+            {
+                text: "The secret of getting ahead is getting started.",
+                author: "Mark Twain"
+            },
+            {
+                text: "I find that the harder I work, the more luck I seem to have.",
+                author: "Thomas Jefferson"
+            },
+            {
+                text: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                author: "Winston Churchill"
+            },
+            {
+                text: "The road to success and the road to failure are almost exactly the same.",
+                author: "Colin R. Davis"
+            },
+            {
+                text: "Success usually comes to those who are too busy to be looking for it.",
+                author: "Henry David Thoreau"
+            },
+            {
+                text: "Don't be distracted by criticism. Remember—the only taste of success some people get is to take a bite out of you.",
+                author: "Zig Ziglar"
+            },
+            {
+                text: "You don't have to be great to start, but you have to start to be great.",
+                author: "Zig Ziglar"
+            },
+            {
+                text: "The successful warrior is the average man, with laser-like focus.",
+                author: "Bruce Lee"
+            },
+            {
+                text: "There are no traffic jams along the extra mile.",
+                author: "Roger Staubach"
+            },
+            {
+                text: "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.",
+                author: "Dale Carnegie"
+            },
+            {
+                text: "The ones who are crazy enough to think they can change the world, are the ones who do.",
+                author: "Anonymous"
+            },
+            {
+                text: "The only place where success comes before work is in the dictionary.",
+                author: "Vidal Sassoon"
+            },
+            {
+                text: "The successful man is the one who finds out what is the matter with his business before his competitors do.",
+                author: "Roy L. Smith"
+            },
+            {
+                text: "I never dreamed about success, I worked for it.",
+                author: "Estée Lauder"
+            },
+            {
+                text: "Success seems to be connected with action. Successful people keep moving.",
+                author: "Conrad Hilton"
+            },
+            {
+                text: "The secret of success is to do the common thing uncommonly well.",
+                author: "John D. Rockefeller Jr."
+            },
+            {
+                text: "Success is walking from failure to failure with no loss of enthusiasm.",
+                author: "Winston Churchill"
+            },
+            {
+                text: "If you really look closely, most overnight successes took a long time.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Opportunities don't happen. You create them.",
+                author: "Chris Grosser"
+            },
+            {
+                text: "Don't wait for opportunity. Create it.",
+                author: "George Bernard Shaw"
+            },
+            {
+                text: "Great things in business are never done by one person. They're done by a team of people.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Ideas are easy. Implementation is hard.",
+                author: "Guy Kawasaki"
+            },
+            {
+                text: "The only thing worse than starting something and failing is not starting something.",
+                author: "Seth Godin"
+            },
+            {
+                text: "If you are not willing to risk the usual, you will have to settle for the ordinary.",
+                author: "Jim Rohn"
+            },
+            {
+                text: "The entrepreneur always searches for change, responds to it, and exploits it as an opportunity.",
+                author: "Peter Drucker"
+            },
+            {
+                text: "The way to get started is to quit talking and begin doing.",
+                author: "Walt Disney"
+            },
+            {
+                text: "People who are crazy enough to think they can change the world, are the ones who do.",
+                author: "Rob Siltanen"
+            },
+            {
+                text: "Risk more than others think is safe. Dream more than others think is practical.",
+                author: "Howard Schultz"
+            },
+            {
+                text: "Your most unhappy customers are your greatest source of learning.",
+                author: "Bill Gates"
+            },
+            {
+                text: "I have not failed. I've just found 10,000 ways that won't work.",
+                author: "Thomas A. Edison"
+            },
+            {
+                text: "Failure is simply the opportunity to begin again, this time more intelligently.",
+                author: "Henry Ford"
+            },
+            {
+                text: "The function of leadership is to produce more leaders, not more followers.",
+                author: "Ralph Nader"
+            },
+            {
+                text: "Leadership is the capacity to translate vision into reality.",
+                author: "Warren Bennis"
+            },
+            {
+                text: "A leader is one who knows the way, goes the way, and shows the way.",
+                author: "John C. Maxwell"
+            },
+            {
+                text: "The best leader is the one who has sense enough to pick good men to do what he wants done.",
+                author: "Theodore Roosevelt"
+            },
+            {
+                text: "Leadership is not about being in charge. It is about taking care of those in your charge.",
+                author: "Simon Sinek"
+            },
+            {
+                text: "Innovation is the specific instrument of entrepreneurship.",
+                author: "Peter Drucker"
+            },
+            {
+                text: "Innovation distinguishes between a leader and a follower.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Without change there is no innovation, creativity, or incentive for improvement.",
+                author: "William Pollard"
+            },
+            {
+                text: "Innovation is taking two things that exist and putting them together in a new way.",
+                author: "Tom Freston"
+            },
+            {
+                text: "The true sign of intelligence is not knowledge but imagination.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "Creativity is intelligence having fun.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "You can't use up creativity. The more you use, the more you have.",
+                author: "Maya Angelou"
+            },
+            {
+                text: "Creativity is just connecting things.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Every artist was first an amateur.",
+                author: "Ralph Waldo Emerson"
+            },
+            {
+                text: "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+                author: "Ralph Waldo Emerson"
+            },
+            {
+                text: "The creative process is a process of surrender, not control.",
+                author: "Julia Cameron"
+            },
+            {
+                text: "The worst enemy to creativity is self-doubt.",
+                author: "Sylvia Plath"
+            },
+            {
+                text: "The desire to create is one of the deepest yearnings of the human soul.",
+                author: "Dieter F. Uchtdorf"
+            },
+            {
+                text: "Creativity involves breaking out of established patterns in order to look at things in a different way.",
+                author: "Edward de Bono"
+            },
+            {
+                text: "The world always seems brighter when you've just made something that wasn't there before.",
+                author: "Neil Gaiman"
+            },
+            {
+                text: "Technology is nothing. What's important is that you have a faith in people.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "The advance of technology is based on making it fit in so that you don't really even notice it.",
+                author: "Douglas Adams"
+            },
+            {
+                text: "Any sufficiently advanced technology is indistinguishable from magic.",
+                author: "Arthur C. Clarke"
+            },
+            {
+                text: "The human spirit must prevail over technology.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "It has become appallingly obvious that our technology has exceeded our humanity.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "The science of today is the technology of tomorrow.",
+                author: "Edward Teller"
+            },
+            {
+                text: "Once a new technology rolls over you, if you're not part of the steamroller, you're part of the road.",
+                author: "Stewart Brand"
+            },
+            {
+                text: "The great growling engine of change—technology.",
+                author: "Alvin Toffler"
+            },
+            {
+                text: "The technology you use impresses no one. The experience you create with it is everything.",
+                author: "Sean Gerety"
+            },
+            {
+                text: "We are stuck with technology when what we really want is just stuff that works.",
+                author: "Douglas Adams"
+            },
+            {
+                text: "Design is not just what it looks like and feels like. Design is how it works.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Good design is obvious. Great design is transparent.",
+                author: "Joe Sparano"
+            },
+            {
+                text: "Design is where science and art break even.",
+                author: "Robin Mathew"
+            },
+            {
+                text: "Design is a plan for arranging elements in such a way as best to accomplish a particular purpose.",
+                author: "Charles Eames"
+            },
+            {
+                text: "Design is not for philosophy, it's for life.",
+                author: "Issey Miyake"
+            },
+            {
+                text: "Simplicity is the ultimate sophistication.",
+                author: "Leonardo da Vinci"
+            },
+            {
+                text: "Design is intelligence made visible.",
+                author: "Alina Wheeler"
+            },
+            {
+                text: "A design isn't finished until somebody is using it.",
+                author: "Brenda Laurel"
+            },
+            {
+                text: "The details are not the details. They make the design.",
+                author: "Charles Eames"
+            },
+            {
+                text: "Design creates culture. Culture shapes values. Values determine the future.",
+                author: "Robert L. Peters"
+            },
+            {
+                text: "Art is the elimination of the unnecessary.",
+                author: "Pablo Picasso"
+            },
+            {
+                text: "Every child is an artist. The problem is how to remain an artist once we grow up.",
+                author: "Pablo Picasso"
+            },
+            {
+                text: "Art enables us to find ourselves and lose ourselves at the same time.",
+                author: "Thomas Merton"
+            },
+            {
+                text: "The purpose of art is washing the dust of daily life off our souls.",
+                author: "Pablo Picasso"
+            },
+            {
+                text: "Art is not what you see, but what you make others see.",
+                author: "Edgar Degas"
+            },
+            {
+                text: "Art should comfort the disturbed and disturb the comfortable.",
+                author: "Banksy"
+            },
+            {
+                text: "Art is the lie that enables us to realize the truth.",
+                author: "Pablo Picasso"
+            },
+            {
+                text: "Life is the art of drawing without an eraser.",
+                author: "John W. Gardner"
+            },
+            {
+                text: "Art is the most intense mode of individualism that the world has known.",
+                author: "Oscar Wilde"
+            },
+            {
+                text: "Great art picks up where nature ends.",
+                author: "Marc Chagall"
+            },
+            {
+                text: "The aim of art is to represent not the outward appearance of things, but their inward significance.",
+                author: "Aristotle"
+            },
+            {
+                text: "Art is the signature of civilizations.",
+                author: "Beverly Sills"
+            },
+            {
+                text: "The essence of all beautiful art, all great art, is gratitude.",
+                author: "Friedrich Nietzsche"
+            },
+            {
+                text: "Art is the stored honey of the human soul.",
+                author: "Theodore Dreiser"
+            },
+            {
+                text: "Art is the only way to run away without leaving home.",
+                author: "Twyla Tharp"
+            },
+            {
+                text: "Nature is the source of all true knowledge.",
+                author: "Leonardo da Vinci"
+            },
+            {
+                text: "Look deep into nature, and then you will understand everything better.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "Nature does not hurry, yet everything is accomplished.",
+                author: "Lao Tzu"
+            },
+            {
+                text: "In nature, nothing is perfect and everything is perfect.",
+                author: "Alice Walker"
+            },
+            {
+                text: "The clearest way into the Universe is through a forest wilderness.",
+                author: "John Muir"
+            },
+            {
+                text: "Nature is not a place to visit. It is home.",
+                author: "Gary Snyder"
+            },
+            {
+                text: "Study nature, love nature, stay close to nature. It will never fail you.",
+                author: "Frank Lloyd Wright"
+            },
+            {
+                text: "Adopt the pace of nature: her secret is patience.",
+                author: "Ralph Waldo Emerson"
+            },
+            {
+                text: "Forget not that the earth delights to feel your bare feet and the winds long to play with your hair.",
+                author: "Khalil Gibran"
+            },
+            {
+                text: "The poetry of the earth is never dead.",
+                author: "John Keats"
+            },
+            {
+                text: "In all things of nature there is something of the marvelous.",
+                author: "Aristotle"
+            },
+            {
+                text: "The earth has music for those who listen.",
+                author: "George Santayana"
+            },
+            {
+                text: "The mountains are calling and I must go.",
+                author: "John Muir"
+            },
+            {
+                text: "The goal of life is living in agreement with nature.",
+                author: "Zeno"
+            },
+            {
+                text: "Nature is pleased with simplicity.",
+                author: "Isaac Newton"
+            },
+            {
+                text: "To me a lush carpet of pine needles or spongy grass is more welcome than the most luxurious Persian rug.",
+                author: "Helen Keller"
+            },
+            {
+                text: "We don't inherit the earth from our ancestors, we borrow it from our children.",
+                author: "Native American Proverb"
+            },
+            {
+                text: "The environment is where we all meet; where all have a mutual interest; it is the one thing all of us share.",
+                author: "Lady Bird Johnson"
+            },
+            {
+                text: "What we are doing to the forests of the world is but a mirror reflection of what we are doing to ourselves.",
+                author: "Mahatma Gandhi"
+            },
+            {
+                text: "The earth is what we all have in common.",
+                author: "Wendell Berry"
+            },
+            {
+                text: "The greatest threat to our planet is the belief that someone else will save it.",
+                author: "Robert Swan"
+            },
+            {
+                text: "Progress is impossible without change, and those who cannot change their minds cannot change anything.",
+                author: "George Bernard Shaw"
+            },
+            {
+                text: "Never doubt that a small group of thoughtful, committed citizens can change the world.",
+                author: "Margaret Mead"
+            },
+            {
+                text: "You must be the change you wish to see in the world.",
+                author: "Mahatma Gandhi"
+            },
+            {
+                text: "Change will not come if we wait for some other person or some other time.",
+                author: "Barack Obama"
+            },
+            {
+                text: "If you don't like something, change it. If you can't change it, change your attitude.",
+                author: "Maya Angelou"
+            },
+            {
+                text: "The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "Change is the law of life. And those who look only to the past or present are certain to miss the future.",
+                author: "John F. Kennedy"
+            },
+            {
+                text: "It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.",
+                author: "Charles Darwin"
+            },
+            {
+                text: "All great changes are preceded by chaos.",
+                author: "Deepak Chopra"
+            },
+            {
+                text: "Change before you have to.",
+                author: "Jack Welch"
+            },
+            {
+                text: "They always say time changes things, but you actually have to change them yourself.",
+                author: "Andy Warhol"
+            },
+            {
+                text: "If we can change ourselves, the tendencies in the world will also change.",
+                author: "Mahatma Gandhi"
+            },
+            {
+                text: "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
+                author: "Alan Watts"
+            },
+            {
+                text: "Change your thoughts and you change your world.",
+                author: "Norman Vincent Peale"
+            },
+            {
+                text: "The secret of change is to focus all of your energy, not on fighting the old, but on building the new.",
+                author: "Socrates"
+            },
+            {
+                text: "Life is a series of natural and spontaneous changes. Don't resist them.",
+                author: "Lao Tzu"
+            },
+            {
+                text: "To improve is to change; to be perfect is to change often.",
+                author: "Winston Churchill"
             }
         ];
 
-        // Timer for 5 months from now
-        function initializeCountdown() {
-            const targetDate = new Date();
-            targetDate.setMonth(targetDate.getMonth() + 5);
-            
-            function updateTimer() {
-                const now = new Date();
-                const timeDiff = targetDate - now;
-                
-                if (timeDiff <= 0) {
-                    document.getElementById('months').textContent = '0';
-                    document.getElementById('days').textContent = '0';
-                    document.getElementById('hours').textContent = '0';
-                    document.getElementById('minutes').textContent = '0';
-                    document.getElementById('seconds').textContent = '0';
-                    return;
-                }
-                
-                const months = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 30));
-                const days = Math.floor((timeDiff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-                
-                document.getElementById('months').textContent = months.toString().padStart(2, '0');
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-                
-                // Update progress bar
-                const totalMonths = 5;
-                const progress = ((5 - months) / 5) * 100;
-                const progressPercent = Math.min(95, Math.max(5, progress));
-                document.getElementById('progressBar').style.width = `${progressPercent}%`;
-                document.getElementById('progressPercent').textContent = `${Math.round(progressPercent)}%`;
-            }
-            
-            updateTimer();
-            setInterval(updateTimer, 1000);
-        }
+        // Quote display variables
+        let currentQuoteIndex = 0;
+        let timerInterval;
+        let secondsRemaining = 5;
 
-        // Display quotes
-        function displayQuotes(filter = 'all') {
-            const quotesGrid = document.getElementById('quotesGrid');
-            quotesGrid.innerHTML = '';
-            
-            let filteredQuotes = quotes;
-            if (filter === 'african') {
-                filteredQuotes = quotes.filter(q => q.category === 'african');
-            }
-            
-            // Shuffle and take 6 quotes
-            const shuffled = [...filteredQuotes].sort(() => 0.5 - Math.random()).slice(0, 6);
-            
-            shuffled.forEach(quote => {
-                const quoteCard = document.createElement('div');
-                quoteCard.className = 'quote-card fade-in';
-                quoteCard.style.animationDelay = `${Math.random() * 0.5}s`;
-                
-                const flagIcon = quote.category === 'african' ? '<span class="african-flag"></span>' : '';
-                
-                quoteCard.innerHTML = `
-                    <div class="quote-text">${quote.text}</div>
-                    <div class="quote-author">${quote.author} ${flagIcon}</div>
-                `;
-                
-                quotesGrid.appendChild(quoteCard);
-            });
-        }
-
-        // Show random single quote
-        function showRandomQuote() {
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            alert(`${randomQuote.text}\n\n— ${randomQuote.author}`);
-        }
-
-        // Show only African quotes
-        function showAfricanQuotes() {
-            displayQuotes('african');
-        }
-
-        // Refresh all quotes
-        function refreshAllQuotes() {
-            displayQuotes('all');
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set current year
+        // Initialize the page
+        function initializePage() {
+            // Set current year in footer
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Initialize countdown
-            initializeCountdown();
+            // Initialize quote display
+            displayQuote(currentQuoteIndex);
             
-            // Display initial quotes
-            displayQuotes();
+            // Create dots for quote navigation
+            createQuoteDots();
             
-            // Add some animation
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.1}s`;
-            });
-        });
+            // Start the timer for quote rotation
+            startQuoteTimer();
+            
+            // Set up dot click events
+            setupDotEvents();
+        }
 
-        // Add subtle background animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const backgroundPattern = document.querySelector('body::before');
-            if (backgroundPattern) {
-                setInterval(() => {
-                    const hue = Math.sin(Date.now() / 10000) * 5 + 45;
-                    document.body.style.setProperty('--gold', `hsl(${hue}, 70%, 55%)`);
-                }, 100);
+        // Display a specific quote
+        function displayQuote(index) {
+            const quote = quotes[index];
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            const authorDisplay = document.getElementById('authorDisplay');
+            
+            // Add fade-in animation
+            quoteDisplay.classList.remove('fade-in');
+            authorDisplay.classList.remove('fade-in');
+            
+            void quoteDisplay.offsetWidth; // Trigger reflow to restart animation
+            void authorDisplay.offsetWidth;
+            
+            // Update quote and author
+            quoteDisplay.textContent = `"${quote.text}"`;
+            authorDisplay.textContent = quote.author;
+            
+            // Add fade-in class
+            quoteDisplay.classList.add('fade-in');
+            authorDisplay.classList.add('fade-in');
+            
+            // Update active dot
+            updateActiveDot(index);
+            
+            // Reset timer
+            secondsRemaining = 5;
+            updateTimerDisplay();
+        }
+
+        // Create navigation dots
+        function createQuoteDots() {
+            const dotsContainer = document.getElementById('quoteDots');
+            dotsContainer.innerHTML = '';
+            
+            // Show dots for first 10 quotes (or fewer if there are less than 10 quotes)
+            const maxDots = Math.min(quotes.length, 10);
+            
+            for (let i = 0; i < maxDots; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+                dot.dataset.index = i;
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Update active dot
+        function updateActiveDot(index) {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                
+                // Calculate which dot should be active based on current index
+                const dotIndex = parseInt(dot.dataset.index);
+                const quoteIndex = dotIndex; // Since we're only showing first 10 quotes
+                
+                if (quoteIndex === (index % 10)) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        // Set up dot click events
+        function setupDotEvents() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    currentQuoteIndex = index;
+                    displayQuote(currentQuoteIndex);
+                    resetTimer();
+                });
+            });
+        }
+
+        // Start the quote rotation timer
+        function startQuoteTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                secondsRemaining--;
+                updateTimerDisplay();
+                
+                if (secondsRemaining <= 0) {
+                    nextQuote();
+                }
+            }, 1000);
+        }
+
+        // Reset the timer
+        function resetTimer() {
+            clearInterval(timerInterval);
+            secondsRemaining = 5;
+            startQuoteTimer();
+        }
+
+        // Update the timer display
+        function updateTimerDisplay() {
+            const timerElement = document.getElementById('quoteTimer');
+            timerElement.textContent = `Next quote in: ${secondsRemaining}s`;
+        }
+
+        // Show next quote
+        function nextQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            displayQuote(currentQuoteIndex);
+            resetTimer();
+        }
+
+        // Show previous quote
+        function prevQuote() {
+            currentQuoteIndex = (currentQuoteIndex - 1 + quotes.length) % quotes.length;
+            displayQuote(currentQuoteIndex);
+            resetTimer();
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevQuote();
+            } else if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextQuote();
             }
         });
+
+        // Initialize when page loads
+        window.addEventListener('DOMContentLoaded', initializePage);
     </script>
 </body>
 </html>
