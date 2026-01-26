@@ -17,6 +17,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             color: #333;
@@ -24,14 +29,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             position: relative;
-            overflow: hidden;
             background-color: #0a1929;
-            padding: 20px;
+            padding: 40px 20px;
+            overflow-y: auto; /* Enable scrolling */
         }
 
-        /* Nature background - subtle and not too visible */
+        /* Nature background - more visible */
         .nature-bg {
             position: fixed;
             top: 0;
@@ -41,39 +45,42 @@
             background-image: url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80');
             background-size: cover;
             background-position: center;
-            opacity: 0.15;
+            background-attachment: fixed;
+            opacity: 0.45; /* Increased visibility */
             z-index: -1;
-            filter: brightness(0.5) contrast(1.2);
+            filter: brightness(0.7) contrast(1.1);
         }
 
-        /* Overlay to make nature background even more subtle */
+        /* Overlay to control background visibility */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 25, 41, 0.85) 0%, rgba(5, 15, 30, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(10, 25, 41, 0.7) 0%, rgba(5, 15, 30, 0.8) 100%);
             z-index: -1;
         }
 
         /* Main container */
         .main-container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             text-align: center;
-            padding: 40px;
+            padding: 60px 40px;
             border-radius: 20px;
             background-color: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
             margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
         }
 
         /* Logo */
         .logo {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .logo-text {
@@ -123,10 +130,10 @@
         .working-message {
             display: inline-block;
             padding: 15px 30px;
-            background-color: rgba(100, 181, 246, 0.1);
+            background-color: rgba(100, 181, 246, 0.15);
             border-radius: 50px;
             border: 1px solid rgba(100, 181, 246, 0.3);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .working-text {
@@ -143,12 +150,13 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 30px;
+            padding: 40px 30px;
             border-radius: 15px;
             background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
+            margin-bottom: 40px;
         }
 
         .quote-text {
@@ -157,7 +165,7 @@
             font-style: italic;
             color: #ffffff;
             line-height: 1.5;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
@@ -179,6 +187,7 @@
             align-items: center;
             margin-top: 30px;
             gap: 20px;
+            margin-bottom: 50px;
         }
 
         .quote-dots {
@@ -206,12 +215,70 @@
             font-weight: 500;
         }
 
+        /* Additional content to enable scrolling */
+        .additional-content {
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .content-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            color: #b0bec5;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Quote list */
+        .quote-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .quote-item {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .quote-item-text {
+            font-style: italic;
+            color: #e0e0e0;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .quote-item-author {
+            color: #64b5f6;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
         /* Footer */
         .footer {
-            margin-top: 40px;
+            margin-top: 60px;
             color: #546e7a;
             font-size: 0.9rem;
             text-align: center;
+            padding: 30px 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .footer a {
@@ -237,8 +304,12 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
             .main-container {
-                padding: 30px 20px;
+                padding: 40px 25px;
             }
             
             .logo-text {
@@ -255,6 +326,14 @@
             
             .quote-text {
                 font-size: 1.5rem;
+            }
+            
+            .additional-content {
+                padding: 30px 20px;
+            }
+            
+            .quote-list {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -276,13 +355,36 @@
             }
             
             .quote-container {
-                padding: 20px 15px;
+                padding: 30px 20px;
             }
+            
+            .quote-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 25, 41, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(100, 181, 246, 0.3);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(100, 181, 246, 0.5);
         }
     </style>
 </head>
 <body>
-    <!-- Nature background -->
+    <!-- Nature background - now more visible -->
     <div class="nature-bg"></div>
     <div class="overlay"></div>
 
@@ -323,9 +425,25 @@
         </div>
     </div>
 
+    <!-- Additional content to enable scrolling -->
+    <div class="additional-content">
+        <h2 class="content-title">Inspirational Quotes Collection</h2>
+        <p class="content-text">
+            While we work on bringing you the requested content, enjoy this collection of inspirational quotes. 
+            Our system automatically rotates through 200+ quotes from great thinkers, leaders, and innovators.
+        </p>
+        
+        <div class="quote-list" id="quoteList">
+            <!-- Additional quotes will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
         <p>&copy; <span id="currentYear"></span> S-tech Digital Ink. All rights reserved.</p>
-        <p>Contact: <a href="mailto:info@stechdigitalink.com">info@stechdigitalink.com</a></p>
+        <p>Transforming digital experiences with creativity and innovation</p>
+        <p>Contact: <a href="mailto:info@stechdigitalink.com">info@stechdigitalink.com</a> | 
+           <a href="https://www.stechdigitalink.com" target="_blank">Website</a></p>
     </div>
 
     <script>
@@ -584,10 +702,6 @@
                 author: "Peter Drucker"
             },
             {
-                text: "The way to get started is to quit talking and begin doing.",
-                author: "Walt Disney"
-            },
-            {
                 text: "People who are crazy enough to think they can change the world, are the ones who do.",
                 author: "Rob Siltanen"
             },
@@ -630,10 +744,6 @@
             {
                 text: "Innovation is the specific instrument of entrepreneurship.",
                 author: "Peter Drucker"
-            },
-            {
-                text: "Innovation distinguishes between a leader and a follower.",
-                author: "Steve Jobs"
             },
             {
                 text: "Without change there is no innovation, creativity, or incentive for improvement.",
@@ -920,10 +1030,6 @@
                 author: "Margaret Mead"
             },
             {
-                text: "You must be the change you wish to see in the world.",
-                author: "Mahatma Gandhi"
-            },
-            {
                 text: "Change will not come if we wait for some other person or some other time.",
                 author: "Barack Obama"
             },
@@ -1002,6 +1108,9 @@
             
             // Set up dot click events
             setupDotEvents();
+            
+            // Load additional quotes for the list
+            loadAdditionalQuotes();
         }
 
         // Display a specific quote
@@ -1076,6 +1185,27 @@
                     displayQuote(currentQuoteIndex);
                     resetTimer();
                 });
+            });
+        }
+
+        // Load additional quotes for the list
+        function loadAdditionalQuotes() {
+            const quoteList = document.getElementById('quoteList');
+            quoteList.innerHTML = '';
+            
+            // Get random quotes for the list (excluding the current one)
+            const shuffledQuotes = [...quotes]
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 9); // Show 9 additional quotes
+            
+            shuffledQuotes.forEach(quote => {
+                const quoteItem = document.createElement('div');
+                quoteItem.className = 'quote-item';
+                quoteItem.innerHTML = `
+                    <div class="quote-item-text">"${quote.text}"</div>
+                    <div class="quote-item-author">— ${quote.author}</div>
+                `;
+                quoteList.appendChild(quoteItem);
             });
         }
 
