@@ -27,6 +27,8 @@
             --accent-green: #27AE60;
             --accent-orange: #F39C12;
             --accent-purple: #8E44AD;
+            --accent-red: #E74C3C;
+            --accent-teal: #1ABC9C;
             --light-bg: #F8FAFC;
             --card-bg: #FFFFFF;
             --text-dark: #2C3E50;
@@ -82,14 +84,15 @@
         .bg-element {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.1;
-            animation: float 20s infinite linear;
+            opacity: 0.08;
+            animation: float 25s infinite linear;
         }
 
         .bg-1 { width: 300px; height: 300px; background: var(--primary-blue); top: 10%; left: 5%; animation-delay: 0s; }
-        .bg-2 { width: 200px; height: 200px; background: var(--accent-green); top: 60%; right: 10%; animation-delay: 5s; animation-duration: 25s; }
-        .bg-3 { width: 150px; height: 150px; background: var(--accent-purple); bottom: 20%; left: 15%; animation-delay: 10s; animation-duration: 30s; }
+        .bg-2 { width: 200px; height: 200px; background: var(--accent-green); top: 60%; right: 10%; animation-delay: 5s; animation-duration: 30s; }
+        .bg-3 { width: 150px; height: 150px; background: var(--accent-purple); bottom: 20%; left: 15%; animation-delay: 10s; animation-duration: 35s; }
         .bg-4 { width: 250px; height: 250px; background: var(--accent-orange); top: 20%; right: 20%; animation-delay: 15s; }
+        .bg-5 { width: 180px; height: 180px; background: var(--accent-teal); top: 70%; left: 20%; animation-delay: 20s; }
 
         @keyframes float {
             0% { transform: translateY(0) rotate(0deg); }
@@ -99,9 +102,9 @@
             100% { transform: translateY(0) rotate(360deg); }
         }
 
-        /* Header with 2018 Styling */
+        /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             position: fixed;
@@ -165,22 +168,7 @@
             position: relative;
         }
 
-        .logo-text::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
-            transition: width 0.3s ease;
-        }
-
-        .logo:hover .logo-text::after {
-            width: 100%;
-        }
-
-        /* Enhanced Navigation */
+        /* Navigation */
         .nav-links {
             display: flex;
             gap: 28px;
@@ -203,23 +191,6 @@
             transform: translateY(-2px);
         }
 
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::before {
-            width: 80%;
-        }
-
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             width: 44px;
@@ -238,7 +209,7 @@
             transform: rotate(90deg) scale(1.1);
         }
 
-        /* Hero Section - 2018 Premium Style */
+        /* Hero Section */
         .hero-section {
             padding: 140px 20px 80px;
             text-align: center;
@@ -271,7 +242,6 @@
             font-weight: 800;
             margin-bottom: 24px;
             line-height: 1.2;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
             background: linear-gradient(135deg, #ffffff, #e3f2fd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -297,7 +267,7 @@
             animation: fadeIn 0.8s ease-out 0.4s forwards;
         }
 
-        /* Animated Stats */
+        /* Stats */
         .stats-container {
             display: flex;
             justify-content: center;
@@ -321,21 +291,6 @@
             overflow: hidden;
         }
 
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s ease;
-        }
-
-        .stat-item:hover::before {
-            left: 100%;
-        }
-
         .stat-item:hover {
             transform: translateY(-10px) scale(1.05);
             background: rgba(255, 255, 255, 0.25);
@@ -353,15 +308,7 @@
             display: inline-block;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
-
-        /* Main Content Area */
+        /* Main Content */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -402,19 +349,92 @@
             margin-right: auto;
             font-size: 1.15rem;
             line-height: 1.8;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUpFade 0.6s ease-out 0.3s forwards;
         }
 
-        @keyframes slideUpFade {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Enhanced Search */
+        .quick-search {
+            max-width: 650px;
+            margin: 0 auto 60px;
+            position: relative;
         }
 
-        /* Enhanced Subjects Grid */
+        .search-input {
+            width: 100%;
+            padding: 22px 28px;
+            padding-left: 60px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            background: white;
+            transition: var(--transition-bounce);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(42, 92, 170, 0.15), var(--shadow-strong);
+            transform: translateY(-3px);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-strong);
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-result-item:hover {
+            background: var(--light-bg);
+            padding-left: 25px;
+        }
+
+        .search-result-item i {
+            color: var(--primary-blue);
+            width: 20px;
+        }
+
+        .no-results {
+            padding: 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Subjects Grid */
         .subjects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -437,6 +457,17 @@
             animation: cardEntrance 0.6s ease-out forwards;
         }
 
+        .subject-card.highlight {
+            animation: highlightPulse 2s ease-in-out;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2), var(--shadow-medium);
+        }
+
+        @keyframes highlightPulse {
+            0%, 100% { box-shadow: var(--shadow-medium); }
+            50% { box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.3), var(--shadow-medium); }
+        }
+
         .subject-card:nth-child(1) { animation-delay: 0.1s; }
         .subject-card:nth-child(2) { animation-delay: 0.2s; }
         .subject-card:nth-child(3) { animation-delay: 0.3s; }
@@ -446,6 +477,11 @@
         .subject-card:nth-child(7) { animation-delay: 0.7s; }
         .subject-card:nth-child(8) { animation-delay: 0.8s; }
         .subject-card:nth-child(9) { animation-delay: 0.9s; }
+        .subject-card:nth-child(10) { animation-delay: 1.0s; }
+        .subject-card:nth-child(11) { animation-delay: 1.1s; }
+        .subject-card:nth-child(12) { animation-delay: 1.2s; }
+        .subject-card:nth-child(13) { animation-delay: 1.3s; }
+        .subject-card:nth-child(14) { animation-delay: 1.4s; }
 
         @keyframes cardEntrance {
             to {
@@ -513,7 +549,7 @@
             margin: 0;
         }
 
-        /* Enhanced Dropdown Sections */
+        /* Dropdown Sections */
         .dropdown-section {
             margin-bottom: 28px;
         }
@@ -551,8 +587,6 @@
             transition: var(--transition-bounce);
             text-align: left;
             font-size: 1.05rem;
-            position: relative;
-            overflow: hidden;
         }
 
         .dropdown-btn:hover {
@@ -566,10 +600,6 @@
         .dropdown-btn i {
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             font-size: 0.95rem;
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .dropdown-btn.active i {
@@ -602,21 +632,17 @@
             }
         }
 
-        /* Enhanced Year Group Styling */
+        /* Year Group Styling */
         .year-group {
             margin-bottom: 24px;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
             overflow: hidden;
             background: white;
-            transform: translateY(10px);
-            opacity: 0;
-            transition: all 0.4s ease;
         }
 
-        .year-group.visible {
-            transform: translateY(0);
-            opacity: 1;
+        .year-group:last-child {
+            margin-bottom: 0;
         }
 
         .year-header {
@@ -655,7 +681,7 @@
             transform: translateY(-50%);
         }
 
-        /* Enhanced Scrollable Paper Selector */
+        /* Scrollable Paper Selector */
         .paper-selector-container {
             position: relative;
             min-width: 220px;
@@ -698,23 +724,6 @@
             transition: var(--transition-bounce);
             white-space: nowrap;
             flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .paper-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(42, 92, 170, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .paper-btn:hover::before {
-            left: 100%;
         }
 
         .paper-btn:hover {
@@ -759,7 +768,7 @@
             }
         }
 
-        /* Enhanced Resource Links */
+        /* Resource Links */
         .resource-link {
             display: flex;
             align-items: center;
@@ -780,18 +789,6 @@
             margin-bottom: 0;
         }
 
-        .resource-link::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary-blue), var(--accent-green));
-            transform: scaleY(0);
-            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
         .resource-link:hover {
             background: white;
             border-color: var(--primary-blue);
@@ -799,10 +796,6 @@
             transform: translateX(8px);
             box-shadow: var(--shadow-medium);
             padding-left: 30px;
-        }
-
-        .resource-link:hover::before {
-            transform: scaleY(1);
         }
 
         .resource-link:hover i:first-child {
@@ -838,7 +831,7 @@
             transform: translateX(0);
         }
 
-        /* Enhanced Status Badge */
+        /* Status Badge */
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -866,53 +859,7 @@
             100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); }
         }
 
-        /* Enhanced Search */
-        .quick-search {
-            max-width: 650px;
-            margin: 0 auto 60px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUpFade 0.6s ease-out 0.5s forwards;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 22px 28px;
-            padding-left: 60px;
-            border: 2px solid var(--border-color);
-            border-radius: var(--border-radius-lg);
-            font-family: var(--font-body);
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            background: white;
-            transition: var(--transition-bounce);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 4px rgba(42, 92, 170, 0.15), var(--shadow-strong);
-            transform: translateY(-3px);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-            font-size: 1.2rem;
-            transition: var(--transition-smooth);
-        }
-
-        .search-input:focus + .search-icon {
-            color: var(--primary-blue);
-            transform: translateY(-50%) scale(1.2);
-        }
-
-        /* Enhanced Mock Section */
+        /* Mock Section */
         .mock-section {
             background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4a8a 100%);
             border-radius: var(--border-radius-xl);
@@ -921,31 +868,6 @@
             margin-top: 80px;
             position: relative;
             overflow: hidden;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: slideUpFade 0.8s ease-out 0.7s forwards;
-        }
-
-        .mock-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .mock-section::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(39, 174, 96, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         .section-header {
@@ -972,11 +894,6 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        .section-icon:hover {
-            transform: rotate(15deg) scale(1.1);
-            background: rgba(255, 255, 255, 0.3);
-        }
-
         .section-title {
             font-family: var(--font-heading);
             font-size: 2.2rem;
@@ -999,7 +916,7 @@
             line-height: 1.9;
         }
 
-        /* Enhanced Toast Notification */
+        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 40px;
@@ -1022,36 +939,7 @@
             transform: translateX(0) translateY(0);
         }
 
-        .toast-icon {
-            color: var(--accent-green);
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-
-        .toast-message {
-            flex: 1;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .toast-close {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            cursor: pointer;
-            padding: 6px;
-            transition: var(--transition-smooth);
-            border-radius: 6px;
-        }
-
-        .toast-close:hover {
-            color: var(--text-dark);
-            background: var(--light-bg);
-            transform: rotate(90deg);
-        }
-
-        /* Enhanced Back to Top Button */
+        /* Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 40px;
@@ -1080,13 +968,7 @@
             transform: translateY(0) scale(1);
         }
 
-        .back-to-top:hover {
-            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 20px 40px rgba(42, 92, 170, 0.4);
-        }
-
-        /* Enhanced Footer */
+        /* Footer */
         .footer {
             background: linear-gradient(135deg, #1a3a6a 0%, #0f2547 100%);
             color: white;
@@ -1094,16 +976,6 @@
             margin-top: 100px;
             position: relative;
             clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
         }
 
         .footer-content {
@@ -1164,17 +1036,6 @@
             padding: 5px 15px;
         }
 
-        .footer-links a i {
-            width: 18px;
-            color: var(--accent-green);
-            font-size: 1rem;
-            transition: var(--transition-smooth);
-        }
-
-        .footer-links a:hover i {
-            transform: scale(1.2);
-        }
-
         .copyright {
             max-width: 1200px;
             margin: 0 auto;
@@ -1184,8 +1045,6 @@
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
             line-height: 1.8;
-            position: relative;
-            z-index: 2;
         }
 
         .copyright a {
@@ -1193,12 +1052,6 @@
             text-decoration: none;
             font-weight: 700;
             transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .copyright a:hover {
-            color: white;
-            text-decoration: underline;
         }
 
         /* Responsive Design */
@@ -1266,24 +1119,6 @@
             .toast { right: 15px; left: 15px; max-width: none; }
             .back-to-top { width: 50px; height: 50px; bottom: 15px; right: 15px; }
         }
-
-        /* Enhanced Scrollbar */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: var(--light-bg); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green)); 
-            border-radius: 10px;
-            border: 3px solid var(--light-bg);
-        }
-        ::-webkit-scrollbar-thumb:hover { 
-            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-green)); 
-        }
-
-        /* Selection Color */
-        ::selection {
-            background: rgba(42, 92, 170, 0.3);
-            color: var(--text-dark);
-        }
     </style>
 </head>
 <body>
@@ -1293,12 +1128,13 @@
         <div class="bg-element bg-2"></div>
         <div class="bg-element bg-3"></div>
         <div class="bg-element bg-4"></div>
+        <div class="bg-element bg-5"></div>
     </div>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast">
         <i class="fas fa-info-circle toast-icon"></i>
-        <div class="toast-message">Resource will be available soon!</div>
+        <div class="toast-message" id="toastMessage">Resource will be available soon!</div>
         <button class="toast-close" onclick="hideToast()">
             <i class="fas fa-times"></i>
         </button>
@@ -1342,16 +1178,16 @@
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <div class="stat-number">1000+</div>
-                    <div class="stat-label">Past Questions</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
+                    <div class="stat-number">14</div>
                     <div class="stat-label">Subjects</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">7 Years</div>
-                    <div class="stat-label">Coverage (2020-2026)</div>
+                    <div class="stat-number">2020-2026</div>
+                    <div class="stat-label">Years Coverage</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Resources</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">Free</div>
@@ -1375,11 +1211,14 @@
                 <i class="fas fa-search"></i>
             </div>
             <input type="text" id="searchInput" class="search-input" placeholder="Search subjects, years, or papers (e.g., 'Biology 2023' or 'Mathematics Paper 2')">
+            <div class="search-results" id="searchResults">
+                <!-- Search results will appear here -->
+            </div>
         </div>
 
         <!-- Subjects Grid -->
-        <div class="subjects-grid">
-            <!-- Biology Card -->
+        <div class="subjects-grid" id="subjectsGrid">
+            <!-- Biology -->
             <div class="subject-card" data-subject="biology">
                 <div class="subject-header">
                     <div class="subject-icon">
@@ -1396,10 +1235,10 @@
                     </button>
                     <div class="dropdown-content" id="biologyQuestions">
                         <div class="dropdown-links">
-                            <!-- Years 2020-2026 content would be generated by JavaScript -->
-                            <div class="year-group visible">
+                            <!-- Years 2020-2026 -->
+                            <div class="year-group" data-year="2000-2021">
                                 <div class="year-header" onclick="toggleYearPapers(this)">
-                                    <div class="year-title">2000-2021 Complete Collection</div>
+                                    <div class="year-title">2000-2021 (Complete Collection)</div>
                                     <div class="paper-selector-container">
                                         <div class="paper-selector">
                                             <button class="paper-btn active" onclick="showPaper('bio2000-2021', 'paper1', event)">Complete Papers</button>
@@ -1417,12 +1256,186 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="year-group" data-year="2020">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2020 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('bio2020', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('bio2020', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('bio2020', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="bio2020-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bio2020-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bio2020-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 3</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="year-group" data-year="2021">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2021 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('bio2021', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('bio2021', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('bio2021', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="bio2021-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bio2021-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bio2021-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 3</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2022-2026 years would follow the same pattern -->
+                            <!-- I'm including 2022 as example, rest follow same structure -->
+                            <div class="year-group" data-year="2022">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2022 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('bio2022', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('bio2022', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('bio2022', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="bio2022-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bio2022-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bio2022-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 3</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('biologySolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="biologySolutions">
+                        <div class="dropdown-links">
+                            <!-- Solutions for 2020-2026 would go here -->
+                            <div class="year-group" data-year="2020">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2020 Solutions</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('bioSol2020', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('bioSol2020', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('bioSol2020', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="bioSol2020-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 1 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bioSol2020-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 2 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="bioSol2020-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 3 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Mathematics Card -->
+            <!-- Mathematics -->
             <div class="subject-card" data-subject="mathematics">
                 <div class="subject-header">
                     <div class="subject-icon">
@@ -1440,7 +1453,7 @@
                     <div class="dropdown-content" id="mathematicsQuestions">
                         <div class="dropdown-links">
                             <!-- FAR NORTH REGIONAL MOCK 2021 -->
-                            <div class="year-group visible">
+                            <div class="year-group" data-year="2021">
                                 <div class="year-header" onclick="toggleYearPapers(this)">
                                     <div class="year-title">FAR NORTH REGIONAL MOCK 2021</div>
                                     <div class="paper-selector-container">
@@ -1471,15 +1484,894 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <!-- 2020-2026 Papers -->
+                            <div class="year-group" data-year="2020">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2020 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('math2020', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('math2020', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('math2020', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="math2020-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="math2020-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="math2020-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 3</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="year-group" data-year="2021">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2021 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('math2021', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('math2021', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('math2021', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="math2021-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="math2021-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="math2021-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 3</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('mathematicsSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="mathematicsSolutions">
+                        <div class="dropdown-links">
+                            <div class="year-group" data-year="2020">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2020 Solutions</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('mathSol2020', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('mathSol2020', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('mathSol2020', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="mathSol2020-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 1 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="mathSol2020-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 2 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="mathSol2020-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 3 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Additional subject cards would continue here... -->
-            <!-- The rest of your existing HTML content for other subjects goes here -->
-            <!-- I've included Biology and Mathematics as examples -->
-            
+            <!-- Physics -->
+            <div class="subject-card" data-subject="physics">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="subject-title">Physics</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('physicsQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="physicsQuestions">
+                        <div class="dropdown-links" id="physicsQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('physicsSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="physicsSolutions">
+                        <div class="dropdown-links" id="physicsSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chemistry -->
+            <div class="subject-card" data-subject="chemistry">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="subject-title">Chemistry</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('chemistryQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="chemistryQuestions">
+                        <div class="dropdown-links" id="chemistryQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('chemistrySolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="chemistrySolutions">
+                        <div class="dropdown-links" id="chemistrySolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Further Mathematics -->
+            <div class="subject-card" data-subject="further mathematics">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h3 class="subject-title">Further Mathematics</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('furtherMathematicsQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="furtherMathematicsQuestions">
+                        <div class="dropdown-links">
+                            <!-- FAR NORTH MOCK 2021 -->
+                            <div class="year-group" data-year="2021">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">FAR NORTH MOCK 2021</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('fmathMock2021', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('fmathMock2021', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('fmathMock2021', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="fmathMock2021-paper1">
+                                    <div class="paper-links">
+                                        <a href="https://drive.google.com/file/d/1OeoPvcwkkT5UB9g8-H_OZNSDX5JJX1wS/view?usp=sharing" 
+                                           target="_blank" rel="noopener noreferrer" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <i class="fas fa-external-link-alt external-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="fmathMock2021-paper2">
+                                    <div class="paper-links">
+                                        <a href="https://drive.google.com/file/d/1OLIrwIVS8TYhfF_UYlgtdZ7DxFZLsEFQ/view?usp=sharing" 
+                                           target="_blank" rel="noopener noreferrer" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <i class="fas fa-external-link-alt external-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="fmathMock2021-paper3">
+                                    <div class="paper-links">
+                                        <a href="https://drive.google.com/file/d/1Orwu7lQTret3bcjVGAcaJRkDcmt2S1DF/view?usp=sharing" 
+                                           target="_blank" rel="noopener noreferrer" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 3</span>
+                                            <i class="fas fa-external-link-alt external-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2020-2026 Papers -->
+                            <div class="year-group" data-year="2020">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2020 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('fmath2020', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('fmath2020', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('fmath2020', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="fmath2020-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="fmath2020-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="fmath2020-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 3</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('furtherMathematicsSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="furtherMathematicsSolutions">
+                        <div class="dropdown-links">
+                            <!-- 2024 Paper 3 Solutions -->
+                            <div class="year-group" data-year="2024">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2024 Solutions</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('fmathSol2024', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="fmathSol2024-paper3">
+                                    <div class="paper-links">
+                                        <a href="https://drive.google.com/file/d/1t7ZEY-k24fRfUKpr-sfWzWBmOXoEmwNS/view?usp=sharing" 
+                                           target="_blank" rel="noopener noreferrer" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 3 Solutions</span>
+                                            <i class="fas fa-external-link-alt external-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2020 Solutions -->
+                            <div class="year-group" data-year="2020">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2020 Solutions</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn" onclick="showPaper('fmathSol2020', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('fmathSol2020', 'paper2', event)">Paper 2</button>
+                                            <button class="paper-btn" onclick="showPaper('fmathSol2020', 'paper3', event)">Paper 3</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="fmathSol2020-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 1 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="fmathSol2020-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 2 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="fmathSol2020-paper3">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Paper 3 Solutions</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ICT -->
+            <div class="subject-card" data-subject="ict">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="subject-title">ICT</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('ICTQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="ICTQuestions">
+                        <div class="dropdown-links">
+                            <!-- 2014-2019 Collection -->
+                            <div class="year-group" data-year="2014-2019">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2014-2019 Collection</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('ict2014-2019', 'paper1', event)">Complete Papers</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="ict2014-2019-paper1">
+                                    <div class="paper-links">
+                                        <a href="https://drive.google.com/file/d/1mAnBq81zWZlkNcMpMHeyvqIxTEu553NI/view?usp=drive_link" 
+                                           target="_blank" rel="noopener noreferrer" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>ICT Papers (2014-2019)</span>
+                                            <i class="fas fa-external-link-alt external-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2025 Papers -->
+                            <div class="year-group" data-year="2025">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2025 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('ict2025', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('ict2025', 'paper2', event)">Paper 2</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="ict2025-paper1">
+                                    <div class="paper-links">
+                                        <a href="https://drive.google.com/file/d/1yh4cSJ2xk6EamHGUJXyl069g_uEf2WDb/view?usp=sharing" 
+                                           target="_blank" rel="noopener noreferrer" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <i class="fas fa-external-link-alt external-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="ict2025-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2 (Coming Soon)</span>
+                                            <span class="status-badge coming-soon">Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2024 Papers -->
+                            <div class="year-group" data-year="2024">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2024 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('ict2024', 'paper2', event)">Paper 2</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="ict2024-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2 (Coming Soon)</span>
+                                            <span class="status-badge coming-soon">Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2020 Papers -->
+                            <div class="year-group" data-year="2020">
+                                <div class="year-header" onclick="toggleYearPapers(this)">
+                                    <div class="year-title">2020 Papers</div>
+                                    <div class="paper-selector-container">
+                                        <div class="paper-selector">
+                                            <button class="paper-btn active" onclick="showPaper('ict2020', 'paper1', event)">Paper 1</button>
+                                            <button class="paper-btn" onclick="showPaper('ict2020', 'paper2', event)">Paper 2</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paper-content active" id="ict2020-paper1">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 1</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="paper-content" id="ict2020-paper2">
+                                    <div class="paper-links">
+                                        <a href="soon.html" class="resource-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Paper 2</span>
+                                            <span class="status-badge coming-soon">Coming Soon</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('ICTSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="ICTSolutions">
+                        <div class="dropdown-links" id="ictSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Science -->
+            <div class="subject-card" data-subject="computer science">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="subject-title">Computer Science</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('computerScienceQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="computerScienceQuestions">
+                        <div class="dropdown-links" id="csQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('computerScienceSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="computerScienceSolutions">
+                        <div class="dropdown-links" id="csSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Geology -->
+            <div class="subject-card" data-subject="geology">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="subject-title">Geology</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('geologyQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="geologyQuestions">
+                        <div class="dropdown-links" id="geologyQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('geologySolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="geologySolutions">
+                        <div class="dropdown-links" id="geologySolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Science and Nutrition -->
+            <div class="subject-card" data-subject="food science">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="subject-title">Food Science & Nutrition</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('foodScienceQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="foodScienceQuestions">
+                        <div class="dropdown-links" id="foodQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('foodScienceSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="foodScienceSolutions">
+                        <div class="dropdown-links" id="foodSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History -->
+            <div class="subject-card" data-subject="history">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="subject-title">History</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('historyQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="historyQuestions">
+                        <div class="dropdown-links" id="historyQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('historySolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="historySolutions">
+                        <div class="dropdown-links" id="historySolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Geography -->
+            <div class="subject-card" data-subject="geography">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3 class="subject-title">Geography</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('geographyQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="geographyQuestions">
+                        <div class="dropdown-links" id="geographyQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('geographySolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="geographySolutions">
+                        <div class="dropdown-links" id="geographySolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Economics -->
+            <div class="subject-card" data-subject="economics">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="subject-title">Economics</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('economicsQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="economicsQuestions">
+                        <div class="dropdown-links" id="economicsQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('economicsSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="economicsSolutions">
+                        <div class="dropdown-links" id="economicsSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Literature in English -->
+            <div class="subject-card" data-subject="literature">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="subject-title">Literature in English</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('literatureQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="literatureQuestions">
+                        <div class="dropdown-links" id="literatureQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('literatureSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="literatureSolutions">
+                        <div class="dropdown-links" id="literatureSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- French -->
+            <div class="subject-card" data-subject="french">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="subject-title">French</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('frenchQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="frenchQuestions">
+                        <div class="dropdown-links" id="frenchQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('frenchSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="frenchSolutions">
+                        <div class="dropdown-links" id="frenchSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accounting -->
+            <div class="subject-card" data-subject="accounting">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="subject-title">Accounting</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('accountingQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="accountingQuestions">
+                        <div class="dropdown-links" id="accountingQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('accountingSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="accountingSolutions">
+                        <div class="dropdown-links" id="accountingSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Studies -->
+            <div class="subject-card" data-subject="business studies">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="subject-title">Business Studies</h3>
+                </div>
+                
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-pdf"></i> Past Questions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('businessQuestions')">
+                        <span>View Available Papers</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="businessQuestions">
+                        <div class="dropdown-links" id="businessQuestionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <span class="dropdown-label"><i class="fas fa-file-alt"></i> Solutions (2020-2026)</span>
+                    <button class="dropdown-btn" onclick="toggleDropdown('businessSolutions')">
+                        <span>View Solutions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="businessSolutions">
+                        <div class="dropdown-links" id="businessSolutionsContent">
+                            <!-- Content generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Mock Questions Section -->
@@ -1503,14 +2395,60 @@
                 </button>
                 <div class="dropdown-content" id="mockQuestions">
                     <div class="dropdown-links">
-                        <!-- Mock links would go here -->
                         <a href="https://drive.google.com/file/d/147fI3frEOW5C-ya02TWGIopcB0Qtcxx_/view?usp=sharing" 
                            target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
                             <i class="fas fa-file-pdf"></i>
                             <span>570 P2 LIMTA 2021</span>
                             <i class="fas fa-external-link-alt external-icon"></i>
                         </a>
-                        <!-- Additional mock links -->
+                        <a href="https://drive.google.com/file/d/1WA0UpALOx55y8OpP10Lb2g5Rmx9_dMqF/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>0765 MATHS MECHANICS P2 NW</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1Q1eSf_GfPDmj8xkERHLem8uih6gqZTDE/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>0765 P3</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1BMDcN9opO06Me6BvbFmH_f3gly8uwTSW/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>765 P1 LIMTA 2021</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1Xp46Elo-t_WbHKLbVZAoOofxLtyFbhz1/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>765 P3 LIMTA 2021</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1pXPWK5hY47SKOaJ90YBvTbRCL7DFvtF9/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>770 P1 LIT MOCK 2022</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1CjKYYsi4EwzOJNVaVJeQJxfUUnAL3FWm/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>770 P3 LIMTA 2021</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1slc5YA75sXhTIy7O4rNm29Bd0sCUy5Ba/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>770 P3 LIT MOCK 2020</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1ptM9_z6EIgPnD5opWmS-v39rrtEDiBlm/view?usp=sharing" 
+                           target="_blank" rel="noopener noreferrer" class="resource-link" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>AL-ICT P2 MOCK 24</span>
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1570,22 +2508,496 @@
     </footer>
 
     <script>
-        // Your JavaScript functionality would go here
-        // Including the same interactive features from your original code
-        // with enhanced animations and 2018-style interactions
+        // Subject data with 2020-2026 coverage
+        const subjects = [
+            { 
+                name: 'biology', 
+                displayName: 'Biology',
+                icon: 'fa-dna',
+                hasExistingContent: true,
+                existingYears: ['2000-2021']
+            },
+            { 
+                name: 'mathematics', 
+                displayName: 'Mathematics',
+                icon: 'fa-calculator',
+                hasExistingContent: true,
+                existingYears: ['2021'] // FAR NORTH MOCK
+            },
+            { 
+                name: 'physics', 
+                displayName: 'Physics',
+                icon: 'fa-atom',
+                hasExistingContent: false
+            },
+            { 
+                name: 'chemistry', 
+                displayName: 'Chemistry',
+                icon: 'fa-flask',
+                hasExistingContent: false
+            },
+            { 
+                name: 'further mathematics', 
+                displayName: 'Further Mathematics',
+                icon: 'fa-square-root-alt',
+                hasExistingContent: true,
+                existingYears: ['2021', '2024'] // MOCK and Solutions
+            },
+            { 
+                name: 'ict', 
+                displayName: 'ICT',
+                icon: 'fa-laptop-code',
+                hasExistingContent: true,
+                existingYears: ['2014-2019', '2024', '2025']
+            },
+            { 
+                name: 'computer science', 
+                displayName: 'Computer Science',
+                icon: 'fa-code',
+                hasExistingContent: false
+            },
+            { 
+                name: 'geology', 
+                displayName: 'Geology',
+                icon: 'fa-mountain',
+                hasExistingContent: false
+            },
+            { 
+                name: 'food science', 
+                displayName: 'Food Science & Nutrition',
+                icon: 'fa-utensils',
+                hasExistingContent: false
+            },
+            { 
+                name: 'history', 
+                displayName: 'History',
+                icon: 'fa-landmark',
+                hasExistingContent: false
+            },
+            { 
+                name: 'geography', 
+                displayName: 'Geography',
+                icon: 'fa-globe-africa',
+                hasExistingContent: false
+            },
+            { 
+                name: 'economics', 
+                displayName: 'Economics',
+                icon: 'fa-chart-line',
+                hasExistingContent: false
+            },
+            { 
+                name: 'literature', 
+                displayName: 'Literature in English',
+                icon: 'fa-book-open',
+                hasExistingContent: false
+            },
+            { 
+                name: 'french', 
+                displayName: 'French',
+                icon: 'fa-language',
+                hasExistingContent: false
+            },
+            { 
+                name: 'accounting', 
+                displayName: 'Accounting',
+                icon: 'fa-calculator',
+                hasExistingContent: false
+            },
+            { 
+                name: 'business studies', 
+                displayName: 'Business Studies',
+                icon: 'fa-briefcase',
+                hasExistingContent: false
+            }
+        ];
+
+        const years = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
+
+        // Generate year groups for all subjects
+        function generateYearGroups() {
+            subjects.forEach(subject => {
+                // Generate questions content
+                const questionsContainerId = subject.name.replace(/\s+/g, '') + 'QuestionsContent';
+                const questionsContainer = document.getElementById(questionsContainerId);
+                
+                // Generate solutions content
+                const solutionsContainerId = subject.name.replace(/\s+/g, '') + 'SolutionsContent';
+                const solutionsContainer = document.getElementById(solutionsContainerId);
+                
+                if (questionsContainer) {
+                    years.forEach(year => {
+                        // Check if year already exists (has actual content)
+                        if (subject.hasExistingContent && subject.existingYears && 
+                            subject.existingYears.some(y => y.includes(year.toString()))) {
+                            return; // Skip if year already has content
+                        }
+                        
+                        const yearGroup = createYearGroup(subject.name, year, 'questions');
+                        questionsContainer.appendChild(yearGroup);
+                    });
+                }
+                
+                if (solutionsContainer) {
+                    years.forEach(year => {
+                        // Check if year already exists in solutions
+                        if (subject.name === 'further mathematics' && year === 2024) {
+                            return; // Skip 2024 solutions for Further Math (already exists)
+                        }
+                        
+                        const yearGroup = createYearGroup(subject.name, year, 'solutions');
+                        solutionsContainer.appendChild(yearGroup);
+                    });
+                }
+            });
+        }
+
+        function createYearGroup(subjectName, year, type) {
+            const subjectId = subjectName.replace(/\s+/g, '');
+            const yearId = `${subjectId}${type === 'solutions' ? 'Sol' : ''}${year}`;
+            
+            const yearGroup = document.createElement('div');
+            yearGroup.className = 'year-group';
+            yearGroup.setAttribute('data-year', year);
+            yearGroup.setAttribute('data-subject', subjectName);
+            yearGroup.setAttribute('data-type', type);
+            
+            const paperButtons = type === 'questions' 
+                ? `<div class="paper-selector-container">
+                        <div class="paper-selector">
+                            <button class="paper-btn active" onclick="showPaper('${yearId}', 'paper1', event)">Paper 1</button>
+                            <button class="paper-btn" onclick="showPaper('${yearId}', 'paper2', event)">Paper 2</button>
+                            <button class="paper-btn" onclick="showPaper('${yearId}', 'paper3', event)">Paper 3</button>
+                        </div>
+                    </div>`
+                : `<div class="paper-selector-container">
+                        <div class="paper-selector">
+                            <button class="paper-btn active" onclick="showPaper('${yearId}', 'paper1', event)">Paper 1</button>
+                            <button class="paper-btn" onclick="showPaper('${yearId}', 'paper2', event)">Paper 2</button>
+                            <button class="paper-btn" onclick="showPaper('${yearId}', 'paper3', event)">Paper 3</button>
+                        </div>
+                    </div>`;
+            
+            yearGroup.innerHTML = `
+                <div class="year-header" onclick="toggleYearPapers(this)">
+                    <div class="year-title">${year} ${type === 'solutions' ? 'Solutions' : 'Papers'}</div>
+                    ${paperButtons}
+                </div>
+                <div class="paper-content active" id="${yearId}-paper1">
+                    <div class="paper-links">
+                        <a href="soon.html" class="resource-link">
+                            <i class="fas ${type === 'solutions' ? 'fa-file-alt' : 'fa-file-pdf'}"></i>
+                            <span>Paper 1 ${type === 'solutions' ? 'Solutions' : ''}</span>
+                            <span class="status-badge coming-soon">Coming Soon</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="paper-content" id="${yearId}-paper2">
+                    <div class="paper-links">
+                        <a href="soon.html" class="resource-link">
+                            <i class="fas ${type === 'solutions' ? 'fa-file-alt' : 'fa-file-pdf'}"></i>
+                            <span>Paper 2 ${type === 'solutions' ? 'Solutions' : ''}</span>
+                            <span class="status-badge coming-soon">Coming Soon</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="paper-content" id="${yearId}-paper3">
+                    <div class="paper-links">
+                        <a href="soon.html" class="resource-link">
+                            <i class="fas ${type === 'solutions' ? 'fa-file-alt' : 'fa-file-pdf'}"></i>
+                            <span>Paper 3 ${type === 'solutions' ? 'Solutions' : ''}</span>
+                            <span class="status-badge coming-soon">Coming Soon</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            return yearGroup;
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        let searchTimeout;
+
+        // Search index
+        const searchIndex = [];
+
+        // Build search index
+        function buildSearchIndex() {
+            subjects.forEach(subject => {
+                // Add subject to index
+                searchIndex.push({
+                    type: 'subject',
+                    name: subject.displayName,
+                    id: subject.name,
+                    keywords: [subject.displayName.toLowerCase(), subject.name.toLowerCase()]
+                });
+                
+                // Add years to index
+                years.forEach(year => {
+                    searchIndex.push({
+                        type: 'year',
+                        name: `${subject.displayName} ${year}`,
+                        subject: subject.name,
+                        year: year,
+                        keywords: [
+                            `${subject.displayName.toLowerCase()} ${year}`,
+                            `${subject.name.toLowerCase()} ${year}`,
+                            `${year} ${subject.displayName.toLowerCase()}`,
+                            `paper ${year}`,
+                            `${year} papers`
+                        ]
+                    });
+                    
+                    // Add papers to index
+                    for (let i = 1; i <= 3; i++) {
+                        searchIndex.push({
+                            type: 'paper',
+                            name: `${subject.displayName} ${year} Paper ${i}`,
+                            subject: subject.name,
+                            year: year,
+                            paper: i,
+                            keywords: [
+                                `${subject.displayName.toLowerCase()} paper ${i}`,
+                                `${subject.name.toLowerCase()} paper ${i}`,
+                                `paper ${i} ${year}`,
+                                `${year} paper ${i}`,
+                                `${subject.displayName.toLowerCase()} ${year} paper ${i}`
+                            ]
+                        });
+                    }
+                });
+            });
+        }
+
+        // Perform search
+        function performSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            // Filter search results
+            const results = searchIndex.filter(item => {
+                return item.keywords.some(keyword => keyword.includes(query)) ||
+                       item.name.toLowerCase().includes(query);
+            }).slice(0, 10); // Limit to 10 results
+            
+            // Display results
+            if (results.length > 0) {
+                searchResults.innerHTML = results.map(result => `
+                    <div class="search-result-item" onclick="handleSearchResult('${result.type}', '${result.subject || ''}', ${result.year || 0}, ${result.paper || 0})">
+                        <i class="fas ${getResultIcon(result.type)}"></i>
+                        <span>${result.name}</span>
+                    </div>
+                `).join('');
+                searchResults.classList.add('active');
+            } else {
+                searchResults.innerHTML = '<div class="no-results">No results found</div>';
+                searchResults.classList.add('active');
+            }
+        }
+
+        function getResultIcon(type) {
+            switch(type) {
+                case 'subject': return 'fa-book';
+                case 'year': return 'fa-calendar';
+                case 'paper': return 'fa-file-pdf';
+                default: return 'fa-search';
+            }
+        }
+
+        // Handle search result click
+        function handleSearchResult(type, subject, year, paper) {
+            searchResults.classList.remove('active');
+            searchInput.value = '';
+            
+            if (type === 'subject') {
+                // Find and highlight subject card
+                const subjectCard = document.querySelector(`[data-subject="${subject}"]`);
+                if (subjectCard) {
+                    subjectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    subjectCard.classList.add('highlight');
+                    setTimeout(() => subjectCard.classList.remove('highlight'), 2000);
+                    
+                    // Open the questions dropdown
+                    const dropdownBtn = subjectCard.querySelector('.dropdown-btn');
+                    if (dropdownBtn) {
+                        dropdownBtn.click();
+                    }
+                }
+            } else if (type === 'year') {
+                // Find subject card and open specific year
+                const subjectCard = document.querySelector(`[data-subject="${subject}"]`);
+                if (subjectCard) {
+                    subjectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    subjectCard.classList.add('highlight');
+                    setTimeout(() => subjectCard.classList.remove('highlight'), 2000);
+                    
+                    // Open dropdown
+                    const dropdownBtn = subjectCard.querySelector('.dropdown-btn');
+                    if (dropdownBtn) {
+                        dropdownBtn.click();
+                        
+                        // Find and open the year
+                        setTimeout(() => {
+                            const yearGroup = subjectCard.querySelector(`[data-year="${year}"]`);
+                            if (yearGroup) {
+                                const yearHeader = yearGroup.querySelector('.year-header');
+                                if (yearHeader) {
+                                    yearHeader.click();
+                                }
+                            }
+                        }, 300);
+                    }
+                }
+            }
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(performSearch, 300);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Dropdown Functionality
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const button = dropdown.previousElementSibling;
+            
+            dropdown.classList.toggle('active');
+            button.classList.toggle('active');
+            
+            if (dropdown.classList.contains('active')) {
+                setTimeout(() => {
+                    dropdown.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            }
+        }
+
+        // Toggle year papers
+        function toggleYearPapers(yearHeader) {
+            const yearGroup = yearHeader.closest('.year-group');
+            const paperContents = yearGroup.querySelectorAll('.paper-content');
+            
+            const hasActive = Array.from(paperContents).some(content => content.classList.contains('active'));
+            
+            if (hasActive) {
+                paperContents.forEach(content => content.classList.remove('active'));
+            } else {
+                const firstPaper = paperContents[0];
+                if (firstPaper) {
+                    firstPaper.classList.add('active');
+                    const buttons = yearHeader.querySelectorAll('.paper-btn');
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    const firstBtn = yearHeader.querySelector('.paper-btn');
+                    if (firstBtn) firstBtn.classList.add('active');
+                }
+            }
+        }
+
+        // Show specific paper
+        function showPaper(yearGroup, paperNumber, event) {
+            if (event) event.stopPropagation();
+            
+            const yearGroupElement = event.target.closest('.year-group');
+            const paperContents = yearGroupElement.querySelectorAll('.paper-content');
+            const buttons = yearGroupElement.querySelectorAll('.paper-btn');
+            
+            paperContents.forEach(content => content.classList.remove('active'));
+            
+            const selectedPaper = document.getElementById(`${yearGroup}-${paperNumber}`);
+            if (selectedPaper) {
+                selectedPaper.classList.add('active');
+            }
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message || 'Resource will be available soon!';
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                hideToast();
+            }, 4000);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('show');
+        }
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
         
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set current year in footer
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Initialize animations
-            setTimeout(() => {
-                document.querySelectorAll('.year-group').forEach(group => {
-                    group.classList.add('visible');
-                });
-            }, 500);
+            // Generate year groups
+            generateYearGroups();
             
-            // Add header hide/show on scroll
+            // Build search index
+            buildSearchIndex();
+            
+            // Handle soon.html links
+            document.querySelectorAll('a[href="soon.html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const resourceName = this.querySelector('span').textContent;
+                    showToast(`${resourceName} will be available soon!`);
+                });
+            });
+            
+            // Header hide/show on scroll
             let lastScroll = 0;
             const header = document.getElementById('header');
             
@@ -1605,9 +3017,6 @@
                 lastScroll = currentScroll;
             });
         });
-        
-        // Rest of your JavaScript functions (toggleDropdown, showToast, etc.)
-        // would be included here with enhanced animation effects
     </script>
 </body>
 </html>
